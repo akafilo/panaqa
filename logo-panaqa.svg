@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff8f65;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffab91;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="120" fill="rgba(0,0,0,0.1)" rx="10"/>
+  
+  <!-- Main Text -->
+  <text x="200" y="75" font-family="Arial Black, sans-serif" font-size="48" font-weight="900" 
+        fill="url(#logoGradient)" text-anchor="middle" filter="url(#glow)" 
+        letter-spacing="4px">PANAQA</text>
+  
+  <!-- Subtitle -->
+  <text x="200" y="100" font-family="Arial, sans-serif" font-size="12" 
+        fill="#ff6b35" text-anchor="middle" letter-spacing="2px">NU METAL</text>
+  
+  <!-- Decorative elements -->
+  <line x1="50" y1="40" x2="100" y2="40" stroke="#ff6b35" stroke-width="3"/>
+  <line x1="300" y1="40" x2="350" y2="40" stroke="#ff6b35" stroke-width="3"/>
+  
+  <!-- Metal-style borders -->
+  <rect x="5" y="5" width="390" height="110" fill="none" stroke="#ff6b35" stroke-width="1" rx="8"/>
+</svg>

@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://panaqa.com/sitemap.xml
+
+# Permitir indexación de toda la página
+Disallow: /admin/
+Disallow: /private/
+
+# Crawl-delay para bots
+Crawl-delay: 1

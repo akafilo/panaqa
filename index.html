@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>PANAQA - Sitio Oficial</title>
+    <meta name="description" content="PANAQA es una banda de nu metal que fusiona la intensidad del metal con elementos electrónicos. Escucha nuestros últimos singles, conoce fechas de tour y merchandise oficial.">
+    <meta name="keywords" content="PANAQA, nu metal, metal, banda, música, rock, resistencia, conciertos, tour, merchandise">
+    <meta name="author" content="PANAQA">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="PANAQA - Banda de Nu Metal">
+    <meta property="og:description" content="Sitio oficial de PANAQA. Escucha nuestro último single 'Resistencia' y únete a la resistencia.">
+    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:url" content="https://panaqa.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PANAQA">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PANAQA - Banda de Nu Metal">
+    <meta name="twitter:description" content="Sitio oficial de PANAQA. Escucha nuestro último single 'Resistencia' y únete a la resistencia.">
+    <meta name="twitter:image" content="assets/twitter-card.jpg">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#dc2626">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="PANAQA">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/logo-panaqa.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo-panaqa.svg">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "PANAQA",
+        "genre": "Nu Metal",
+        "description": "Banda de nu metal que fusiona la intensidad del metal con elementos electrónicos y rap",
+        "url": "http://panaqa.net",
+        "sameAs": [
+            "https://instagram.com/panaqa_official",
+            "https://facebook.com/panaqaofficial",
+            "https://youtube.com/panaqa",
+            "https://twitter.com/panaqa_official",
+            "https://open.spotify.com/artist/panaqa"
+        ],
+        "member": [
+            {
+                "@type": "Person",
+                "name": "AKA.FILO",
+                "roleName": "Voz Principal"
+            },
+            {
+                "@type": "Person", 
+                "name": "Carlos Mendez",
+                "roleName": "Guitarra Principal"
+            },
+            {
+                "@type": "Person",
+                "name": "Sofia Torres", 
+                "roleName": "Bajo"
+            },
+            {
+                "@type": "Person",
+                "name": "Diego Silva",
+                "roleName": "Batería"
+            },
+            {
+                "@type": "Person",
+                "name": "Miguel Rojas",
+                "roleName": "Teclados/Samples"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-menu-left">
+                <a href="#home" class="nav-link">Inicio</a>
+                <a href="#music" class="nav-link">Música</a>
+                <a href="#tour" class="nav-link">Presentaciones</a>
+            </div>
+            <div class="nav-logo">
+                <img src="assets/logo-panaqa.svg" alt="PANAQA Logo" class="logo-image">
+            </div>
+            <div class="nav-menu-right">
+                <a href="#merch" class="nav-link">Merch</a>
+                <a href="#about" class="nav-link">Nosotros</a>
+                <a href="#community" class="nav-link">Comunidad</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Inicio</a>
+                <a href="#music" class="nav-link">Música</a>
+                <a href="#tour" class="nav-link">Presentaciones</a>
+                <a href="#merch" class="nav-link">Merch</a>
+                <a href="#about" class="nav-link">Nosotros</a>
+                <a href="#community" class="nav-link">Comunidad</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-video-background">
+            <!-- YouTube video embed como fondo -->
+            <iframe 
+                src="https://www.youtube.com/embed/mdYjkvVU4Qg?autoplay=1&mute=1&loop=1&playlist=mdYjkvVU4Qg&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1"
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen
+                class="hero-youtube-video">
+            </iframe>
+            <!-- Overlay transparente -->
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <!-- <h1 class="hero-title">PANAQA</h1> -->
+            <p class="hero-subtitle"></p>
+            <div class="hero-featured">
+                <h2>NUEVO VIDEO</h2>
+                <h3>"PRÉNDELO"</h3>
+                <p>DISPONIBLE AHORA</p>
+                <div class="hero-buttons">
+                    <a href="https://www.youtube.com/watch?v=mdYjkvVU4Qg" class="btn btn-primary" target="_blank" rel="noopener noreferrer">VER VIDEO</a>
+                    <a href="https://open.spotify.com/intl-es/track/6ImNbuLCHAU05M3mOzwndM?si=b62c68cef4854adc" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">ESCUCHAR</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Music Section -->
+    <section id="music" class="music-section">
+        <div class="container">
+            <h2 class="section-title">NUESTRA MÚSICA</h2>
+            <div class="music-grid">
+                <div class="music-item featured">
+                    <div class="music-artwork">
+                        <img src="assets/panaqa-live..jpg" alt="Panaqa Live">
+                        <div class="coming-soon-badge">Próximamente</div>
+                    </div>
+                    <div class="music-info">
+                        <h3>Panaqa Live</h3>
+                        <p>Live Session • 2025</p>
+                        <div class="music-links">
+                            <a href="#" class="btn btn-small btn-locked" data-locked="true">
+                                <i class="fas fa-lock"></i> Spotify
+                            </a>
+                            <a href="#" class="btn btn-small btn-locked" data-locked="true">
+                                <i class="fas fa-lock"></i> Apple M.
+                            </a>
+                            <a href="#" class="btn btn-small btn-locked" data-locked="true">
+                                <i class="fas fa-lock"></i> YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="music-item">
+                    <div class="music-artwork">
+                        <img src="assets/panaqa-disco.jpg" alt="Disco Panaqa">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h3>Disco Panaqa</h3>
+                        <p>EP • 2024</p>
+                        <div class="music-links">
+                            <a href="https://open.spotify.com/intl-es/album/79iPS9p6YdRMvA0DkWlTBY?si=WhlUV8wRTCyLOyJNM2jKsA" class="btn btn-small" target="_blank" rel="noopener noreferrer">Spotify</a>
+                            <a href="https://music.apple.com/es/album/panaqa/1756490811" class="btn btn-small" target="_blank" rel="noopener noreferrer">Apple Music</a>
+                            <a href="https://www.youtube.com/watch?v=4mzuXZkmImQ&list=OLAK5uy_lOODt-udZ4S1sDVzBG9SDNiLnsu2lF0NU" class="btn btn-small" target="_blank" rel="noopener noreferrer">YouTube</a>
+                        </div>
+                        <div class="music-quote">
+                            <a href="#" class="quote-link quote-modal" 
+                               data-spotify="https://open.spotify.com/intl-es/track/08HDVdU95dQG02qvCoE6r7?si=6e6469e3796f444b"
+                               data-apple="https://music.apple.com/es/song/qumbia/1756490815"
+                               data-youtube="https://www.youtube.com/watch?v=-0Z0R_arZZg">
+                                <em><strong>...Desde los andes, en los adentros, la jungla hasta mi selva de cemento, un puñado de jaguares hambrientos, cansados de su cruel experimento...</strong></em>
+                            </a>
+                            <a href="#" class="quote-link quote-modal"
+                               data-spotify="https://open.spotify.com/intl-es/track/3iwq3FnnnK16B8ZUhnDSBJ?si=af10dfdc8ab34a05"
+                               data-apple="https://music.apple.com/es/song/somos/1756490814"
+                               data-youtube="https://www.youtube.com/watch?v=fMfcnop5TUU">
+                                <em><strong>...Toda la sangre y el sudor, la fe de que mañana todo será mejor, la esperanza puesta y una misión, luchar hasta que triunfe una nueva generación...</strong></em>
+                            </a>
+                            <a href="#" class="quote-link quote-modal"
+                               data-spotify="https://open.spotify.com/intl-es/track/2b7UYDxQWJMcx3vzVLybGt?si=82ffee78b2e04499"
+                               data-apple="https://music.apple.com/es/song/en-la-mia/1756490826"
+                               data-youtube="https://www.youtube.com/watch?v=TPCcUdFEFXQ">
+                                <em><strong>...Yo sé quien soy, pero, ¿tú te conoces?, criticas mi manera de evitar los roces...</strong></em>
+                            </a>
+                            <a href="#" class="quote-link quote-modal"
+                               data-spotify="https://open.spotify.com/intl-es/track/0j6GdKHJ7qFCHAxEtbwteJ?si=7c587ccc150c45ce"
+                               data-apple="https://music.apple.com/es/song/cosmovisi%C3%B3n/1756490817"
+                               data-youtube="https://www.youtube.com/watch?v=Na4GsThQ30k">
+                                <em><strong>...Prefiero componer, conmover, con mover más de un cuello me pongo pleno otra vez, saber dónde pongo los pies y bailarme una pegada con mi esposa después...</strong></em>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Dates Section -->
+    <section id="tour" class="tour-section">
+        <div class="container">
+            <h2 class="section-title">FECHAS DE PRESENTACIONES</h2>
+            <div class="tour-list">
+                <div class="tour-item">
+                    <div class="tour-date">
+                        <span class="month">AGO</span>
+                        <span class="day">30</span>
+                        <span class="year">2025</span>
+                    </div>
+                    <div class="tour-info">
+                        <h3>Anthonellas Bar</h3>
+                        <p>Huancayo, Junín</p>
+                        <p>w/ Bandas Invitadas, Grupos Locales</p>
+                    </div>
+                    <div class="tour-buttons">
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20tickets%20para%20esta%20tocada" class="btn btn-primary" target="_blank" rel="noopener noreferrer">BOLETOS</a>
+                    </div>
+                </div>
+                <div class="tour-item">
+                    <div class="tour-date">
+                        <span class="month">SET</span>
+                        <span class="day">06</span>
+                        <span class="year">2025</span>
+                    </div>
+                    <div class="tour-info">
+                        <h3>CC. Festiva</h3>
+                        <p>Centro de Lima, LM</p>
+                        <p>w/ Chabelos, Varias Bandas</p>
+                    </div>
+                    <div class="tour-buttons">
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20tickets%20para%20esta%20tocada" class="btn btn-primary" target="_blank" rel="noopener noreferrer">BOLETOS</a>
+                    </div>
+                </div>
+                <div class="tour-item">
+                    <div class="tour-date">
+                        <span class="month">AGO</span>
+                        <span class="day">XX</span>
+                        <span class="year">2025</span>
+                    </div>
+                    <div class="tour-info">
+                        <h3>Asiste a un ensayo</h3>
+                        <p>Lima, Perú</p>
+                        <p>Consulta las fechas del Mes</p>
+                    </div>
+                    <div class="tour-buttons">
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20sus%20ensayos" class="btn btn-primary" target="_blank" rel="noopener noreferrer">BOLETOS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Merchandise Section -->
+    <section id="merch" class="merch-section">
+        <div class="container">
+            <h2 class="section-title">PRODUCTOS OFICIALES</h2>
+            <div class="merch-grid">
+                <div class="merch-item">
+                    <div class="merch-image">
+                        <img src="assets/panaqa-polo.jpg" alt="Polo Logo PANAQA">
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20el%20Polo%20Logo%20Clásico%20de%20PANAQA" class="quick-add" target="_blank" rel="noopener noreferrer">Consulta disponibilidad y medios de pago</a>
+                    </div>
+                    <div class="merch-info">
+                        <h3>Polo Logo Clásico</h3>
+                        <p>S/55.00</p>
+                    </div>
+                </div>
+                <div class="merch-item">
+                    <div class="merch-image">
+                        <img src="assets/panaqa-gorra.jpg" alt="Gorra PANAQA">
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20la%20Gorra%20Panaqa" class="quick-add" target="_blank" rel="noopener noreferrer">Consulta disponibilidad y medios de pago</a>
+                    </div>
+                    <div class="merch-info">
+                        <h3>Gorra Panaqa</h3>
+                        <p>S/50.00</p>
+                    </div>
+                </div>
+                <div class="merch-item">
+                    <div class="merch-image">
+                        <img src="assets/panaqa-disco.jpg" alt="CD Panaqa">
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20el%20CD%20'Panaqa'" class="quick-add" target="_blank" rel="noopener noreferrer">Consulta disponibilidad y medios de pago</a>
+                    </div>
+                    <div class="merch-info">
+                        <h3>CD "Panaqa"</h3>
+                        <p>S/30.00</p>
+                    </div>
+                </div>
+                <div class="merch-item">
+                    <div class="merch-image">
+                        <img src="assets/panaqa-live..jpg" alt="CD Panaqa Live">
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20el%20CD%20'Panaqa%20sesión%20en%20vivo'" class="quick-add" target="_blank" rel="noopener noreferrer">Consulta disponibilidad y medios de pago</a>
+                    </div>
+                    <div class="merch-info">
+                        <h3>CD "Panaqa sesión en vivo"</h3>
+                        <p>S/35.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">SOBRE PANAQA</h2>
+                    <p>PANAQA es una banda peruana de nu metal que surge de la necesidad de expresar la identidad cultural, fusionando la intensidad del metal con sonidos emblemáticos peruanos y rap. Formada en 2022, la banda ha logrado crear un sonido único que resuena con una generación que busca expresar su resistencia y esperanza.</p>
+                    <p>Con letras que hablan de superación personal, crítica social y la lucha interna del ser humano contemporáneo, PANAQA se ha posicionado como una voz auténtica en la escena del metal latinoamericano.</p>
+                    <div class="band-members">
+                        <h3>Integrantes</h3>
+                        <ul>
+                            <li><strong>Gianmarco "AKAFILO" Yantas</strong> - Voz Principal</li>
+                            <li><strong>Nicolas "Zarko" Chaucca</strong> - Voz Principal</li>
+                            <li><strong>Junior "Chicho" Mendez</strong> - Guitarra</li>
+                         <li><strong>Jonathan Chavez</strong> - Guitarra</li>
+                            <li><strong>Marco "Saqramo" Uriarte</strong> - Bajo</li>
+                            <li><strong>JuanCarlos "Juca" Balcazar</strong> - Batería</li>
+                            <li><strong>Eduardo "S4T4" Encarnación</strong> - Teclados/Samples</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/panaqa-grupal.JPG" alt="PANAQA Band Photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="instagram" class="instagram-section">
+        <div class="container">
+            <div class="instagram-content">
+                <div class="instagram-text">
+                    <h2>SÍGUENOS EN INSTAGRAM</h2>
+                    <p>No te pierdas nuestras últimas publicaciones, fotos exclusivas detrás de cámaras, videos en vivo y mucho más contenido exclusivo.</p>
+                    <a href="https://www.instagram.com/panaqa_peru" class="btn btn-large instagram-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i> VER PUBLICACIONES
+                    </a>
+                </div>
+                <div class="instagram-visual">
+                    <div class="instagram-grid">
+                        <div class="instagram-circle" data-text="AKA.FILO" data-url="https://www.instagram.com/AKA.FILO">
+                            <img src="assets/instagram-1.jpg" alt="PANAQA Instagram 1">
+                        </div>
+                        <div class="instagram-circle" data-text="Zarko" data-url="https://www.instagram.com/zarko_nv">
+                            <img src="assets/instagram-2.jpg" alt="PANAQA Instagram 2">
+                        </div>
+                        <div class="instagram-circle" data-text="Chicho" data-url="https://www.instagram.com/jr_medina22">
+                            <img src="assets/instagram-3.jpg" alt="PANAQA Instagram 3">
+                        </div>
+                        <div class="instagram-circle" data-text="Jon" data-url="https://www.instagram.com/jon_chavezs">
+                            <img src="assets/instagram-4.jpg" alt="PANAQA Instagram 4">
+                        </div>
+                        <div class="instagram-circle" data-text="Saqramo" data-url="https://www.instagram.com/saqramo/">
+                            <img src="assets/instagram-5.jpg" alt="PANAQA Instagram 5">
+                        </div>
+                        <div class="instagram-circle" data-text="Juca" data-url="https://www.instagram.com/jnk.drumo">
+                            <img src="assets/instagram-6.jpg" alt="PANAQA Instagram 6">
+                        </div>
+                        <div class="instagram-circle" data-text="S4T4" data-url="https://chat.whatsapp.com/JUQ5yj36mpu4nI17YT7Eah">
+                            <img src="assets/instagram-7.jpg" alt="PANAQA Instagram 7">
+                        </div>
+                        <div class="instagram-circle" data-text="Panaqa" data-url="https://www.instagram.com/panaqa_peru">
+                            <img src="assets/instagram-8.jpg" alt="PANAQA Instagram 8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community-section">
+        <div class="container">
+            <div class="community-content">
+                <h2 class="section-title">ÚNETE A LA RESISTENCIA</h2>
+                <p>Únete a nuestra comunidad gratuita de whatsapp para contenido exclusivo, sorteos y descuentos para nuestras presentaciones, y mucho más.</p>
+                <a href="https://chat.whatsapp.com/JUQ5yj36mpu4nI17YT7Eah?mode=ac_t" class="btn btn-large" target="_blank" rel="noopener noreferrer">ÚNETE AHORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/logo-panaqa.svg" alt="PANAQA Logo" class="footer-logo-image">
+                    </div>
+                    <!-- <h3>PANAQA</h3> -->
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/Panaqa_peru" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/Panaqaperu" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.youtube.com/panaqa" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="www.tiktok.com/@panaqa" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://open.spotify.com/intl-es/artist/3jOkrHvv6NoOXO5w19yki7?si=Rp7eDcJUQo2dNYi12ye7Jg" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#music">Música</a></li>
+                        <li><a href="#tour">Presentaciones</a></li>
+                        <li><a href="#merch">Productos</a></li>
+                        <li><a href="#about">Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Más Información</h4>
+                    <ul>
+                        <li><a href="#" id="contact-link">Contacto</a></li>
+                        <li><a href="#" id="privacy-link">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PANAQA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para seleccionar plataforma de música -->
+    <div id="music-modal" class="music-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>¿Dónde quieres escucharlo?</h3>
+            <div class="modal-buttons">
+                <a href="#" id="modal-spotify" class="btn btn-primary modal-btn">Spotify</a>
+                <a href="#" id="modal-apple" class="btn btn-primary modal-btn">Apple Music</a>
+                <a href="#" id="modal-youtube" class="btn btn-primary modal-btn">YouTube</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para información de contacto -->
+    <div id="contact-modal" class="contact-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Información de Contacto</h3>
+            <div class="contact-info">
+                <p><strong>Para contratos y presskit:</strong></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:panaqaband@gmail.com">panaqaband@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+51907918581">+51 907 918 581</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para política de privacidad -->
+    <div id="privacy-modal" class="privacy-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Política de Privacidad</h3>
+            <div class="privacy-content">
+                <p><strong>Última actualización:</strong> Julio 2025</p>
+                
+                <h4>1. Información que recopilamos</h4>
+                <p>PANAQA recopila información cuando visitas nuestro sitio web, te suscribes a nuestros servicios, participas en nuestras comunidades o interactúas con nuestro contenido.</p>
+                
+                <h4>2. Cómo utilizamos tu información</h4>
+                <p>Utilizamos la información recopilada para:</p>
+                <ul>
+                    <li>Mejorar nuestros servicios y experiencia del usuario</li>
+                    <li>Enviar actualizaciones sobre conciertos y lanzamientos</li>
+                    <li>Responder a consultas y proporcionar soporte</li>
+                    <li>Personalizar contenido y recomendaciones</li>
+                </ul>
+                
+                <h4>3. Compartir información</h4>
+                <p>No vendemos, intercambiamos ni transferimos tu información personal a terceros sin tu consentimiento, excepto cuando sea necesario para proporcionar nuestros servicios.</p>
+                
+                <h4>4. Cookies y tecnologías similares</h4>
+                <p>Utilizamos cookies para mejorar tu experiencia de navegación y analizar el tráfico del sitio web.</p>
+                
+                <h4>5. Seguridad</h4>
+                <p>Implementamos medidas de seguridad apropiadas para proteger tu información personal contra acceso no autorizado, alteración o divulgación.</p>
+                
+                <h4>6. Tus derechos</h4>
+                <p>Tienes derecho a acceder, actualizar o eliminar tu información personal. Para ejercer estos derechos, contáctanos en panaqaband@gmail.com</p>
+                
+                <h4>7. Contacto</h4>
+                <p>Si tienes preguntas sobre esta política de privacidad, contáctanos:</p>
+                <p>Email: panaqaband@gmail.com<br>
+                Teléfono: +51 907 918 581</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
