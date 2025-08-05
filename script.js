@@ -638,6 +638,82 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Contador regresivo hasta el 8 de agosto de 2025
+    function initCountdown() {
+        // Fecha objetivo: 8 de agosto de 2025 a las 15:00 horas (3 PM hora peruana)
+        const targetDate = new Date('2025-08-08T15:00:00-05:00').getTime();
+        
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+        
+        const spotifyBtn = document.getElementById('spotify-btn');
+        const youtubeBtn = document.getElementById('youtube-btn');
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            if (distance > 0) {
+                // Calcular días, horas, minutos y segundos
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Actualizar el display
+                if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
+                if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+                if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+                if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+                
+            } else {
+                // El tiempo ha llegado, desbloquear los botones
+                if (daysElement) daysElement.textContent = '00';
+                if (hoursElement) hoursElement.textContent = '00';
+                if (minutesElement) minutesElement.textContent = '00';
+                if (secondsElement) secondsElement.textContent = '00';
+                
+                // Desbloquear botones
+                if (spotifyBtn) {
+                    spotifyBtn.classList.remove('btn-locked');
+                    spotifyBtn.innerHTML = 'SPOTIFY';
+                    spotifyBtn.href = 'https://open.spotify.com/intl-es/track/6ImNbuLCHAU05M3mOzwndM?si=b62c68cef4854adc';
+                    spotifyBtn.target = '_blank';
+                    spotifyBtn.rel = 'noopener noreferrer';
+                }
+                
+                if (youtubeBtn) {
+                    youtubeBtn.classList.remove('btn-locked');
+                    youtubeBtn.innerHTML = 'YOUTUBE';
+                    youtubeBtn.href = 'https://www.youtube.com/watch?v=mdYjkvVU4Qg';
+                    youtubeBtn.target = '_blank';
+                    youtubeBtn.rel = 'noopener noreferrer';
+                }
+                
+                // Ocultar el contador
+                const countdownContainer = document.querySelector('.countdown-container');
+                if (countdownContainer) {
+                    countdownContainer.style.display = 'none';
+                }
+                
+                // Cambiar el texto
+                const releaseText = document.querySelector('.hero-featured p');
+                if (releaseText) {
+                    releaseText.textContent = 'YA DISPONIBLE';
+                }
+            }
+        }
+        
+        // Actualizar inmediatamente y luego cada segundo
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
+    
+    // Inicializar el contador cuando se carga la página
+    initCountdown();
 });
 
 // Función para detectar dispositivo móvil
