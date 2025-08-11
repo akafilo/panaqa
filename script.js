@@ -639,18 +639,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Contador regresivo hasta el 8 de agosto de 2025
+    // Contador regresivo hasta el 15 de agosto de 2025
     function initCountdown() {
-        // Fecha objetivo: 8 de agosto de 2025 a las 15:00 horas (3 PM hora peruana)
-        const targetDate = new Date('2025-08-08T15:00:00-05:00').getTime();
+        // Fecha objetivo: 15 de agosto de 2025 a las 15:00 horas (3 PM hora peruana)
+        const targetDate = new Date('2025-08-15T15:00:00-05:00').getTime();
         
         const daysElement = document.getElementById('days');
         const hoursElement = document.getElementById('hours');
         const minutesElement = document.getElementById('minutes');
         const secondsElement = document.getElementById('seconds');
         
-        const spotifyBtn = document.getElementById('spotify-btn');
-        const youtubeBtn = document.getElementById('youtube-btn');
+        // Referencias a los botones de música
+        const musicSpotifyBtn = document.getElementById('music-spotify-btn');
+        const musicAppleBtn = document.getElementById('music-apple-btn');
+        const musicYoutubeBtn = document.getElementById('music-youtube-btn');
         
         function updateCountdown() {
             const now = new Date().getTime();
@@ -670,28 +672,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
                 
             } else {
-                // El tiempo ha llegado, desbloquear los botones
+                // El tiempo ha llegado
                 if (daysElement) daysElement.textContent = '00';
                 if (hoursElement) hoursElement.textContent = '00';
                 if (minutesElement) minutesElement.textContent = '00';
                 if (secondsElement) secondsElement.textContent = '00';
-                
-                // Desbloquear botones
-                if (spotifyBtn) {
-                    spotifyBtn.classList.remove('btn-locked');
-                    spotifyBtn.innerHTML = 'SPOTIFY';
-                    spotifyBtn.href = 'https://open.spotify.com/intl-es/track/6ImNbuLCHAU05M3mOzwndM?si=b62c68cef4854adc';
-                    spotifyBtn.target = '_blank';
-                    spotifyBtn.rel = 'noopener noreferrer';
-                }
-                
-                if (youtubeBtn) {
-                    youtubeBtn.classList.remove('btn-locked');
-                    youtubeBtn.innerHTML = 'YOUTUBE';
-                    youtubeBtn.href = 'https://www.youtube.com/watch?v=mdYjkvVU4Qg';
-                    youtubeBtn.target = '_blank';
-                    youtubeBtn.rel = 'noopener noreferrer';
-                }
                 
                 // Ocultar el contador
                 const countdownContainer = document.querySelector('.countdown-container');
@@ -703,6 +688,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 const releaseText = document.querySelector('.hero-featured p');
                 if (releaseText) {
                     releaseText.textContent = 'YA DISPONIBLE';
+                }
+                
+                // Desbloquear botones de la sección música
+                if (musicSpotifyBtn) {
+                    musicSpotifyBtn.classList.remove('btn-locked');
+                    musicSpotifyBtn.innerHTML = '<i class="fab fa-spotify"></i> Spotify';
+                    musicSpotifyBtn.href = 'https://open.spotify.com/intl-es/album/YOUR_ALBUM_ID';
+                    musicSpotifyBtn.target = '_blank';
+                    musicSpotifyBtn.rel = 'noopener noreferrer';
+                    musicSpotifyBtn.removeAttribute('data-locked');
+                }
+                
+                if (musicAppleBtn) {
+                    musicAppleBtn.classList.remove('btn-locked');
+                    musicAppleBtn.innerHTML = '<i class="fab fa-apple"></i> Apple M.';
+                    musicAppleBtn.href = 'https://music.apple.com/album/YOUR_ALBUM_ID';
+                    musicAppleBtn.target = '_blank';
+                    musicAppleBtn.rel = 'noopener noreferrer';
+                    musicAppleBtn.removeAttribute('data-locked');
+                }
+                
+                if (musicYoutubeBtn) {
+                    musicYoutubeBtn.classList.remove('btn-locked');
+                    musicYoutubeBtn.innerHTML = '<i class="fab fa-youtube"></i> YouTube';
+                    musicYoutubeBtn.href = 'https://www.youtube.com/playlist?list=YOUR_PLAYLIST_ID';
+                    musicYoutubeBtn.target = '_blank';
+                    musicYoutubeBtn.rel = 'noopener noreferrer';
+                    musicYoutubeBtn.removeAttribute('data-locked');
+                }
+                
+                // Quitar el badge "Próximamente"
+                const comingSoonBadge = document.querySelector('.coming-soon-badge');
+                if (comingSoonBadge) {
+                    comingSoonBadge.style.display = 'none';
                 }
             }
         }
