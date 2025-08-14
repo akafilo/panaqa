@@ -1,0 +1,12 @@
+# Netlify redirects file
+# Simple redirects for better SEO and user experience
+
+# Root redirect (if needed)
+# /old-url /new-url 301
+
+# SPA fallback (not needed for this static site, but good to have)
+/* /index.html 200
+
+# Force HTTPS (Netlify handles this automatically, but good to be explicit)
+# http://panaqa.net/* https://panaqa.net/:splat 301!
+# http://www.panaqa.net/* https://panaqa.net/:splat 301!
