@@ -46,7 +46,7 @@
     <link rel="manifest" href="manifest.json">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=20250814">
+    <link rel="stylesheet" href="styles.css?v=20250814-emergency">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -554,6 +554,56 @@
         </div>
     </div>
 
-    <script src="script.js?v=20250814"></script>
+    <!-- INLINE CACHE KILLER - IMPOSIBLE DE CACHEAR -->
+    <script>
+    (function() {
+        try {
+            // Verificación inmediata de elementos críticos
+            var checkElements = function() {
+                var presaveBtn = document.querySelector('.btn-presave');
+                var epText = document.querySelector('.hero-featured h2');
+                var heroFeatured = document.querySelector('.hero-featured');
+                
+                // Si no encuentra elementos nuevos O encuentra elementos viejos problemáticos
+                var hasOldContent = false;
+                if (epText && epText.textContent.includes('ALBUM')) hasOldContent = true;
+                if (heroFeatured && heroFeatured.innerHTML.includes('spotify-btn')) hasOldContent = true;
+                if (heroFeatured && heroFeatured.innerHTML.includes('youtube-btn')) hasOldContent = true;
+                
+                if (!presaveBtn || hasOldContent) {
+                    // Limpiar TODOS los cachés posibles
+                    if ('serviceWorker' in navigator) {
+                        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                            for(let registration of registrations) {
+                                registration.unregister();
+                            }
+                        });
+                    }
+                    
+                    // Agregar timestamp para forzar recarga completa
+                    var timestamp = new Date().getTime();
+                    window.location.href = window.location.protocol + '//' + window.location.host + window.location.pathname + '?bust=' + timestamp + '#force-reload';
+                    return;
+                }
+            };
+            
+            // Verificar inmediatamente y después del DOM
+            checkElements();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(checkElements, 500);
+                });
+            } else {
+                setTimeout(checkElements, 500);
+            }
+            
+        } catch(e) {
+            // Si hay cualquier error, forzar recarga
+            window.location.reload(true);
+        }
+    })();
+    </script>
+
+    <script src="script.js?v=20250814-emergency"></script>
 </body>
 </html>
