@@ -1,3 +1,43 @@
+// === FORCE CACHE UPDATE === 
+// Detectar y forzar actualización de caché en dispositivos problemáticos
+(function() {
+    const CURRENT_VERSION = '20250814';
+    const STORAGE_KEY = 'panaqa_site_version';
+    
+    try {
+        const lastVersion = localStorage.getItem(STORAGE_KEY);
+        
+        // Si es primera visita o versión diferente, forzar recarga completa
+        if (!lastVersion || lastVersion !== CURRENT_VERSION) {
+            localStorage.setItem(STORAGE_KEY, CURRENT_VERSION);
+            
+            // Si no es primera visita (hay versión anterior), forzar recarga sin caché
+            if (lastVersion && lastVersion !== CURRENT_VERSION) {
+                window.location.reload(true);
+                return;
+            }
+        }
+        
+        // Verificar si los elementos críticos están presentes
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const presaveBtn = document.querySelector('.btn-presave');
+                const epText = document.querySelector('.hero-featured h2');
+                
+                // Si no encuentra elementos nuevos, forzar recarga
+                if (!presaveBtn || (epText && !epText.textContent.includes('EP'))) {
+                    localStorage.removeItem(STORAGE_KEY);
+                    window.location.reload(true);
+                }
+            }, 1000);
+        });
+        
+    } catch (e) {
+        // Si hay error con localStorage, forzar recarga
+        window.location.reload(true);
+    }
+})();
+
 // Navegación móvil
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('nav-toggle');
