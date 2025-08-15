@@ -602,6 +602,34 @@
             window.location.reload(true);
         }
     })();
+    
+    // FORZAR ACTUALIZACIÓN EXTREMA - DÍA DEL ESTRENO
+    (function() {
+        const VERSION_ESPERADA = '20250815-estreno';
+        const ultimaVersion = localStorage.getItem('panaqa-ultima-version');
+        
+        if (ultimaVersion !== VERSION_ESPERADA) {
+            console.log('🎵 Actualizando para estreno EP...');
+            
+            // Limpiar TODOS los caches
+            if ('caches' in window) {
+                caches.keys().then(function(names) {
+                    for (let name of names) {
+                        caches.delete(name);
+                    }
+                });
+            }
+            
+            // Marcar nueva versión
+            localStorage.setItem('panaqa-ultima-version', VERSION_ESPERADA);
+            
+            // Si no estamos en la versión correcta, forzar recarga
+            if (window.location.search.indexOf('v=' + VERSION_ESPERADA) === -1) {
+                window.location.href = window.location.pathname + '?v=' + VERSION_ESPERADA + '&estreno=true';
+                return;
+            }
+        }
+    })();
     </script>
 
     <script src="script.js?v=20250815-estreno"></script>

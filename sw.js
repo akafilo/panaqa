@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-v1.0.0';
+const CACHE_NAME = 'panaqa-estreno-15-agosto-2025';
 const urlsToCache = [
   '/',
   '/index.html',
