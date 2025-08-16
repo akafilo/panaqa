@@ -507,6 +507,99 @@ body {
     flex-wrap: wrap;
 }
 
+/* Nuevo diseño del EP con portada */
+.ep-cover {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.cover-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid rgba(220, 38, 38, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cover-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 36px rgba(220, 38, 38, 0.3);
+}
+
+.ep-info {
+    text-align: center;
+}
+
+.ep-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 3px;
+    color: var(--text-color);
+}
+
+.listen-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.streaming-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-streaming {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.8rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 140px;
+    justify-content: center;
+}
+
+.btn-streaming.btn-spotify {
+    color: #fff;
+    border-color: #1db954;
+    background: linear-gradient(45deg, #1db954, #1ed760);
+}
+
+.btn-streaming.btn-spotify:hover {
+    background: linear-gradient(45deg, #1ed760, #1db954);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(29, 185, 84, 0.4);
+}
+
+.btn-streaming.btn-youtube {
+    color: #fff;
+    border-color: #ff0000;
+    background: linear-gradient(45deg, #ff0000, #cc0000);
+}
+
+.btn-streaming.btn-youtube:hover {
+    background: linear-gradient(45deg, #cc0000, #990000);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+}
+
+.btn-streaming i {
+    font-size: 1.2rem;
+}
+
 /* Contador regresivo */
 .countdown-container {
     margin: 2rem 0;
@@ -655,6 +748,22 @@ section {
     border-radius: 4px;
     z-index: 2;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.coming-soon-badge.available {
+    background-color: #22c55e; /* Verde para "disponible" */
+    animation: pulse-available 2s ease-in-out infinite;
+}
+
+@keyframes pulse-available {
+    0%, 100% { 
+        box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 4px 16px rgba(34, 197, 94, 0.6);
+        transform: scale(1.02);
+    }
 }
 
 .music-info {
@@ -2295,5 +2404,138 @@ section {
         max-width: 260px;
         padding: 0.8rem;
         font-size: 0.85rem;
+    }
+}
+
+/* Hero Buttons - YouTube y Spotify */
+.hero-buttons {
+    display: none; /* Oculto por defecto, se muestra cuando EP está disponible */
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.btn-youtube {
+    color: #fff;
+    border-color: #ff0000;
+    background: linear-gradient(45deg, #ff0000, #cc0000);
+}
+
+.btn-youtube:hover {
+    background: linear-gradient(45deg, #cc0000, #990000);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
+}
+
+.btn-spotify {
+    color: #fff;
+    border-color: #1db954;
+    background: linear-gradient(45deg, #1db954, #1ed760);
+}
+
+.btn-spotify:hover {
+    background: linear-gradient(45deg, #1ed760, #1db954);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(29, 185, 84, 0.3);
+}
+
+.btn-hero i {
+    font-size: 1.1rem;
+}
+
+/* Responsive para móviles - Hero buttons */
+@media (max-width: 768px) {
+    .hero-buttons {
+        gap: 0.8rem;
+        margin-top: 1.2rem;
+    }
+    
+    .btn-hero {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        min-width: 110px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+    
+    .btn-hero {
+        width: 100%;
+        max-width: 200px;
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Responsive para el nuevo diseño del EP */
+@media (max-width: 768px) {
+    .cover-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .ep-title {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .listen-text {
+        font-size: 1rem;
+    }
+    
+    .btn-streaming {
+        padding: 0.7rem 1.4rem;
+        font-size: 1rem;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cover-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .ep-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .streaming-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    .btn-streaming {
+        width: 100%;
+        max-width: 200px;
+        padding: 0.8rem;
+        font-size: 0.9rem;
     }
 }

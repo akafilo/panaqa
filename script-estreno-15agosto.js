@@ -1,42 +1,4 @@
-// === FORCE CACHE UPDATE === 
-// Detectar y forzar actualización de caché en dispositivos problemáticos
-(function() {
-    const CURRENT_VERSION = '20250814';
-    const STORAGE_KEY = 'panaqa_site_version';
-    
-    try {
-        const lastVersion = localStorage.getItem(STORAGE_KEY);
-        
-        // Si es primera visita o versión diferente, forzar recarga completa
-        if (!lastVersion || lastVersion !== CURRENT_VERSION) {
-            localStorage.setItem(STORAGE_KEY, CURRENT_VERSION);
-            
-            // Si no es primera visita (hay versión anterior), forzar recarga sin caché
-            if (lastVersion && lastVersion !== CURRENT_VERSION) {
-                window.location.reload(true);
-                return;
-            }
-        }
-        
-        // Verificar si los elementos críticos están presentes
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                const presaveBtn = document.querySelector('.btn-presave');
-                const epText = document.querySelector('.hero-featured h2');
-                
-                // Si no encuentra elementos nuevos, forzar recarga
-                if (!presaveBtn || (epText && !epText.textContent.includes('EP'))) {
-                    localStorage.removeItem(STORAGE_KEY);
-                    window.location.reload(true);
-                }
-            }, 1000);
-        });
-        
-    } catch (e) {
-        // Si hay error con localStorage, forzar recarga
-        window.location.reload(true);
-    }
-})();
+// Script principal de PANAQA - Versión estable
 
 // Navegación móvil
 document.addEventListener('DOMContentLoaded', function() {
@@ -730,7 +692,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     releaseText.textContent = 'YA DISPONIBLE';
                 }
                 
-                // Desbloquear botones de la sección música
+                // Mostrar botones del hero cuando esté disponible
+                const heroButtons = document.querySelector('.hero-buttons');
+                if (heroButtons) {
+                    heroButtons.style.display = 'flex';
+                }
+                
+                // Desbloquear botones de la sección música (ya están desbloqueados en HTML)
+                /*
                 if (musicSpotifyBtn) {
                     musicSpotifyBtn.classList.remove('btn-locked');
                     musicSpotifyBtn.innerHTML = '<i class="fab fa-spotify"></i> Spotify';
@@ -757,12 +726,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     musicYoutubeBtn.rel = 'noopener noreferrer';
                     musicYoutubeBtn.removeAttribute('data-locked');
                 }
+                */
                 
+                // El badge ya muestra "YA DISPONIBLE" permanentemente
+                
+                // El badge ya muestra "YA DISPONIBLE" permanentemente
+                /*
                 // Quitar el badge "Próximamente"
                 const comingSoonBadge = document.querySelector('.coming-soon-badge');
                 if (comingSoonBadge) {
                     comingSoonBadge.style.display = 'none';
                 }
+                */
             }
         }
         

@@ -156,41 +156,32 @@
             <!-- <h1 class="hero-title">PANAQA</h1> -->
             <p class="hero-subtitle"></p>
             <div class="hero-featured">
-                <h2>NUEVO EP</h2>
-                <h3>"SESIÓN EN VIVO"</h3>
-                <p>DISPONIBLE EL 15 DE AGOSTO</p>
+                <!-- Portada del EP -->
+                <div class="ep-cover">
+                    <img src="assets/panaqa-live..jpg" alt="Sesión en Vivo - PANAQA" class="cover-image">
+                </div>
                 
-                <!-- Contador regresivo -->
-                <div class="countdown-container">
-                    <div class="countdown-timer" id="countdown">
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="days">00</span>
-                            <span class="countdown-label">DÍAS</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="hours">00</span>
-                            <span class="countdown-label">HORAS</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="minutes">00</span>
-                            <span class="countdown-label">MIN</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="seconds">00</span>
-                            <span class="countdown-label">SEG</span>
-                        </div>
-                    </div>
+                <!-- Texto y botones -->
+                <div class="ep-info">
+                    <h3 class="ep-title">"SESIÓN EN VIVO"</h3>
+                    <p class="listen-text">Escúchalo ahora en:</p>
                     
-                    <!-- Botón de Pre-save -->
-                    <div class="presave-container">
-                        <a href="https://distrokid.com/hyperfollow/panaqa/sesin-en-vivo" 
+                    <!-- Botones de streaming -->
+                    <div class="streaming-buttons">
+                        <a href="https://open.spotify.com/intl-es/album/17o3Co1naaSKHcBQzTAneL?si=LOhx559DTUCHa7CqdVwnMg" 
                            target="_blank" 
                            rel="noopener noreferrer" 
-                           class="btn-presave">
+                           class="btn-streaming btn-spotify">
                             <i class="fab fa-spotify"></i>
-                            HAZ PRE-SAVE AHORA
+                            SPOTIFY
                         </a>
-                        <p class="presave-text">Guárdalo antes del estreno y tenlo listo en tu biblioteca</p>
+                        <a href="https://www.youtube.com/watch?v=mdYjkvVU4Qg&list=PL9OvNYkk1Wh6wEsLh66f9W0BqawR_2KEB" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-streaming btn-youtube">
+                            <i class="fab fa-youtube"></i>
+                            YOUTUBE
+                        </a>
                     </div>
                 </div>
             </div>
@@ -205,20 +196,20 @@
                 <div class="music-item featured">
                     <div class="music-artwork">
                         <img src="assets/panaqa-live..jpg" alt="Panaqa Live">
-                        <div class="coming-soon-badge">Próximamente</div>
+                        <div class="coming-soon-badge available">YA DISPONIBLE</div>
                     </div>
                     <div class="music-info">
-                        <h3>Panaqa</h3>
-                        <p>Live Session • 2025</p>
+                        <h3>Sesión en vivo</h3>
+
                         <div class="music-links">
-                            <a href="#" class="btn btn-small btn-locked" data-locked="true" id="music-spotify-btn">
-                                <i class="fas fa-lock"></i> Spotify
+                            <a href="https://open.spotify.com/intl-es/album/17o3Co1naaSKHcBQzTAneL?si=LOhx559DTUCHa7CqdVwnMg" class="btn btn-small" target="_blank" rel="noopener noreferrer" id="music-spotify-btn">
+                                <i class="fab fa-spotify"></i> Spotify
                             </a>
-                            <a href="#" class="btn btn-small btn-locked" data-locked="true" id="music-apple-btn">
-                                <i class="fas fa-lock"></i> Apple M.
+                            <a href="https://music.apple.com/pe/album/sesi%C3%B3n-en-vivo-en-vivo/1831329660" class="btn btn-small" target="_blank" rel="noopener noreferrer" id="music-apple-btn">
+                                <i class="fab fa-apple"></i> Apple M.
                             </a>
-                            <a href="#" class="btn btn-small btn-locked" data-locked="true" id="music-youtube-btn">
-                                <i class="fas fa-lock"></i> YouTube
+                            <a href="https://www.youtube.com/watch?v=mdYjkvVU4Qg&list=PL9OvNYkk1Wh6wEsLh66f9W0BqawR_2KEB" class="btn btn-small" target="_blank" rel="noopener noreferrer" id="music-youtube-btn">
+                                <i class="fab fa-youtube"></i> YouTube
                             </a>
                         </div>
                     </div>
@@ -561,111 +552,11 @@
         </div>
     </div>
 
-    <!-- INLINE CACHE KILLER - IMPOSIBLE DE CACHEAR -->
+    <!-- Script simple sin cache busting agresivo -->
     <script>
-    (function() {
-        try {
-            // DETECCIÓN SUPER AGRESIVA MÓVILES - ESTRENO EP
-            var isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent);
-            var VERSION_EP = 'estreno-15-agosto-2025';
-            var ultimaVersionMovil = localStorage.getItem('panaqa-version-movil');
-            
-            if (isMobile && ultimaVersionMovil !== VERSION_EP) {
-                console.log('📱 FORZANDO ACTUALIZACIÓN EN MÓVIL - EP ESTRENO');
-                
-                // Limpiar localStorage y sessionStorage
-                localStorage.clear();
-                sessionStorage.clear();
-                
-                // Limpiar todos los caches
-                if ('caches' in window) {
-                    caches.keys().then(function(names) {
-                        names.forEach(function(name) { caches.delete(name); });
-                    });
-                }
-                
-                // Forzar recarga sin cache
-                localStorage.setItem('panaqa-version-movil', VERSION_EP);
-                
-                if (!window.location.href.includes('mobile-force=true')) {
-                    window.location.href = window.location.protocol + '//' + window.location.host + 
-                        window.location.pathname + '?mobile-force=true&t=' + Date.now();
-                    return;
-                }
-            }
-            
-            // Verificación inmediata de elementos críticos
-            var checkElements = function() {
-                var presaveBtn = document.querySelector('.btn-presave');
-                var epText = document.querySelector('.hero-featured h2');
-                var heroFeatured = document.querySelector('.hero-featured');
-                
-                // Si no encuentra elementos nuevos O encuentra elementos viejos problemáticos
-                var hasOldContent = false;
-                if (epText && epText.textContent.includes('ALBUM')) hasOldContent = true;
-                if (heroFeatured && heroFeatured.innerHTML.includes('spotify-btn')) hasOldContent = true;
-                if (heroFeatured && heroFeatured.innerHTML.includes('youtube-btn')) hasOldContent = true;
-                
-                if (!presaveBtn || hasOldContent) {
-                    // Limpiar TODOS los cachés posibles
-                    if ('serviceWorker' in navigator) {
-                        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                            for(let registration of registrations) {
-                                registration.unregister();
-                            }
-                        });
-                    }
-                    
-                    // Agregar timestamp para forzar recarga completa
-                    var timestamp = new Date().getTime();
-                    window.location.href = window.location.protocol + '//' + window.location.host + window.location.pathname + '?bust=' + timestamp + '#force-reload';
-                    return;
-                }
-            };
-            
-            // Verificar inmediatamente y después del DOM
-            checkElements();
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', function() {
-                    setTimeout(checkElements, 500);
-                });
-            } else {
-                setTimeout(checkElements, 500);
-            }
-            
-        } catch(e) {
-            // Si hay cualquier error, forzar recarga
-            window.location.reload(true);
-        }
-    })();
-    
-    // FORZAR ACTUALIZACIÓN EXTREMA - DÍA DEL ESTRENO
-    (function() {
-        const VERSION_ESPERADA = '20250815-estreno';
-        const ultimaVersion = localStorage.getItem('panaqa-ultima-version');
-        
-        if (ultimaVersion !== VERSION_ESPERADA) {
-            console.log('🎵 Actualizando para estreno EP...');
-            
-            // Limpiar TODOS los caches
-            if ('caches' in window) {
-                caches.keys().then(function(names) {
-                    for (let name of names) {
-                        caches.delete(name);
-                    }
-                });
-            }
-            
-            // Marcar nueva versión
-            localStorage.setItem('panaqa-ultima-version', VERSION_ESPERADA);
-            
-            // Si no estamos en la versión correcta, forzar recarga
-            if (window.location.search.indexOf('v=' + VERSION_ESPERADA) === -1) {
-                window.location.href = window.location.pathname + '?v=' + VERSION_ESPERADA + '&estreno=true';
-                return;
-            }
-        }
-    })();
+        // Marcar versión actual del sitio (solo para estadísticas)
+        localStorage.setItem('panaqa-site-version', '20250815-estreno-final');
+        console.log('🎵 PANAQA - Sesión en Vivo disponible!');
     </script>
 
     <script src="script-estreno-15agosto.js?nocache=mobile"></script>
