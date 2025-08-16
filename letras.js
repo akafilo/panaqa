@@ -202,7 +202,7 @@ Somos`
         },
         'impostor': {
             title: 'Impostor',
-            youtubeId: 'mdYjkvVU4Qg', // Placeholder - reemplazar con el ID correcto
+            youtubeId: 'Av9CaVcHFHs', // Placeholder - reemplazar con el ID correcto
             lyrics: `Yo crecí en un city
 Donde si eras distinto te llamaban friki
 Lo leí en un graffiti
@@ -487,7 +487,7 @@ Porque todos van a correr`
         },
         'águila': {
             title: 'Águila',
-            youtubeId: 'mdYjkvVU4Qg', // Placeholder - reemplazar con el ID correcto
+            youtubeId: 'pIBEJarNa_8', // Placeholder - reemplazar con el ID correcto
             lyrics: `Están detrás, como un grano en el culo
 Cansado de problemas que vienen en momento inoportuno
 Let's goo
