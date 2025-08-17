@@ -1550,10 +1550,40 @@ section {
     .hero {
         height: 70vh;
         min-height: 500px;
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .hero-content {
+        position: relative !important;
+        z-index: 10 !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        padding: 1rem !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .hero-youtube-video {
         transform: translateX(-50%) translateY(-50%) scale(1.8);
+        z-index: -2 !important;
+    }
+
+    .hero-video-background {
+        z-index: -2 !important;
+    }
+
+    .hero-overlay {
+        z-index: -1 !important;
+        background: linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.8),
+            rgba(220, 38, 38, 0.4),
+            rgba(0, 0, 0, 0.8)
+        );
     }
 
     .hero-logo-image {
@@ -1579,21 +1609,6 @@ section {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
-    }
-
-    /* Video responsive en móvil */
-    .hero-youtube-video {
-        min-width: 120%;
-        min-height: 120%;
-    }
-
-    .hero-overlay {
-        background: linear-gradient(
-            45deg,
-            rgba(0, 0, 0, 0.8),
-            rgba(220, 38, 38, 0.4),
-            rgba(0, 0, 0, 0.8)
-        );
     }
 
     .section-title {
@@ -2494,24 +2509,51 @@ section {
 
 /* Responsive para el nuevo diseño del EP */
 @media (max-width: 768px) {
+    .ep-cover {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        margin-bottom: 1rem !important;
+    }
+    
     .cover-image {
         width: 150px;
         height: 150px;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+    
+    .ep-info {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .ep-title {
         font-size: 1.8rem;
         letter-spacing: 2px;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .listen-text {
         font-size: 1rem;
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+    .streaming-buttons {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .btn-streaming {
         padding: 0.7rem 1.4rem;
         font-size: 1rem;
         min-width: 120px;
+        display: inline-flex !important;
+        visibility: visible !important;
     }
 }
 
