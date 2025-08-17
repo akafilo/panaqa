@@ -559,6 +559,47 @@
         console.log('🎵 PANAQA - Sesión en Vivo disponible!');
     </script>
 
+    <!-- Service Worker Registration -->
+    <script>
+        // Registro del Service Worker con control inmediato
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(function(registration) {
+                    console.log('✅ Service Worker registrado:', registration);
+                    
+                    // Si hay un SW en espera, activarlo inmediatamente
+                    if (registration.waiting) {
+                        console.log('⚡ Activando Service Worker en espera...');
+                        registration.waiting.postMessage({action: 'skipWaiting'});
+                    }
+                    
+                    // Escuchar cambios de estado
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        console.log('🔄 Nuevo Service Worker detectado');
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                console.log('🎯 Nuevo Service Worker instalado, recargando...');
+                                window.location.reload();
+                            }
+                        });
+                    });
+                })
+                .catch(function(error) {
+                    console.log('❌ Error al registrar Service Worker:', error);
+                });
+                
+            // Escuchar cuando el SW toma control
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                console.log('🎵 Service Worker ha tomado control - Contenido actualizado!');
+                // Opcional: Mostrar notificación al usuario
+                if (window.showUpdateNotification) {
+                    showUpdateNotification();
+                }
+            });
+        }
+    </script>
+
     <script src="script-estreno-15agosto.js?nocache=mobile"></script>
 </body>
 </html>
