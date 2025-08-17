@@ -1,11 +1,11 @@
-const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v2';
+const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v3';
 const urlsToCache = [
   '/',
   '/index.html',
   '/styles-estreno-15agosto.css',
   '/script-estreno-15agosto.js',
   '/letras.html',
-  '/letras-estreno-15agosto.js',
+  '/letras.js',
   '/script-letras-safe.js',
   '/manifest.json',
   'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap',
