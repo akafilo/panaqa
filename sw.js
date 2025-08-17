@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v7-force-update';
+const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v8-back-to-working';
 const urlsToCache = [
   '/',
   '/index.html',
