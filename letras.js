@@ -202,7 +202,7 @@ Somos`
         },
         'impostor': {
             title: 'Impostor',
-            youtubeId: 'Av9CaVcHFHs', // Placeholder - reemplazar con el ID correcto
+            youtubeId: 'Av9CaVcHFHs', // https://youtu.be/Av9CaVcHFHs
             lyrics: `Yo crecí en un city
 Donde si eras distinto te llamaban friki
 Lo leí en un graffiti
@@ -261,7 +261,7 @@ Va que absurdo, era un plasta con rastas que buscaba paz en Saturno`
         },
         'octágono': {
             title: 'Octágono',
-            youtubeId: 'mdYjkvVU4Qg', // Placeholder - reemplazar con el ID correcto
+            youtubeId: '3dZTQrsKlnk', // https://youtu.be/3dZTQrsKlnk?si=Qgm0xZeO0K2skVSh
             lyrics: `Así entro al octágono malévolo
 Así entro al octágono malévolo
 Así entro al octágono malévolo
@@ -318,7 +318,7 @@ Malévolooooooooo`
         },
         'panaqa-real': {
             title: 'Panaqa Real',
-            youtubeId: 'mdYjkvVU4Qg', // Placeholder - reemplazar con el ID correcto
+            youtubeId: '4mzuXZkmImQ', // https://youtu.be/4mzuXZkmImQ?list=OLAK5uy_lOODt-udZ4S1sDVzBG9SDNiLnsu2lF0NU
             lyrics: `Estoy corriendo sobre campo minado
 Llevando este mensaje crudo, me lo han encomendado
 Somos los restos de un pueblo callado
@@ -417,7 +417,7 @@ Madafoooooo`
         },
         'préndelo': {
             title: 'Préndelo',
-            youtubeId: 'mdYjkvVU4Qg', // Placeholder - reemplazar con el ID correcto
+            youtubeId: 'mdYjkvVU4Qg', // https://youtu.be/mdYjkvVU4Qg
             lyrics: `Prende el fuego y déjalo arder
 Porque todos van a correr
 Prende el fuego y déjalo arder
@@ -487,7 +487,7 @@ Porque todos van a correr`
         },
         'águila': {
             title: 'Águila',
-            youtubeId: 'pIBEJarNa_8', // Placeholder - reemplazar con el ID correcto
+            youtubeId: 'pIBEJarNa_8', // https://youtu.be/pIBEJarNa_8
             lyrics: `Están detrás, como un grano en el culo
 Cansado de problemas que vienen en momento inoportuno
 Let's goo
