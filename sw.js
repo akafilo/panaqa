@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v7-hero-minimalista';
+const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v8-ajustes';
 const urlsToCache = [
   '/',
   '/index.html',
