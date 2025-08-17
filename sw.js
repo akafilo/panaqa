@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v6-test';
+const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v7-hero-minimalista';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -8,6 +8,11 @@ const urlsToCache = [
   '/letras.js',
   '/script-letras-safe.js',
   '/manifest.json',
+  '/assets/spotify.png',
+  '/assets/apple.png',
+  '/assets/youtube.png',
+  '/assets/tidal.png',
+  '/assets/dezzer.png',
   'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];

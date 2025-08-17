@@ -600,6 +600,116 @@ body {
     font-size: 1.2rem;
 }
 
+/* Hero minimalista - Estilos para texto centrado e iconos */
+.hero-text-center {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.session-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    letter-spacing: 2px;
+}
+
+.availability-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    color: #dc2626;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.streaming-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    padding: 10px;
+}
+
+.icon-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #dc2626;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
+}
+
+.streaming-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: brightness(1);
+}
+
+.icon-link:hover .streaming-icon {
+    filter: brightness(1.2) contrast(1.1);
+}
+
+/* Responsive para iconos */
+@media (max-width: 768px) {
+    .session-title {
+        font-size: 2.5rem;
+    }
+    
+    .availability-text {
+        font-size: 1.5rem;
+    }
+    
+    .streaming-icons {
+        gap: 1.5rem;
+    }
+    
+    .icon-link {
+        width: 50px;
+        height: 50px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .session-title {
+        font-size: 2rem;
+    }
+    
+    .availability-text {
+        font-size: 1.2rem;
+    }
+    
+    .streaming-icons {
+        gap: 1rem;
+    }
+    
+    .icon-link {
+        width: 45px;
+        height: 45px;
+        padding: 6px;
+    }
+}
+
 /* Contador regresivo */
 .countdown-container {
     margin: 2rem 0;
@@ -1550,40 +1660,10 @@ section {
     .hero {
         height: 70vh;
         min-height: 500px;
-        position: relative !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-
-    .hero-content {
-        position: relative !important;
-        z-index: 10 !important;
-        width: 100% !important;
-        max-width: 400px !important;
-        padding: 1rem !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
     }
 
     .hero-youtube-video {
         transform: translateX(-50%) translateY(-50%) scale(1.8);
-        z-index: -2 !important;
-    }
-
-    .hero-video-background {
-        z-index: -2 !important;
-    }
-
-    .hero-overlay {
-        z-index: -1 !important;
-        background: linear-gradient(
-            45deg,
-            rgba(0, 0, 0, 0.8),
-            rgba(220, 38, 38, 0.4),
-            rgba(0, 0, 0, 0.8)
-        );
     }
 
     .hero-logo-image {
@@ -1609,6 +1689,21 @@ section {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+    }
+
+    /* Video responsive en móvil */
+    .hero-youtube-video {
+        min-width: 120%;
+        min-height: 120%;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.8),
+            rgba(220, 38, 38, 0.4),
+            rgba(0, 0, 0, 0.8)
+        );
     }
 
     .section-title {
@@ -2509,51 +2604,24 @@ section {
 
 /* Responsive para el nuevo diseño del EP */
 @media (max-width: 768px) {
-    .ep-cover {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        margin-bottom: 1rem !important;
-    }
-    
     .cover-image {
         width: 150px;
         height: 150px;
-        display: block !important;
-        margin: 0 auto !important;
-    }
-    
-    .ep-info {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
     }
     
     .ep-title {
         font-size: 1.8rem;
         letter-spacing: 2px;
-        display: block !important;
-        visibility: visible !important;
     }
     
     .listen-text {
         font-size: 1rem;
-        display: block !important;
-        visibility: visible !important;
-    }
-    
-    .streaming-buttons {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
     }
     
     .btn-streaming {
         padding: 0.7rem 1.4rem;
         font-size: 1rem;
         min-width: 120px;
-        display: inline-flex !important;
-        visibility: visible !important;
     }
 }
 
