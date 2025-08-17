@@ -561,26 +561,27 @@
 
     <!-- Service Worker Registration -->
     <script>
-        // Registro del Service Worker con control inmediato
+        // Registro del Service Worker sin recargas agresivas
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js')
                 .then(function(registration) {
                     console.log('✅ Service Worker registrado:', registration);
                     
-                    // Si hay un SW en espera, activarlo inmediatamente
+                    // Solo activar SW en espera sin recarga automática
                     if (registration.waiting) {
                         console.log('⚡ Activando Service Worker en espera...');
                         registration.waiting.postMessage({action: 'skipWaiting'});
                     }
                     
-                    // Escuchar cambios de estado
+                    // Detectar actualizaciones sin recarga automática
                     registration.addEventListener('updatefound', () => {
                         const newWorker = registration.installing;
                         console.log('🔄 Nuevo Service Worker detectado');
                         newWorker.addEventListener('statechange', () => {
                             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                console.log('🎯 Nuevo Service Worker instalado, recargando...');
-                                window.location.reload();
+                                console.log('🎯 Nuevo Service Worker instalado');
+                                // NO recargamos automáticamente para evitar loops
+                                // El usuario puede recargar manualmente si quiere ver cambios
                             }
                         });
                     });
@@ -589,17 +590,14 @@
                     console.log('❌ Error al registrar Service Worker:', error);
                 });
                 
-            // Escuchar cuando el SW toma control
+            // Escuchar control change sin recarga automática
             navigator.serviceWorker.addEventListener('controllerchange', () => {
-                console.log('🎵 Service Worker ha tomado control - Contenido actualizado!');
-                // Opcional: Mostrar notificación al usuario
-                if (window.showUpdateNotification) {
-                    showUpdateNotification();
-                }
+                console.log('🎵 Service Worker ha tomado control');
+                // NO recargamos automáticamente
             });
         }
     </script>
 
-    <script src="script-estreno-15agosto.js?nocache=mobile"></script>
+    <script src="script-estreno-15agosto.js"></script>
 </body>
 </html>

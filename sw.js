@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v3';
+const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v5-stable';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -14,8 +14,7 @@ const urlsToCache = [
 
 // Instalación del Service Worker
 self.addEventListener('install', function(event) {
-  // Saltear la espera y activar inmediatamente
-  self.skipWaiting();
+  // NO hacer skipWaiting automático para evitar loops de recarga
   
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -28,20 +27,18 @@ self.addEventListener('install', function(event) {
 
 // Activación del Service Worker
 self.addEventListener('activate', function(event) {
-  // Reclamar control de todas las pestañas inmediatamente
+  // Activación normal sin reclamar control agresivo
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
-      return Promise.all([
-        // Eliminar caches anteriores
-        ...cacheNames.map(function(cacheName) {
+      return Promise.all(
+        // Solo eliminar caches anteriores
+        cacheNames.map(function(cacheName) {
           if (cacheName !== CACHE_NAME) {
             console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
-        }),
-        // Reclamar control
-        self.clients.claim()
-      ]);
+        })
+      );
     })
   );
 });
