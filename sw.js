@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v6-mobile-fix';
+const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v7-force-update';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -14,7 +14,8 @@ const urlsToCache = [
 
 // Instalación del Service Worker
 self.addEventListener('install', function(event) {
-  // NO hacer skipWaiting automático para evitar loops de recarga
+  // Para esta actualización crítica, forzar activación inmediata
+  self.skipWaiting();
   
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -27,18 +28,20 @@ self.addEventListener('install', function(event) {
 
 // Activación del Service Worker
 self.addEventListener('activate', function(event) {
-  // Activación normal sin reclamar control agresivo
+  // Para esta actualización crítica, reclamar control inmediato
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        // Solo eliminar caches anteriores
-        cacheNames.map(function(cacheName) {
+      return Promise.all([
+        // Eliminar caches anteriores
+        ...cacheNames.map(function(cacheName) {
           if (cacheName !== CACHE_NAME) {
             console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
-        })
-      );
+        }),
+        // Reclamar control inmediato
+        self.clients.claim()
+      ]);
     })
   );
 });

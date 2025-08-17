@@ -561,27 +561,27 @@
 
     <!-- Service Worker Registration -->
     <script>
-        // Registro del Service Worker sin recargas agresivas
+        // Registro del Service Worker con update agresivo para mobile fix
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js')
                 .then(function(registration) {
                     console.log('✅ Service Worker registrado:', registration);
                     
-                    // Solo activar SW en espera sin recarga automática
+                    // Activar SW en espera inmediatamente
                     if (registration.waiting) {
                         console.log('⚡ Activando Service Worker en espera...');
                         registration.waiting.postMessage({action: 'skipWaiting'});
                     }
                     
-                    // Detectar actualizaciones sin recarga automática
+                    // Detectar actualizaciones y aplicar inmediatamente
                     registration.addEventListener('updatefound', () => {
                         const newWorker = registration.installing;
                         console.log('🔄 Nuevo Service Worker detectado');
                         newWorker.addEventListener('statechange', () => {
                             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                console.log('🎯 Nuevo Service Worker instalado');
-                                // NO recargamos automáticamente para evitar loops
-                                // El usuario puede recargar manualmente si quiere ver cambios
+                                console.log('🎯 Nuevo Service Worker instalado, aplicando cambios...');
+                                // Para mobile fix crítico, aplicar cambios inmediatamente
+                                newWorker.postMessage({action: 'skipWaiting'});
                             }
                         });
                     });
@@ -590,10 +590,14 @@
                     console.log('❌ Error al registrar Service Worker:', error);
                 });
                 
-            // Escuchar control change sin recarga automática
+            // Escuchar control change y aplicar cambios
             navigator.serviceWorker.addEventListener('controllerchange', () => {
-                console.log('🎵 Service Worker ha tomado control');
-                // NO recargamos automáticamente
+                console.log('🎵 Service Worker ha tomado control - Aplicando mobile fix');
+                // Solo recargar si estamos en móvil y es necesario
+                if (window.innerWidth <= 768) {
+                    console.log('📱 Móvil detectado - Aplicando fix');
+                    window.location.reload();
+                }
             });
         }
     </script>
