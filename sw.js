@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v8-back-to-working';
+const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v6-test';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -14,34 +14,39 @@ const urlsToCache = [
 
 // Instalación del Service Worker
 self.addEventListener('install', function(event) {
-  // Para esta actualización crítica, forzar activación inmediata
-  self.skipWaiting();
+  console.log('🔄 SW v6-test: Instalando nuevo Service Worker');
   
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
-        console.log('Cache opened');
+        console.log('✅ SW v6-test: Cache abierto -', CACHE_NAME);
         return cache.addAll(urlsToCache);
+      })
+      .then(function() {
+        console.log('🎯 SW v6-test: Todos los archivos cacheados correctamente');
       })
   );
 });
 
 // Activación del Service Worker
 self.addEventListener('activate', function(event) {
-  // Para esta actualización crítica, reclamar control inmediato
+  console.log('🚀 SW v6-test: Activando Service Worker');
+  
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
-      return Promise.all([
-        // Eliminar caches anteriores
-        ...cacheNames.map(function(cacheName) {
+      console.log('🧹 SW v6-test: Limpiando caches anteriores...', cacheNames);
+      return Promise.all(
+        // Solo eliminar caches anteriores
+        cacheNames.map(function(cacheName) {
           if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
+            console.log('🗑️ SW v6-test: Eliminando cache anterior:', cacheName);
             return caches.delete(cacheName);
           }
-        }),
-        // Reclamar control inmediato
-        self.clients.claim()
-      ]);
+        })
+      );
+    })
+    .then(function() {
+      console.log('✅ SW v6-test: Service Worker activado y limpieza completada');
     })
   );
 });
