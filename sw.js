@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v11-links-actualizados';
+const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v12-force-update';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -21,39 +21,46 @@ const urlsToCache = [
 
 // Instalación del Service Worker
 self.addEventListener('install', function(event) {
-  console.log('🔄 SW v6-test: Instalando nuevo Service Worker');
+  console.log('🔄 SW v12-force-update: Instalando nuevo Service Worker');
+  
+  // FORZAR instalación inmediata para viejos visitantes
+  self.skipWaiting();
   
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
-        console.log('✅ SW v6-test: Cache abierto -', CACHE_NAME);
+        console.log('✅ SW v12-force-update: Cache abierto -', CACHE_NAME);
         return cache.addAll(urlsToCache);
       })
       .then(function() {
-        console.log('🎯 SW v6-test: Todos los archivos cacheados correctamente');
+        console.log('🎯 SW v12-force-update: Todos los archivos cacheados correctamente');
       })
   );
 });
 
 // Activación del Service Worker
 self.addEventListener('activate', function(event) {
-  console.log('🚀 SW v6-test: Activando Service Worker');
+  console.log('🚀 SW v12-force-update: Activando Service Worker');
   
+  // FORZAR activación inmediata para viejos visitantes
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      console.log('🧹 SW v6-test: Limpiando caches anteriores...', cacheNames);
+    clients.claim().then(function() {
+      console.log('⚡ SW v12-force-update: Tomando control inmediato de todas las pestañas');
+      return caches.keys();
+    }).then(function(cacheNames) {
+      console.log('🧹 SW v12-force-update: Limpiando caches anteriores...', cacheNames);
       return Promise.all(
         // Solo eliminar caches anteriores
         cacheNames.map(function(cacheName) {
           if (cacheName !== CACHE_NAME) {
-            console.log('🗑️ SW v6-test: Eliminando cache anterior:', cacheName);
+            console.log('🗑️ SW v12-force-update: Eliminando cache anterior:', cacheName);
             return caches.delete(cacheName);
           }
         })
       );
     })
     .then(function() {
-      console.log('✅ SW v6-test: Service Worker activado y limpieza completada');
+      console.log('✅ SW v12-force-update: Service Worker activado y limpieza completada');
     })
   );
 });
