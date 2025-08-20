@@ -1176,6 +1176,131 @@ section {
     background: #ef4444;
 }
 
+/* NUEVOS SINGLES SECTION - Estilos específicos para igual tamaño */
+.nuevos-singles-section {
+    background-color: var(--bg-primary) !important;
+    padding: 5rem 0 !important;
+}
+
+.nuevos-singles-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 3rem !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+.single-item {
+    background-color: var(--bg-accent) !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid var(--border-color) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.single-item:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 8px 30px rgba(220, 38, 38, 0.4) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.single-artwork {
+    position: relative !important;
+    aspect-ratio: 9/16 !important; /* Formato vertical para videos */
+    overflow: hidden !important;
+    background: linear-gradient(45deg, var(--bg-secondary), var(--accent-color)) !important;
+}
+
+.single-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: all 0.3s ease !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.single-item:hover .single-video {
+    transform: scale(1.05) !important;
+}
+
+/* Fallback para imágenes cuando no hay video */
+.single-artwork img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1 !important;
+}
+
+.single-item .music-info {
+    padding: 1.5rem !important;
+    text-align: center !important;
+}
+
+.single-item .music-info h3 {
+    font-family: var(--font-heading) !important;
+    font-size: 1.8rem !important;
+    margin-bottom: 1rem !important;
+    letter-spacing: 2px !important;
+    color: var(--text-primary) !important;
+    text-transform: uppercase !important;
+}
+
+.single-item .music-links {
+    display: flex !important;
+    gap: 0.5rem !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    margin-bottom: 1rem !important;
+}
+
+.single-item .music-quote {
+    margin-top: 1rem !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid rgba(220, 38, 38, 0.3) !important;
+}
+
+/* Responsive para Nuevos Singles */
+@media (max-width: 768px) {
+    .nuevos-singles-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        max-width: 400px !important;
+    }
+    
+    .single-artwork {
+        aspect-ratio: 16/9 !important; /* Más horizontal en móvil */
+    }
+    
+    .single-item .music-info h3 {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .nuevos-singles-section {
+        padding: 3rem 0 !important;
+    }
+    
+    .nuevos-singles-grid {
+        gap: 1.5rem !important;
+        max-width: 320px !important;
+    }
+    
+    .single-item .music-info {
+        padding: 1rem !important;
+    }
+    
+    .single-item .music-info h3 {
+        font-size: 1.3rem !important;
+    }
+}
+
 /* Tour Section */
 .tour-section {
     background-color: var(--bg-primary);

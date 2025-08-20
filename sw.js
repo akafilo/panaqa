@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v9-css-fix';
+const CACHE_NAME = 'panaqa-estreno-17-agosto-2025-v11-links-actualizados';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -13,6 +13,8 @@ const urlsToCache = [
   '/assets/youtube.png',
   '/assets/tidal.png',
   '/assets/dezzer.png',
+  '/assets/impostor-video.mp4',  // Video Impostor (cuando esté listo)
+  '/assets/aguila-video.mp4',    // Video Águila (cuando esté listo)
   'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];
