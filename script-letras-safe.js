@@ -10,16 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (navToggle) {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
-            
-            // Cambiar icono
-            const icon = navToggle.querySelector('i');
-            if (navMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            navToggle.classList.toggle('active');
         });
     }
 
@@ -28,21 +19,17 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
-                const icon = navToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                navToggle.classList.remove('active');
             }
         });
     });
 
     // Cerrar menú al hacer click fuera
     document.addEventListener('click', function(e) {
-        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        if (navToggle && !navToggle.contains(e.target) && !navMenu.contains(e.target)) {
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
-                const icon = navToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                navToggle.classList.remove('active');
             }
         }
     });

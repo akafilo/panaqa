@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #dc2626;
+    --primary-color: #ffffff;
     --secondary-color: #1a1a1a;
     --accent-color: #333333;
     --text-primary: #ffffff;
@@ -655,6 +655,25 @@ section {
     border-radius: 4px;
     z-index: 2;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.merch-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.merch-badge.agotado {
+    background-color: #555555;
+    color: #ffffff;
 }
 
 .music-info {

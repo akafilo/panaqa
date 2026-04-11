@@ -14,12 +14,12 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="PANAQA - Letras de Canciones">
     <meta property="og:description" content="Letras completas de todas las canciones de PANAQA">
-    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:image" content="assets/panaqa-grupal.jpg">
     <meta property="og:url" content="https://panaqa.net/letras.html">
     <meta property="og:type" content="website">
     
     <!-- Icons -->
-    <link rel="icon" type="image/svg+xml" href="assets/logo-panaqa.svg">
+    <link rel="icon" type="image/png" href="assets/logonegro.png">
     <link rel="manifest" href="manifest.json">
     
     <!-- Stylesheets -->
@@ -33,20 +33,25 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-menu-left">
-                <a href="index.html#home" class="nav-link">Inicio</a>
-                <a href="index.html#music" class="nav-link">Música</a>
-                <a href="index.html#tour" class="nav-link">Presentaciones</a>
+            <div class="nav-left">
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
             <div class="nav-logo">
                 <a href="index.html">
-                    <img src="assets/logo-panaqa.svg" alt="PANAQA Logo" class="logo-image">
+                    <img src="assets/logonegro.png" alt="PANAQA Logo" class="logo-image">
                 </a>
             </div>
-            <div class="nav-menu-right">
-                <a href="index.html#merch" class="nav-link">Merch</a>
-                <a href="index.html#about" class="nav-link">Nosotros</a>
-                <a href="letras.html" class="nav-link active">Letras</a>
+            <div class="nav-right">
+                <button id="lang-toggle" class="lang-button" type="button">
+                    <span class="lang-flag lang-flag-us" aria-hidden="true"></span>
+                    <span class="lang-flag lang-flag-pe" aria-hidden="true"></span>
+                    <span class="lang-flag lang-flag-zh" aria-hidden="true"></span>
+                    <span class="lang-label">EN</span>
+                </button>
             </div>
             <div class="nav-menu" id="nav-menu">
                 <a href="index.html#home" class="nav-link">Inicio</a>
@@ -55,11 +60,6 @@
                 <a href="index.html#merch" class="nav-link">Merch</a>
                 <a href="index.html#about" class="nav-link">Nosotros</a>
                 <a href="letras.html" class="nav-link active">Letras</a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
             </div>
         </div>
     </nav>
@@ -179,8 +179,8 @@
             <div class="modal-header">
                 <div class="modal-title-section">
                     <h3 id="modal-song-title">Título de la Canción</h3>
-                    <button id="play-btn" class="play-button">
-                        <i class="fas fa-play" id="play-icon"></i>
+                    <button id="play-btn" class="play-text-btn">
+                        <i class="fas fa-play" id="play-icon"></i> Click aquí para escuchar
                     </button>
                 </div>
                 <span class="modal-close">&times;</span>
@@ -218,7 +218,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="assets/logo-panaqa.svg" alt="PANAQA Logo" class="footer-logo-image">
+                        <img src="assets/logonegro.png" alt="PANAQA Logo" class="footer-logo-image">
                     </div>
                     <div class="social-links">
                         <a href="https://www.instagram.com/Panaqa_peru" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
@@ -246,7 +246,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 PANAQA. Todos los derechos reservados.</p>
+                <p>&copy; 2026 PANAQA. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -256,5 +256,6 @@
     <!-- Script seguro sin cache busting problemático -->
     <script src="script-letras-safe.js"></script>
     <script src="letras.js"></script>
+    <script src="script-estreno-15agosto.js"></script>
 </body>
 </html>

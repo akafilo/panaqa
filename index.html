@@ -12,7 +12,6 @@
     <meta name="expires" content="0">
     <meta name="pragma" content="no-cache">
     <meta http-equiv="Last-Modified" content="Thu, 15 Aug 2025 15:00:00 GMT">
-    <meta name="mobile-web-app-capable" content="no">
     <meta name="apple-mobile-web-app-cache" content="no">
     
     <!-- FORZAR RECARGA EN MÓVILES -->
@@ -30,7 +29,7 @@
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="PANAQA - Banda de Nu Metal">
     <meta property="og:description" content="Sitio oficial de PANAQA. Escucha nuestro último single 'Impostor' y únete a la resistencia.">
-    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:image" content="assets/panaqa-grupal.jpg">
     <meta property="og:url" content="https://panaqa.com">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="PANAQA">
@@ -39,7 +38,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="PANAQA - Banda de Nu Metal">
     <meta name="twitter:description" content="Sitio oficial de PANAQA. Escucha nuestro último single 'Impostor' y únete a la resistencia.">
-    <meta name="twitter:image" content="assets/twitter-card.jpg">
+    <meta name="twitter:image" content="assets/panaqa-grupal.jpg">
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#dc2626">
@@ -48,8 +47,8 @@
     <meta name="apple-mobile-web-app-title" content="PANAQA">
     
     <!-- Icons -->
-    <link rel="icon" type="image/svg+xml" href="assets/logo-panaqa.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/logo-panaqa.svg">
+    <link rel="icon" type="image/png" href="assets/logonegro.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logonegro.png">
     <link rel="manifest" href="manifest.json">
     
     <!-- Stylesheets -->
@@ -118,31 +117,31 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-menu-left">
-                <a href="#home" class="nav-link">Inicio</a>
-                <a href="#music" class="nav-link">Música</a>
-                <a href="#tour" class="nav-link">Presentaciones</a>
+            <div class="nav-left">
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
             <div class="nav-logo">
-                <img src="assets/logo-panaqa.svg" alt="PANAQA Logo" class="logo-image">
+                <a href="index.html"><img src="assets/logonegro.png" alt="PANAQA Logo" class="logo-image"></a>
             </div>
-            <div class="nav-menu-right">
-                <a href="#merch" class="nav-link">Merch</a>
-                <a href="#about" class="nav-link">Nosotros</a>
-                <a href="letras.html" class="nav-link">Letras</a>
+            <div class="nav-right">
+                <button id="lang-toggle" class="lang-button" type="button">
+                    <span class="lang-flag lang-flag-us" aria-hidden="true"></span>
+                    <span class="lang-flag lang-flag-pe" aria-hidden="true"></span>
+                    <span class="lang-flag lang-flag-zh" aria-hidden="true"></span>
+                    <span class="lang-label">EN</span>
+                </button>
             </div>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">Inicio</a>
                 <a href="#music" class="nav-link">Música</a>
                 <a href="#tour" class="nav-link">Presentaciones</a>
-                <a href="#merch" class="nav-link">Merch</a>
+                <a href="merch.html" class="nav-link">Merch</a>
                 <a href="#about" class="nav-link">Nosotros</a>
                 <a href="letras.html" class="nav-link">Letras</a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
             </div>
         </div>
     </nav>
@@ -152,59 +151,16 @@
         <div class="hero-video-background">
             <!-- YouTube video embed como fondo -->
             <iframe 
-                src="https://www.youtube.com/embed/mdYjkvVU4Qg?autoplay=1&mute=1&loop=1&playlist=mdYjkvVU4Qg&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1"
+                id="hero-iframe"
+                src=""
                 frameborder="0" 
                 allow="autoplay; encrypted-media" 
                 allowfullscreen
                 class="hero-youtube-video">
             </iframe>
-            <!-- Overlay transparente -->
-            <div class="hero-overlay"></div>
+            <!-- Sin overlay para mostrar el video limpio -->
         </div>
         <div class="hero-content">
-            <div class="hero-text-center">
-                <h2 class="session-title">Sesión en vivo</h2>
-                <h3 class="availability-text">YA DISPONIBLE</h3>
-                
-                <!-- Iconos minimalistas de plataformas -->
-                <div class="streaming-icons">
-                    <a href="https://open.spotify.com/intl-es/album/17o3Co1naaSKHcBQzTAneL?si=LOhx559DTUCHa7CqdVwnMg" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="icon-link" 
-                       title="Spotify">
-                        <img src="assets/spotify.png" alt="Spotify" class="streaming-icon">
-                    </a>
-                    <a href="https://music.apple.com/pe/album/sesi%C3%B3n-en-vivo-en-vivo/1831329660" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="icon-link" 
-                       title="Apple Music">
-                        <img src="assets/apple.png" alt="Apple Music" class="streaming-icon">
-                    </a>
-                    <a href="https://music.youtube.com/playlist?list=PL9OvNYkk1Wh6wEsLh66f9W0BqawR_2KEB" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="icon-link" 
-                       title="YouTube Music">
-                        <img src="assets/youtube.png" alt="YouTube Music" class="streaming-icon">
-                    </a>
-                    <a href="https://tidal.com/artist/29760533" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="icon-link" 
-                       title="Tidal">
-                        <img src="assets/tidal.png" alt="Tidal" class="streaming-icon">
-                    </a>
-                    <a href="https://www.deezer.com/mx/album/799476031" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="icon-link" 
-                       title="Deezer">
-                        <img src="assets/dezzer.png" alt="Deezer" class="streaming-icon">
-                    </a>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -338,6 +294,53 @@
         </div>
     </section>
 
+    <!-- La Yapita Video Section -->
+    <section id="la-yapita" class="yapita-section">
+        <div class="container">
+            <h2 class="section-title">LA YAPITA</h2>
+            <div class="yapita-video-wrapper">
+                <div class="yapita-video-container">
+                    <iframe
+                        id="yapita-iframe"
+                        src="https://www.youtube.com/embed/rVqiMSpXXZA?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&enablejsapi=1&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&loop=1&playlist=rVqiMSpXXZA"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        class="yapita-iframe">
+                    </iframe>
+                    <div class="yapita-overlay"></div>
+                </div>
+                <div class="yapita-controls">
+                    <button id="yapita-mute-btn" class="yapita-mute-btn" data-muted="true" onclick="toggleYapitaMute()">
+                        <i class="fas fa-volume-mute" id="yapita-volume-icon"></i> Sin sonido
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var yapitaPlayer = null;
+        function onYouTubeIframeAPIReady() {
+            // hero video handled in script.js
+        }
+        function toggleYapitaMute() {
+            var iframe = document.getElementById('yapita-iframe');
+            var btn = document.getElementById('yapita-mute-btn');
+            var icon = document.getElementById('yapita-volume-icon');
+            // Use postMessage to toggle mute
+            if (btn.dataset.muted === 'true') {
+                iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+                btn.dataset.muted = 'false';
+                icon.className = 'fas fa-volume-up';
+                btn.innerHTML = '<i class="fas fa-volume-up" id="yapita-volume-icon"></i> Con sonido';
+            } else {
+                iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+                btn.dataset.muted = 'true';
+                icon.className = 'fas fa-volume-mute';
+                btn.innerHTML = '<i class="fas fa-volume-mute" id="yapita-volume-icon"></i> Sin sonido';
+            }
+        }
+    </script>
 
     <!-- Tour Dates Section -->
     <section id="tour" class="tour-section">
@@ -346,14 +349,14 @@
             <div class="tour-list">
                 <div class="tour-item">
                     <div class="tour-date">
-                        <span class="month">AGO</span>
-                        <span class="day">30</span>
-                        <span class="year">2025</span>
+                        <span class="month">ABR</span>
+                        <span class="day">04</span>
+                        <span class="year">2026</span>
                     </div>
                     <div class="tour-info">
-                        <h3>La Estación Wankayo</h3>
-                        <p>Huancayo, Junín</p>
-                        <p>w/ Bandas Invitadas, Grupos Locales</p>
+                        <h3>Locación secreta</h3>
+                        <p>Cusco, Perú</p>
+                        <p>w/ WarakaPunk, Grupos Locales</p>
                     </div>
                     <div class="tour-buttons">
                         <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20tickets%20para%20esta%20tocada" class="btn btn-primary" target="_blank" rel="noopener noreferrer">BOLETOS</a>
@@ -361,14 +364,14 @@
                 </div>
                 <div class="tour-item">
                     <div class="tour-date">
-                        <span class="month">SET</span>
-                        <span class="day">06</span>
-                        <span class="year">2025</span>
+                        <span class="month">MAY</span>
+                        <span class="day">02</span>
+                        <span class="year">2026</span>
                     </div>
                     <div class="tour-info">
                         <h3>CC. Festiva</h3>
                         <p>Centro de Lima, LM</p>
-                        <p>w/ Chabelos, Varias Bandas</p>
+                        <p>w/ Locales, Varios Artistas</p>
                     </div>
                     <div class="tour-buttons">
                         <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20tickets%20para%20esta%20tocada" class="btn btn-primary" target="_blank" rel="noopener noreferrer">BOLETOS</a>
@@ -376,9 +379,9 @@
                 </div>
                 <div class="tour-item">
                     <div class="tour-date">
-                        <span class="month">AGO</span>
+                        <span class="month">ABR</span>
                         <span class="day">XX</span>
-                        <span class="year">2025</span>
+                        <span class="year">2026</span>
                     </div>
                     <div class="tour-info">
                         <h3>Asiste a un ensayo</h3>
@@ -397,47 +400,58 @@
     <section id="merch" class="merch-section">
         <div class="container">
             <h2 class="section-title">PRODUCTOS OFICIALES</h2>
-            <div class="merch-grid">
-                <div class="merch-item">
-                    <div class="merch-image">
-                        <img src="assets/panaqa-polo.jpg" alt="Polo Logo PANAQA">
-                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20el%20Polo%20Logo%20Clásico%20de%20PANAQA" class="quick-add" target="_blank" rel="noopener noreferrer">Consulta disponibilidad y medios de pago</a>
+            <div class="merch-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;">
+                <article class="product-card" style="background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;">
+                    <div class="product-top" onclick="window.location='merch.html'" style="position:relative;display:flex;align-items:center;justify-content:center;background:#fff;cursor:pointer;min-height:300px;">
+                        <img src="assets/poloblanco1.jpg" alt="Polo Blanco PANAQA" style="width:auto;max-width:100%;max-height:300px;object-fit:contain;display:block;">
                     </div>
-                    <div class="merch-info">
-                        <h3>Polo Logo Clásico</h3>
-                        <p>S/55.00</p>
+                    <div style="padding:1.2rem 1.4rem 1.4rem;flex:1;display:flex;flex-direction:column;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:0.75rem;">
+                            <h3 style="margin:0;font-size:1.05rem;color:#111;font-weight:300;">Polo "Despierta la Bestia" Blanco</h3>
+                            <span style="font-weight:300;font-size:1rem;color:#111;white-space:nowrap;">$/ 40.00</span>
+                        </div>
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20el%20Polo%20Blanco%20PANAQA" target="_blank" rel="noopener noreferrer" class="btn btn-small" style="margin-top:auto;text-align:center;">Pedir ahora</a>
                     </div>
-                </div>
-                <div class="merch-item">
-                    <div class="merch-image">
-                        <img src="assets/panaqa-gorra.jpg" alt="Gorra PANAQA">
-                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20la%20Gorra%20Panaqa" class="quick-add" target="_blank" rel="noopener noreferrer">Consulta disponibilidad y medios de pago</a>
+                </article>
+                <article class="product-card" style="background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;">
+                    <div class="product-top" onclick="window.location='merch.html'" style="position:relative;display:flex;align-items:center;justify-content:center;background:#fff;cursor:pointer;min-height:300px;">
+                        <img src="assets/polonegro1.jpg" alt="Polo Negro PANAQA" style="width:auto;max-width:100%;max-height:300px;object-fit:contain;display:block;">
                     </div>
-                    <div class="merch-info">
-                        <h3>Gorra Panaqa</h3>
-                        <p>S/50.00</p>
+                    <div style="padding:1.2rem 1.4rem 1.4rem;flex:1;display:flex;flex-direction:column;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:0.75rem;">
+                            <h3 style="margin:0;font-size:1.05rem;color:#111;font-weight:300;">Polo "Despierta la Bestia" Negro</h3>
+                            <span style="font-weight:300;font-size:1rem;color:#111;white-space:nowrap;">$/ 40.00</span>
+                        </div>
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20el%20Polo%20Negro%20PANAQA" target="_blank" rel="noopener noreferrer" class="btn btn-small" style="margin-top:auto;text-align:center;">Pedir ahora</a>
                     </div>
-                </div>
-                <div class="merch-item">
-                    <div class="merch-image">
-                        <img src="assets/panaqa-disco.jpg" alt="CD Panaqa">
-                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20el%20CD%20'Panaqa'" class="quick-add" target="_blank" rel="noopener noreferrer">Consulta disponibilidad y medios de pago</a>
+                </article>
+                <article class="product-card" style="background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;">
+                    <div class="product-top" onclick="window.location='merch.html'" style="position:relative;display:flex;align-items:center;justify-content:center;background:#fff;cursor:pointer;min-height:300px;">
+                        <img src="assets/gorra1.jpg" alt="Gorro Clásico PANAQA" style="width:auto;max-width:100%;max-height:300px;object-fit:contain;display:block;">
                     </div>
-                    <div class="merch-info">
-                        <h3>CD "Panaqa"</h3>
-                        <p>S/25.00</p>
+                    <div style="padding:1.2rem 1.4rem 1.4rem;flex:1;display:flex;flex-direction:column;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:0.75rem;">
+                            <h3 style="margin:0;font-size:1.05rem;color:#111;font-weight:300;">Gorro Clásico</h3>
+                            <span style="font-weight:300;font-size:1rem;color:#111;white-space:nowrap;">$/ 20.00</span>
+                        </div>
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20el%20Gorro%20Negro%20PANAQA" target="_blank" rel="noopener noreferrer" class="btn btn-small" style="margin-top:auto;text-align:center;">Pedir ahora</a>
                     </div>
-                </div>
-                <div class="merch-item">
-                    <div class="merch-image">
-                        <img src="assets/panaqa-live..jpg" alt="CD Panaqa Live">
-                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20consultar%20sobre%20el%20CD%20'Panaqa%20sesión%20en%20vivo'" class="quick-add" target="_blank" rel="noopener noreferrer">Consulta disponibilidad y medios de pago</a>
+                </article>
+                <article class="product-card" style="background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;">
+                    <div class="product-top" onclick="window.location='merch.html'" style="position:relative;display:flex;align-items:center;justify-content:center;background:#fff;cursor:pointer;min-height:300px;">
+                        <img src="assets/disco1.jpg" alt="Disco Sesión en vivo PANAQA" style="width:auto;max-width:100%;max-height:300px;object-fit:contain;display:block;">
                     </div>
-                    <div class="merch-info">
-                        <h3>CD "Panaqa sesión en vivo"</h3>
-                        <p>S/25.00</p>
+                    <div style="padding:1.2rem 1.4rem 1.4rem;flex:1;display:flex;flex-direction:column;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:0.75rem;">
+                            <h3 style="margin:0;font-size:1.05rem;color:#111;font-weight:300;">Disco "Sesión en vivo"</h3>
+                            <span style="font-weight:300;font-size:1rem;color:#111;white-space:nowrap;">$/ 20.00</span>
+                        </div>
+                        <a href="https://wa.me/51907918581?text=Hola,%20quiero%20el%20Disco%20Sesión%20en%20vivo" target="_blank" rel="noopener noreferrer" class="btn btn-small" style="margin-top:auto;text-align:center;">Pedir ahora</a>
                     </div>
-                </div>
+                </article>
+            </div>
+            <div class="merch-cta" style="text-align:center;margin-top:2.5rem;">
+                <a href="merch.html" class="btn">Ver todo el Merch</a>
             </div>
         </div>
     </section>
@@ -530,7 +544,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="assets/logo-panaqa.svg" alt="PANAQA Logo" class="footer-logo-image">
+                        <img src="assets/logonegro.png" alt="PANAQA Logo" class="footer-logo-image">
                     </div>
                     <!-- <h3>PANAQA</h3> -->
                     <div class="social-links">
@@ -559,7 +573,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 PANAQA. Todos los derechos reservados.</p>
+                <p>&copy; 2026 PANAQA. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -596,7 +610,7 @@
             <span class="modal-close">&times;</span>
             <h3>Política de Privacidad</h3>
             <div class="privacy-content">
-                <p><strong>Última actualización:</strong> Julio 2025</p>
+                <p><strong>Última actualización:</strong> Febrero 2026</p>
                 
                 <h4>1. Información que recopilamos</h4>
                 <p>PANAQA recopila información cuando visitas nuestro sitio web, te suscribes a nuestros servicios, participas en nuestras comunidades o interactúas con nuestro contenido.</p>

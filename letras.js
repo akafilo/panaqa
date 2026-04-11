@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lyricsData = {
         'qumbia': {
             title: 'Qumbia',
-            youtubeId: '-0Z0R_arZZg', // ID del video de YouTube
+            youtubeId: 'FX0ry6Quzno', // ID del video de YouTube
             lyrics: `Para ti, que te fuiste despedido
 Por el hijo de algún engreído
 A ti que juzgaron por no haber tenido
@@ -563,6 +563,7 @@ Yo, yo, yo, yo, grita, ven que aquí estoy yo`
     // Variables del reproductor
     let currentSong = null;
     let isPlaying = false;
+    let progressInterval = null;
 
     // Elementos del DOM con verificación robusta
     const songCards = document.querySelectorAll('.song-card');
@@ -656,17 +657,26 @@ Yo, yo, yo, yo, grita, ven que aquí estoy yo`
             playIcon.className = 'fas fa-pause';
             playBtn.classList.add('playing');
             isPlaying = true;
+            updateProgressBar();
         } else {
             playIcon.className = 'fas fa-play';
             playBtn.classList.remove('playing');
             isPlaying = false;
+            if (progressInterval) {
+                clearInterval(progressInterval);
+                progressInterval = null;
+            }
         }
     }
 
     // Función para actualizar la barra de progreso
     function updateProgressBar() {
+        if (progressInterval) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+        }
         if (player && typeof player.getCurrentTime === 'function') {
-            setInterval(() => {
+            progressInterval = setInterval(() => {
                 if (isPlaying) {
                     const currentTime = player.getCurrentTime();
                     const duration = player.getDuration();
@@ -866,6 +876,11 @@ Yo, yo, yo, yo, grita, ven que aquí estoy yo`
         if (player && typeof player.stopVideo === 'function') {
             player.stopVideo();
         }
+
+        if (progressInterval) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+        }
         
         isPlaying = false;
         playIcon.className = 'fas fa-play';
@@ -891,70 +906,8 @@ Yo, yo, yo, yo, grita, ven que aquí estoy yo`
         });
     });
 
-    // Event listener para el botón de play con verificaciones mejoradas
-    if (playBtn) {
-        console.log('✅ Configurando event listener para el botón de play');
-        
-        playBtn.addEventListener('click', () => {
-            console.log('🎵 Play button clicked! Current song:', currentSong);
-            
-            if (!currentSong) {
-                console.error('❌ No hay canción seleccionada');
-                return;
-            }
-            
-            const song = lyricsData[currentSong];
-            if (!song || !song.youtubeId) {
-                console.error('❌ No se encontró el ID de YouTube para la canción:', currentSong);
-                return;
-            }
-            
-            // Si el reproductor no está creado, crearlo
-            if (!player || !isPlayerReady) {
-                console.log('🔄 Creando reproductor para:', song.youtubeId);
-                createYouTubePlayer(song.youtubeId);
-                
-                // Esperar a que el reproductor esté listo y luego reproducir
-                const checkReady = setInterval(() => {
-                    if (isPlayerReady && player) {
-                        clearInterval(checkReady);
-                        console.log('▶️ Iniciando reproducción');
-                        player.playVideo();
-                        if (playerContainer) {
-                            playerContainer.style.display = 'block';
-                        }
-                    }
-                }, 100);
-                
-                return;
-            }
-            
-            // Si el reproductor ya existe, controlar reproducción
-            if (isPlaying) {
-                console.log('⏸️ Pausando reproducción');
-                player.pauseVideo();
-                if (playerContainer) {
-                    playerContainer.style.display = 'none';
-                }
-            } else {
-                console.log('▶️ Reanudando reproducción');
-                player.playVideo();
-                if (playerContainer) {
-                    playerContainer.style.display = 'block';
-                }
-            }
-        });
-        
-        // Verificar estilos del botón
-        const styles = window.getComputedStyle(playBtn);
-        console.log('🎨 Estilos del botón de play:');
-        console.log('- display:', styles.display);
-        console.log('- visibility:', styles.visibility);
-        console.log('- opacity:', styles.opacity);
-        
-    } else {
-        console.error('❌ No se pudo configurar el event listener - botón no encontrado');
-    }
+    // El event listener del botón de play se registra en openLyricsModal() via handlePlayButtonClick
+    // usando el atributo data-listener-added para evitar duplicados.
 
     // Event listeners para controles del reproductor
     const playerPlayPause = document.getElementById('player-play-pause');
