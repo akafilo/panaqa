@@ -1192,14 +1192,28 @@ section {
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+.privacy-modal[style*="block"] {
+    display: flex !important;
+}
+
+.privacy-modal .modal-content {
+    margin: 0;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .privacy-content {
     text-align: left;
     margin-top: 1rem;
-    max-height: 60vh;
     overflow-y: auto;
     padding-right: 0.5rem;
+    flex: 1;
 }
 
 .privacy-content h4 {
@@ -2309,7 +2323,7 @@ section {
 
 /* Estilos para página de letras */
 .letras-section {
-    padding: 8rem 0 5rem;
+    padding: 12rem 0 5rem;
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     min-height: 100vh;
 }

@@ -1,39 +1,5 @@
 // Script seguro para letras.html - SIN cache busting agresivo
-
-// Navegación móvil
-document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Toggle menú móvil
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-    }
-
-    // Cerrar menú al hacer click en un enlace
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            }
-        });
-    });
-
-    // Cerrar menú al hacer click fuera
-    document.addEventListener('click', function(e) {
-        if (navToggle && !navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            }
-        }
-    });
-});
+// Navegación móvil manejada por script-estreno-15agosto.js
 
 // Smooth scroll para enlaces internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

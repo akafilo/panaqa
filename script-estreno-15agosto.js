@@ -594,64 +594,68 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Modal para citas musicales
     const modal = document.getElementById('music-modal');
-    const modalClose = document.querySelector('.modal-close');
     const modalSpotify = document.getElementById('modal-spotify');
     const modalApple = document.getElementById('modal-apple');
     const modalYoutube = document.getElementById('modal-youtube');
     const quoteLinks = document.querySelectorAll('.quote-modal');
 
-    // Abrir modal al hacer clic en una cita
-    quoteLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Obtener los enlaces de los data attributes
-            const spotifyLink = this.getAttribute('data-spotify');
-            const appleLink = this.getAttribute('data-apple');
-            const youtubeLink = this.getAttribute('data-youtube');
-            
-            // Asignar los enlaces a los botones del modal
-            modalSpotify.href = spotifyLink;
-            modalApple.href = appleLink;
-            modalYoutube.href = youtubeLink;
-            
-            // Mostrar el modal
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevenir scroll
+    if (modal) {
+        const modalClose = modal.querySelector('.modal-close');
+
+        // Abrir modal al hacer clic en una cita
+        quoteLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Obtener los enlaces de los data attributes
+                const spotifyLink = this.getAttribute('data-spotify');
+                const appleLink = this.getAttribute('data-apple');
+                const youtubeLink = this.getAttribute('data-youtube');
+                
+                // Asignar los enlaces a los botones del modal
+                modalSpotify.href = spotifyLink;
+                modalApple.href = appleLink;
+                modalYoutube.href = youtubeLink;
+                
+                // Mostrar el modal
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevenir scroll
+            });
         });
-    });
 
-    // Cerrar modal
-    function closeModal() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restaurar scroll
-    }
-
-    // Cerrar modal al hacer clic en la X
-    modalClose.addEventListener('click', closeModal);
-
-    // Cerrar modal al hacer clic fuera del contenido
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
+        // Cerrar modal
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll
         }
-    });
 
-    // Cerrar modal con la tecla Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            closeModal();
-        }
-    });
+        // Cerrar modal al hacer clic en la X
+        if (modalClose) modalClose.addEventListener('click', closeModal);
 
-    // Abrir enlaces en nueva pestaña y cerrar modal
-    [modalSpotify, modalApple, modalYoutube].forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open(this.href, '_blank');
-            closeModal();
+        // Cerrar modal al hacer clic fuera del contenido
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
         });
-    });
+
+        // Cerrar modal con la tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                closeModal();
+            }
+        });
+
+        // Abrir enlaces en nueva pestaña y cerrar modal
+        [modalSpotify, modalApple, modalYoutube].forEach(button => {
+            if (!button) return;
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open(this.href, '_blank');
+                closeModal();
+            });
+        });
+    } // end if (modal)
 });
 
 // Modal de contacto
