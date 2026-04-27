@@ -22,8 +22,8 @@
     # Bloquear Media Session API en iframes (evita controles de YouTube en la barra del navegador)
     Permissions-Policy = "mediasession=()"
     
-    # Cache control for HTML (short cache)
-    Cache-Control = "public, max-age=300, s-maxage=300"
+    # Sin caché para HTML — siempre se sirve la versión más reciente
+    Cache-Control = "no-cache, no-store, must-revalidate"
 
 # CSS and JS files - longer cache with versioning
 [[headers]]
