@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-v15-2026-04-27';
+const CACHE_NAME = 'panaqa-v16-2026-04-27';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -26,18 +26,24 @@ self.addEventListener('install', function(event) {
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     Promise.all([
-      self.registration.navigationPreload
-        ? self.registration.navigationPreload.enable()
-        : Promise.resolve(),
-      clients.claim(),
+      // Limpiar cachés viejos
       caches.keys().then(function(cacheNames) {
         return Promise.all(
           cacheNames.map(function(cacheName) {
             if (cacheName !== CACHE_NAME) return caches.delete(cacheName);
           })
         );
-      })
-    ])
+      }),
+      // Tomar control de todos los clientes inmediatamente
+      clients.claim()
+    ]).then(function() {
+      // Forzar recarga de todas las pestañas abiertas con contenido antiguo
+      return clients.matchAll({ type: 'window' }).then(function(clientList) {
+        clientList.forEach(function(client) {
+          client.navigate(client.url);
+        });
+      });
+    })
   );
 });
 
