@@ -19,6 +19,9 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     
+    # Bloquear Media Session API en iframes (evita controles de YouTube en la barra del navegador)
+    Permissions-Policy = "mediasession=()"
+    
     # Cache control for HTML (short cache)
     Cache-Control = "public, max-age=300, s-maxage=300"
 
