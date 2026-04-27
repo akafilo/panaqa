@@ -1,17 +1,5 @@
 // Script principal de PANAQA - Versión estable
 
-// Video aleatorio en el Hero
-(function() {
-    var videos = ['FX0ry6Quzno', 'aLC5QA4WvQw', 'pahU-5d8tGA'];
-    var id = videos[Math.floor(Math.random() * videos.length)];
-    var iframe = document.getElementById('hero-iframe');
-    if (iframe) {
-        iframe.src = 'https://www.youtube.com/embed/' + id +
-            '?autoplay=1&mute=1&loop=1&playlist=' + id +
-            '&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1';
-    }
-})();
-
 // Navegación móvil
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('nav-toggle');
