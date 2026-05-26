@@ -314,6 +314,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // El iframe de YouTube ya tiene autoplay=1, mute=1 y loop=1 en su src.
     // No se toca heroVideo.src para evitar recargas del iframe que bloquean el autoplay.
 
+    // iOS: forzar reproducción del video hero al primer toque
+    var _hv = document.getElementById('hero-bg');
+    if (_hv) {
+        _hv.play().catch(function() {});
+        document.addEventListener('touchstart', function() {
+            if (_hv.paused) _hv.play().catch(function() {});
+        }, { once: true });
+    }
+
     // Parallax effect mejorado para el hero
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;

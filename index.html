@@ -66,9 +66,11 @@
             height: 100%;
             object-fit: cover;
             object-position: center 30%;
+            pointer-events: none;
         }
         #hero-dark {
             background: rgba(0,0,0,0.45);
+            pointer-events: none;
         }
         #hero-body {
             display: flex;
@@ -77,6 +79,8 @@
             justify-content: center;
             gap: 28px;
             padding-top: 80px;
+            position: relative;
+            z-index: 2;
         }
         #hero-cover {
             width: 315px;
@@ -204,7 +208,7 @@
 
     <!-- HERO PRESAVE -->
     <div id="hero-wrap">
-        <video id="hero-bg" autoplay muted loop playsinline>
+        <video id="hero-bg" autoplay muted loop playsinline webkit-playsinline x5-playsinline>
             <source src="assets/caso.mp4" type="video/mp4">
         </video>
         <div id="hero-dark"></div>
