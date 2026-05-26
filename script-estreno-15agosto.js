@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'No te pierdas nuestras últimas publicaciones, fotos exclusivas detrás de cámaras, videos en vivo y mucho más contenido exclusivo.': { en: 'Don’t miss our latest posts, exclusive behind-the-scenes photos, live videos and much more exclusive content.', zh: '不要错过我们的最新帖子、独家幕后照片、现场视频以及更多独家内容。' },
         'VER PUBLICACIONES': { en: 'VIEW POSTS', zh: '查看帖子' },
         'ÚNETE A LA RESISTENCIA': { en: 'JOIN THE RESISTANCE', zh: '加入抵抗' },
+        'PRE-SAVE EN SPOTIFY': { en: 'PRE-SAVE ON SPOTIFY', zh: 'SPOTIFY 预存' },
         'Únete a nuestra comunidad gratuita de WhatsApp para contenido exclusivo, sorteos y descuentos para nuestras presentaciones, y mucho más.': { en: 'Join our free WhatsApp community for exclusive content, giveaways and discounts for our shows, and much more.', zh: '加入我们的免费 WhatsApp 社区，获取独家内容、抽奖和演出折扣，以及更多精彩内容。' },
         'ÚNETE AHORA': { en: 'JOIN NOW', zh: '立即加入' },
         'Enlaces': { en: 'Links', zh: '链接' },
@@ -318,7 +319,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const scrolled = window.pageYOffset;
         const heroContent = document.querySelector('.hero-content');
         const heroOverlay = document.querySelector('.hero-overlay');
-        const heroHeight = document.querySelector('.hero').offsetHeight;
+        const heroEl = document.querySelector('.hero-presave') || document.querySelector('.hero');
+        const heroHeight = heroEl ? heroEl.offsetHeight : 0;
         
         if (heroContent && scrolled < heroHeight) {
             heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
@@ -374,7 +376,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     */
 
-    // Loading screen con logo — animación letra por letra
+    // Loading screen temporalmente desactivado
+    /* INICIO LOADING SCREEN
     if (!window.location.pathname.endsWith('merch.html') && !window.location.pathname.endsWith('letras.html')) {
         const loadingScreen = document.createElement('div');
         loadingScreen.innerHTML = `
@@ -538,6 +541,7 @@ document.addEventListener('DOMContentLoaded', function() {
             scheduleLoadingExit();
         }
     }
+    FIN LOADING SCREEN */
 
     // Easter egg: Konami code
     let konamiCode = [];

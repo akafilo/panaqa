@@ -52,6 +52,62 @@
     <link rel="manifest" href="manifest.json">
     
     <!-- Stylesheets -->
+    <style>
+        #hero-wrap {
+            display: grid;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #hero-wrap > * { grid-area: 1/1; }
+
+        #hero-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+        #hero-dark {
+            background: rgba(0,0,0,0.45);
+        }
+        #hero-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            padding-top: 80px;
+        }
+        #hero-cover {
+            width: 315px;
+            height: 315px;
+            object-fit: cover;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.8);
+        }
+        #hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1DB954;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.15rem;
+            letter-spacing: 2px;
+            padding: 14px 38px;
+            border-radius: 40px;
+            transition: background .25s, transform .25s, box-shadow .25s;
+        }
+        #hero-btn:hover {
+            background: #17a349;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(29,185,84,.5);
+        }
+        @media (max-width: 600px) {
+            #hero-cover { width: 232px; height: 232px; }
+            #hero-btn   { font-size: .95rem; padding: 12px 26px; }
+        }
+    </style>
     <link rel="stylesheet" href="styles-estreno-15agosto.css?nocache=mobile">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,7 +202,20 @@
         </div>
     </nav>
 
-    <!-- Hero Section eliminado -->
+    <!-- HERO PRESAVE -->
+    <div id="hero-wrap">
+        <video id="hero-bg" autoplay muted loop playsinline>
+            <source src="assets/caso.mp4" type="video/mp4">
+        </video>
+        <div id="hero-dark"></div>
+        <div id="hero-body">
+            <img src="assets/omiso.jpeg" alt="Caso Omiso - PANAQA" id="hero-cover">
+            <a href="https://distrokid.com/hyperfollow/panaqa/caso-omiso?ref=release"
+               id="hero-btn" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-spotify"></i> <span id="presave-text">PRE-SAVE EN SPOTIFY</span>
+            </a>
+        </div>
+    </div>
 
     <!-- Latest Music Section -->
     <section id="music" class="music-section">
