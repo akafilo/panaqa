@@ -88,28 +88,53 @@
             object-fit: cover;
             box-shadow: 0 8px 40px rgba(0,0,0,0.8);
         }
-        #hero-btn {
+        .hero-stream-btns {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .stream-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: #1DB954;
+            gap: 9px;
+            background: #111;
             color: #fff;
             text-decoration: none;
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1rem;
             letter-spacing: 2px;
-            padding: 14px 38px;
+            padding: 13px 28px;
             border-radius: 40px;
-            transition: background .25s, transform .25s, box-shadow .25s;
+            border: 1.5px solid rgba(255,255,255,0.15);
+            transition: background .22s, transform .22s, box-shadow .22s;
         }
-        #hero-btn:hover {
-            background: #17a349;
+        .stream-btn i {
+            font-size: 1.1rem;
+        }
+        .stream-btn.spotify:hover {
+            background: #1DB954;
+            border-color: #1DB954;
             transform: translateY(-2px);
-            box-shadow: 0 6px 22px rgba(29,185,84,.5);
+            box-shadow: 0 6px 22px rgba(29,185,84,.45);
+        }
+        .stream-btn.apple:hover {
+            background: #fc3c44;
+            border-color: #fc3c44;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(252,60,68,.4);
+        }
+        .stream-btn.youtube:hover {
+            background: #FF0000;
+            border-color: #FF0000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(255,0,0,.4);
         }
         @media (max-width: 600px) {
             #hero-cover { width: 232px; height: 232px; }
-            #hero-btn   { font-size: .95rem; padding: 12px 26px; }
+            .stream-btn { font-size: .85rem; padding: 11px 20px; letter-spacing: 1.5px; }
+            .hero-stream-btns { gap: 10px; }
         }
     </style>
     <link rel="stylesheet" href="styles-estreno-15agosto.css?nocache=mobile">
@@ -214,10 +239,20 @@
         <div id="hero-dark"></div>
         <div id="hero-body">
             <img src="assets/omiso.jpeg" alt="Caso Omiso - PANAQA" id="hero-cover">
-            <a href="https://distrokid.com/hyperfollow/panaqa/caso-omiso?ref=release"
-               id="hero-btn" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-spotify"></i> <span id="presave-text">PRE-SAVE EN SPOTIFY</span>
-            </a>
+            <div class="hero-stream-btns">
+                <a href="https://open.spotify.com/intl-es/track/0GOv1ReuykGcUNw3NMTVM2?si=f7881d0b47654327"
+                   class="stream-btn spotify" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-spotify"></i> SPOTIFY
+                </a>
+                <a href="https://music.apple.com/es/song/caso-omiso/6771792254"
+                   class="stream-btn apple" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-apple"></i> APPLE M.
+                </a>
+                <a href="https://www.youtube.com/watch?v=kk-gxwCHHeQ"
+                   class="stream-btn youtube" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i> YOUTUBE
+                </a>
+            </div>
         </div>
     </div>
 
