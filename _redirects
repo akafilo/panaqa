@@ -4,6 +4,9 @@
 # Root redirect (if needed)
 # /old-url /new-url 301
 
+# Linktree Caso Omiso
+/casoomiso /casoomiso.html 200
+
 # SPA fallback (not needed for this static site, but good to have)
 /* /index.html 200
 
