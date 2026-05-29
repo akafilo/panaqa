@@ -41,7 +41,7 @@
             min-height: 100vh;
             font-family: 'Roboto', sans-serif;
             color: var(--text);
-            background: linear-gradient(165deg, var(--bg-1), var(--bg-2));
+            background: #060606;
             display: grid;
             place-items: center;
             padding: 24px;
@@ -51,19 +51,18 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        body::before {
-            content: "";
+        .background-video {
             position: fixed;
-            inset: -24px;
-            background-image: url('assets/omiso.jpeg');
-            background-size: cover;
-            background-position: center;
-            filter: blur(22px) saturate(1.05);
-            transform: scale(1.08);
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             z-index: 0;
+            pointer-events: none;
         }
 
-        body::after {
+        .background-video-overlay {
             content: "";
             position: fixed;
             inset: 0;
@@ -145,14 +144,14 @@
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 1.2px;
             font-size: 1.08rem;
-            background: linear-gradient(90deg, #d83a44, #9f1e27);
+            background: #6f1d22;
             box-shadow: 0 8px 18px rgba(184, 35, 45, 0.3);
             transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
         }
 
         .official-video:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(184, 35, 45, 0.4);
+            box-shadow: 0 10px 24px rgba(111, 29, 34, 0.45);
             filter: brightness(1.03);
         }
 
@@ -160,12 +159,12 @@
             text-decoration: none;
             color: var(--text);
             border: 1px solid var(--line);
-            border-radius: 999px;
-            padding: 14px 18px;
+            border-radius: 18px;
+            padding: 14px 16px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            justify-content: center;
+            gap: 14px;
+            justify-content: space-between;
             font-family: 'Bebas Neue', sans-serif;
             letter-spacing: 1px;
             font-size: 1.15rem;
@@ -180,6 +179,31 @@
 
         .stream-btn i {
             font-size: 1.1rem;
+        }
+
+        .stream-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .stream-name {
+            white-space: nowrap;
+        }
+
+        .listen-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #166f7f;
+            border: 1px solid #166f7f;
+            color: #ffffff;
+            font-size: 0.92rem;
+            letter-spacing: 1px;
+            flex: 0 0 auto;
         }
 
         .stream-btn.spotify:hover {
@@ -244,6 +268,11 @@
                 padding: 12px 14px;
             }
 
+            .listen-pill {
+                padding: 7px 12px;
+                font-size: 0.84rem;
+            }
+
             .official-video {
                 font-size: 0.96rem;
                 padding: 12px 13px;
@@ -258,6 +287,10 @@
     </style>
 </head>
 <body>
+    <video class="background-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline poster="assets/omiso.jpeg">
+        <source src="assets/caso.mp4" type="video/mp4">
+    </video>
+    <div class="background-video-overlay" aria-hidden="true"></div>
     <main class="shell">
         <section class="top">
             <img src="assets/omiso.jpeg" alt="Portada de Caso Omiso" class="cover">
@@ -270,20 +303,32 @@
                 VER VIDEOCLIP OFICIAL
             </a>
             <a class="stream-btn spotify" href="https://open.spotify.com/intl-es/track/0GOv1ReuykGcUNw3NMTVM2?si=f7881d0b47654327" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-spotify" aria-hidden="true"></i>
-                SPOTIFY
+                <span class="stream-left">
+                    <i class="fab fa-spotify" aria-hidden="true"></i>
+                    <span class="stream-name">SPOTIFY</span>
+                </span>
+                <span class="listen-pill">ESCUCHAR</span>
             </a>
             <a class="stream-btn apple" href="https://music.apple.com/es/song/caso-omiso/6771792254" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-apple" aria-hidden="true"></i>
-                APPLE MUSIC
+                <span class="stream-left">
+                    <i class="fab fa-apple" aria-hidden="true"></i>
+                    <span class="stream-name">APPLE MUSIC</span>
+                </span>
+                <span class="listen-pill">ESCUCHAR</span>
             </a>
             <a class="stream-btn youtube" href="https://www.youtube.com/watch?v=kk-gxwCHHeQ" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-youtube" aria-hidden="true"></i>
-                YOUTUBE
+                <span class="stream-left">
+                    <i class="fab fa-youtube" aria-hidden="true"></i>
+                    <span class="stream-name">YOUTUBE</span>
+                </span>
+                <span class="listen-pill">ESCUCHAR</span>
             </a>
             <a class="stream-btn deezer" href="https://link.deezer.com/s/33pcpR6r4cwTTsLtXIS61" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-deezer" aria-hidden="true"></i>
-                DEEZER
+                <span class="stream-left">
+                    <i class="fab fa-deezer" aria-hidden="true"></i>
+                    <span class="stream-name">DEEZER</span>
+                </span>
+                <span class="listen-pill">ESCUCHAR</span>
             </a>
         </section>
 
