@@ -298,32 +298,32 @@
         </section>
 
         <section class="links" aria-label="Plataformas de streaming">
-            <a class="official-video" href="https://youtu.be/EArbmlM4Mqk" target="_blank" rel="noopener noreferrer">
+            <a class="official-video" href="https://youtu.be/EArbmlM4Mqk">
                 <i class="fas fa-play-circle" aria-hidden="true"></i>
                 VER VIDEOCLIP OFICIAL
             </a>
-            <a class="stream-btn spotify" href="https://open.spotify.com/intl-es/track/0GOv1ReuykGcUNw3NMTVM2?si=f7881d0b47654327" target="_blank" rel="noopener noreferrer">
+            <a class="stream-btn spotify" href="https://open.spotify.com/intl-es/track/0GOv1ReuykGcUNw3NMTVM2?si=f7881d0b47654327" target="_blank" rel="noopener noreferrer" data-app-url="spotify:track:0GOv1ReuykGcUNw3NMTVM2">
                 <span class="stream-left">
                     <i class="fab fa-spotify" aria-hidden="true"></i>
                     <span class="stream-name">SPOTIFY</span>
                 </span>
                 <span class="listen-pill">ESCUCHAR</span>
             </a>
-            <a class="stream-btn apple" href="https://music.apple.com/es/song/caso-omiso/6771792254" target="_blank" rel="noopener noreferrer">
+            <a class="stream-btn apple" href="https://music.apple.com/es/song/caso-omiso/6771792254" target="_blank" rel="noopener noreferrer" data-app-url="music://song/6771792254">
                 <span class="stream-left">
                     <i class="fab fa-apple" aria-hidden="true"></i>
                     <span class="stream-name">APPLE MUSIC</span>
                 </span>
                 <span class="listen-pill">ESCUCHAR</span>
             </a>
-            <a class="stream-btn youtube" href="https://www.youtube.com/watch?v=kk-gxwCHHeQ" target="_blank" rel="noopener noreferrer">
+            <a class="stream-btn youtube" href="https://www.youtube.com/watch?v=kk-gxwCHHeQ" target="_blank" rel="noopener noreferrer" data-app-url="vnd.youtube://watch?v=kk-gxwCHHeQ">
                 <span class="stream-left">
                     <i class="fab fa-youtube" aria-hidden="true"></i>
                     <span class="stream-name">YOUTUBE</span>
                 </span>
                 <span class="listen-pill">ESCUCHAR</span>
             </a>
-            <a class="stream-btn deezer" href="https://link.deezer.com/s/33pcpR6r4cwTTsLtXIS61" target="_blank" rel="noopener noreferrer">
+            <a class="stream-btn deezer" href="https://link.deezer.com/s/33pcpR6r4cwTTsLtXIS61" target="_blank" rel="noopener noreferrer" data-app-url="deezer://link.deezer.com/s/33pcpR6r4cwTTsLtXIS61">
                 <span class="stream-left">
                     <i class="fab fa-deezer" aria-hidden="true"></i>
                     <span class="stream-name">DEEZER</span>
@@ -336,5 +336,39 @@
     </main>
 
     <p class="download-note">¿Quieres descargar el audio y tenerlo en tu teléfono para siempre? escribenos a contacto@panaqa.net ;)</p>
+
+    <script>
+        (function () {
+            const buttons = document.querySelectorAll('.stream-btn[data-app-url]');
+            const fallbackDelay = 1200;
+
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    const appUrl = button.dataset.appUrl;
+                    const fallbackUrl = button.href;
+                    let appOpened = false;
+
+                    const onVisibilityChange = function () {
+                        if (document.visibilityState === 'hidden') {
+                            appOpened = true;
+                        }
+                    };
+
+                    document.addEventListener('visibilitychange', onVisibilityChange, { once: true });
+                    window.location.href = appUrl;
+
+                    setTimeout(function () {
+                        document.removeEventListener('visibilitychange', onVisibilityChange);
+
+                        if (!appOpened && document.visibilityState === 'visible') {
+                            window.location.href = fallbackUrl;
+                        }
+                    }, fallbackDelay);
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
