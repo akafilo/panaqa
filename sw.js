@@ -1,4 +1,4 @@
-const CACHE_NAME = 'panaqa-v16-2026-04-27';
+const CACHE_NAME = 'panaqa-v17-2026-10-05';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -67,19 +67,16 @@ self.addEventListener('fetch', function(event) {
     return;
   }
 
-  // Para HTML, CSS, JS y otros archivos propios: network-first con navigation preload
+  // Para archivos propios: network-first para asegurar actualizaciones inmediatas
   event.respondWith(
-    Promise.resolve(event.preloadResponse).then(function(preloaded) {
-      if (preloaded) return preloaded;
-      return fetch(event.request).then(function(response) {
-        if (response && response.status === 200) {
-          var clone = response.clone();
-          caches.open(CACHE_NAME).then(function(cache) { cache.put(event.request, clone); });
-        }
-        return response;
-      }).catch(function() {
-        return caches.match(event.request);
-      });
+    fetch(event.request).then(function(response) {
+      if (response && response.status === 200) {
+        var clone = response.clone();
+        caches.open(CACHE_NAME).then(function(cache) { cache.put(event.request, clone); });
+      }
+      return response;
+    }).catch(function() {
+      return caches.match(event.request);
     })
   );
 });
