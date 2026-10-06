@@ -280,12 +280,37 @@ body.page-merch .navbar {
     max-width: 520px;
     object-fit: contain;
     transition: var(--transition);
+}
+
+/* Logo: blanco cuando la barra es transparente, negro cuando está scrolleada */
+.nav-logo .logo-dark {
+    display: none;
     filter: brightness(1.1) contrast(1.1) drop-shadow(0 2px 10px rgba(255, 255, 255, 0.9));
+}
+
+.nav-logo .logo-light {
+    display: block;
+    filter: brightness(1.1) contrast(1.1) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45));
+}
+
+.navbar.scrolled .logo-dark {
+    display: block;
+}
+
+.navbar.scrolled .logo-light {
+    display: none;
 }
 
 .nav-logo .logo-image:hover {
     transform: scale(1.05);
+}
+
+.nav-logo .logo-dark:hover {
     filter: brightness(1.2) contrast(1.2) drop-shadow(0 0 18px rgba(255, 255, 255, 0.85)) drop-shadow(0 2px 10px rgba(255, 255, 255, 0.6));
+}
+
+.nav-logo .logo-light:hover {
+    filter: brightness(1.2) contrast(1.2) drop-shadow(0 0 18px rgba(0, 0, 0, 0.6));
 }
 
 .nav-link {
@@ -387,12 +412,17 @@ body.page-merch .navbar {
     z-index: 1010;
 }
 
+/* Barras del menú: blancas con barra transparente solo en index; negras en el resto */
 .nav-toggle .bar {
     width: 25px;
     height: 3px;
     background-color: var(--text-primary);
     margin: 3px 0;
     transition: var(--transition);
+}
+
+body.page-index .navbar:not(.scrolled) .nav-toggle .bar {
+    background-color: #ffffff;
 }
 
 /* Hero Section */
@@ -2329,7 +2359,7 @@ section#music {
 
 /* Estilos para página de letras */
 .letras-section {
-    padding: 12rem 0 5rem;
+    padding: 15rem 0 5rem;
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     min-height: 100vh;
 }
@@ -2350,6 +2380,35 @@ section#music {
     margin-top: 3rem;
 }
 
+.lyrics-group-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: var(--text-primary);
+    margin-top: 4rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.lyrics-group-title:first-of-type {
+    margin-top: 0;
+}
+
+.song-card-soon {
+    cursor: default;
+    opacity: 0.75;
+}
+
+.song-card-soon:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.song-card-soon .song-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .song-card {
     background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(17, 17, 17, 0.95));
     border-radius: 15px;
@@ -2359,6 +2418,9 @@ section#music {
     cursor: pointer;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    max-width: 400px;
+    width: 100%;
+    justify-self: center;
 }
 
 .song-card:hover {
@@ -2763,7 +2825,7 @@ section#music {
 /* Responsive para página de letras */
 @media (max-width: 768px) {
     .letras-section {
-        padding: 6rem 0 3rem;
+        padding: 9rem 0 3rem;
     }
     
     .songs-grid {

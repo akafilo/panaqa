@@ -38,6 +38,74 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Objeto con todas las letras y IDs de YouTube de las canciones
     const lyricsData = {
+        'caso-omiso': {
+            title: 'Caso Omiso',
+            youtubeId: 'kk-gxwCHHeQ', // ID del video de YouTube
+            lyrics: `Obey
+Obey
+Obey
+Obey
+
+Ya lo hacen por vicio
+Mira de lejos cómo voy sin pedir permiso
+Soy humano, aviso, aquel que traicione a este pueblo, se va pal piso
+Hacemos caso omiso, ya sé que me quieres más sumiso
+Va a sufrir el más servil a su cubil, asunto vil
+Nos sacaron de quicio
+¿Recién te enteras? todo corrupto se va pa' fuera, perras
+¿A panteras van a quitar el pan de la boca? Ve lo que te espera
+Bomba a la mesa, por cantar esa Song que va en contra de la esfera
+Oh lord have mercy, van a arder si insisten con mandarnos a la guerra
+
+Ya es hora, ya es hora, ya es hora, obey
+Ya es hora, ya es hora, ya es hora, obey
+Levanta el puño y grita "que se jodan"
+Prende el mechero y que explote esa bomba
+
+Pero para, para, para ¿de nuevo con la misma parrafada?
+Uno, dos, tres, encuesta cerrada
+¿Con qué mano me robas, izquierda o derecha?
+Revisa tus bolsillos, camarada
+Otra vez segunda vuelta mi mente atenta y no se equivocaba, nada
+La tele entretiene y alimenta
+Mis ganas de quemar hasta la última grada
+Que se joda el fascista, el comunista, el homofóbico y el anarquista
+El facho, el turista, el de centroizquierda o derecha
+Ambos puntos de vista
+No quiero ser alarmista, pero mi país está buscando otra conquista
+Quiero que ya baje el barbón y que apriete el botón y boom
+Hasta la vista bicha
+
+Ya es hora, ya es hora, ya es hora, obey
+Ya es hora, ya es hora, ya es hora, obey
+Levanta el puño y grita "que se jodan"
+Prende el mechero y que explote esa bomba
+
+Aquí estoy
+No vas a poder encerrarme
+En este tiempo mi mente despierta y tú no
+Esa sonrisa más gris que tu alma ya no
+
+El que traiciona se va pal piso
+El que traiciona se va pal piso
+El que traiciona se va pal piso
+El que traiciona se va pal piso
+
+El que traicione se va pal piso
+El que traicione se va pal piso
+El que traicione se va pal piso
+El que traicione se va pal piso
+El que traicione se va pal piso
+El que traicione se va pal piso
+El que traicione se va pal piso
+El que traicione se va pal piso
+
+Ya es hora, ya es hora, ya es hora, obey
+Ya es hora, ya es hora, ya es hora, obey
+Levanta el puño y grita "que se jodan"
+Prende el mechero y que explote esa bomba
+¡Que explote esa bomba!`
+        },
         'qumbia': {
             title: 'Qumbia',
             youtubeId: 'FX0ry6Quzno', // ID del video de YouTube
