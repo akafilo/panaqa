@@ -1,12 +1,12 @@
-const CACHE_NAME = 'panaqa-v17-2026-10-05';
+const CACHE_NAME = 'panaqa-v18-2026-10-05b';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/styles-estreno-15agosto.css',
-  '/script-estreno-15agosto.js',
+  '/styles-estreno-15agosto.css?v=20261005b',
+  '/script-estreno-15agosto.js?v=20261005b',
   '/letras.html',
-  '/letras.js',
-  '/script-letras-safe.js',
+  '/letras.js?v=20261005b',
+  '/script-letras-safe.js?v=20261005b',
   '/manifest.json',
   'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'

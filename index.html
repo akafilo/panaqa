@@ -137,7 +137,7 @@
             .hero-stream-btns { gap: 10px; }
         }
     </style>
-    <link rel="stylesheet" href="styles-estreno-15agosto.css?nocache=mobile">
+    <link rel="stylesheet" href="styles-estreno-15agosto.css?v=20261005b">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -751,7 +751,7 @@
         if ('serviceWorker' in navigator) {
             let reloading = false;
 
-            navigator.serviceWorker.register('/sw.js')
+            navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' })
                 .then(function(registration) {
                     // Si ya hay un SW en espera al cargar, activarlo
                     if (registration.waiting) {
@@ -783,6 +783,6 @@
         }
     </script>
 
-    <script src="script-estreno-15agosto.js"></script>
+    <script src="script-estreno-15agosto.js?v=20261005b"></script>
 </body>
 </html>
