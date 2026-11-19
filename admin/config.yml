@@ -16,9 +16,9 @@ site_url: https://www.panaqa.com
 display_url: https://www.panaqa.com
 logo_url: /assets/logonegro.png
 
-# Fotos nuevas de productos
+# Fotos de productos: se guardan en assets/merch y se enlazan como /assets/merch/archivo.jpg
 media_folder: assets/merch
-public_folder: assets/merch
+public_folder: /assets/merch
 
 collections:
   # ───────────────────────── FECHAS ─────────────────────────

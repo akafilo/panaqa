@@ -3,9 +3,9 @@
     {
       "agotado": false,
       "imagenes": [
-        "assets/polonegro1.jpg",
-        "assets/polonegro2.jpg",
-        "assets/polonegro3.jpg"
+        "/assets/merch/polonegro1.jpg",
+        "/assets/merch/polonegro2.jpg",
+        "/assets/merch/polonegro3.jpg"
       ],
       "traducciones": {
         "nombre_en": "",
@@ -25,9 +25,9 @@
     {
       "agotado": false,
       "imagenes": [
-        "assets/poloblanco1.jpg",
-        "assets/poloblanco2.jpg",
-        "assets/poloblanco3.jpg"
+        "/assets/merch/poloblanco1.jpg",
+        "/assets/merch/poloblanco2.jpg",
+        "/assets/merch/poloblanco3.jpg"
       ],
       "traducciones": {
         "nombre_en": "",
@@ -47,9 +47,9 @@
     {
       "agotado": false,
       "imagenes": [
-        "assets/gorra1.jpg",
-        "assets/gorro2.jpg",
-        "assets/gorro3.jpg"
+        "/assets/merch/gorra1.jpg",
+        "/assets/merch/gorro2.jpg",
+        "/assets/merch/gorro3.jpg"
       ],
       "traducciones": {
         "nombre_en": "",
@@ -69,9 +69,9 @@
     {
       "agotado": false,
       "imagenes": [
-        "assets/disco1.jpg",
-        "assets/disco2.jpg",
-        "assets/disco3.jpg"
+        "/assets/merch/disco1.jpg",
+        "/assets/merch/disco2.jpg",
+        "/assets/merch/disco3.jpg"
       ],
       "traducciones": {
         "nombre_en": "",
@@ -91,8 +91,8 @@
     {
       "agotado": true,
       "imagenes": [
-        "assets/uña1.jpg",
-        "assets/uña2.jpg"
+        "/assets/merch/plumilla1.jpg",
+        "/assets/merch/plumilla2.jpg"
       ],
       "traducciones": {
         "nombre_en": "",
@@ -112,8 +112,8 @@
     {
       "agotado": false,
       "imagenes": [
-        "assets/poster1.jpg",
-        "assets/poster2.jpg"
+        "/assets/merch/poster1.jpg",
+        "/assets/merch/poster2.jpg"
       ],
       "traducciones": {
         "nombre_en": "",
