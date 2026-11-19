@@ -286,9 +286,17 @@
     });
     keject.addEventListener('click', eject);
 
-    P.loadData('archivo').then(function (data) {
-        renderShelf((data && data.cintas) || []);
-    }).catch(function () { renderShelf([]); });
+    /* Si la carga falla por la red, reintenta un par de veces antes de dejar el estante vacío */
+    (function load(tries) {
+        P.loadData('archivo').then(function (data) {
+            var list = (data && data.cintas) || [];
+            if (!list.length && tries > 0) { setTimeout(function () { load(tries - 1); }, 1500); return; }
+            renderShelf(list);
+        }).catch(function () {
+            if (tries > 0) setTimeout(function () { load(tries - 1); }, 1500);
+            else renderShelf([]);
+        });
+    })(3);
 
     P.onLang(function () {
         if (!cur) covertxt.textContent = t('INSERTE UNA CINTA');

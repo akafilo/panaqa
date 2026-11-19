@@ -558,10 +558,18 @@
        Datos editables desde el panel /admin (carpeta data/)
        ========================================================= */
     var dataCache = {};
+    /* Carga data/<name>.json con hasta 3 intentos; un fallo no queda guardado en caché */
+    function fetchJSON(name, tries) {
+        return fetch('data/' + name + '.json', { cache: 'no-cache' })
+            .then(function (r) { if (!r.ok) throw new Error(name); return r.json(); })
+            .catch(function (err) {
+                if (tries <= 1) throw err;
+                return new Promise(function (res) { setTimeout(res, 1200); }).then(function () { return fetchJSON(name, tries - 1); });
+            });
+    }
     function loadData(name) {
         if (!dataCache[name]) {
-            dataCache[name] = fetch('data/' + name + '.json', { cache: 'no-cache' })
-                .then(function (r) { if (!r.ok) throw new Error(name); return r.json(); });
+            dataCache[name] = fetchJSON(name, 3).catch(function (err) { delete dataCache[name]; throw err; });
         }
         return dataCache[name];
     }
