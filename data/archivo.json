@@ -1,0 +1,74 @@
+{
+  "cintas": [
+    {
+      "etiqueta": "caso omiso",
+      "youtube": "https://www.youtube.com/watch?v=EArbmlM4Mqk",
+      "fecha": "",
+      "detalle": "Videoclip oficial",
+      "franja": "rojo-amarillo",
+      "papel": "papel",
+      "letra": "plumon",
+      "inclinada": false
+    },
+    {
+      "etiqueta": "impostor",
+      "youtube": "https://www.youtube.com/watch?v=Av9CaVcHFHs",
+      "fecha": "",
+      "detalle": "Sesión en vivo",
+      "franja": "ninguna",
+      "papel": "viejo",
+      "letra": "plumon",
+      "inclinada": false
+    },
+    {
+      "etiqueta": "águila !!",
+      "youtube": "https://www.youtube.com/watch?v=pIBEJarNa_8",
+      "fecha": "",
+      "detalle": "Sesión en vivo",
+      "franja": "azul-gris",
+      "papel": "embalaje",
+      "letra": "plumon",
+      "inclinada": true
+    },
+    {
+      "etiqueta": "la yapita",
+      "youtube": "https://www.youtube.com/watch?v=J6-WsOEN_Fc",
+      "fecha": "",
+      "detalle": "Archivos Panaqa",
+      "franja": "ninguna",
+      "papel": "papel",
+      "letra": "manuscrita",
+      "inclinada": false
+    },
+    {
+      "etiqueta": "préndelo",
+      "youtube": "https://www.youtube.com/watch?v=mdYjkvVU4Qg",
+      "fecha": "",
+      "detalle": "Sesión en vivo",
+      "franja": "verde-amarillo",
+      "papel": "viejo",
+      "letra": "plumon",
+      "inclinada": false
+    },
+    {
+      "etiqueta": "somos",
+      "youtube": "https://www.youtube.com/watch?v=fMfcnop5TUU",
+      "fecha": "",
+      "detalle": "EP Panaqa",
+      "franja": "ninguna",
+      "papel": "papel",
+      "letra": "plumon",
+      "inclinada": false
+    },
+    {
+      "etiqueta": "qumbia",
+      "youtube": "https://www.youtube.com/watch?v=FX0ry6Quzno",
+      "fecha": "",
+      "detalle": "Sesión en vivo",
+      "franja": "ninguna",
+      "papel": "embalaje",
+      "letra": "manuscrita",
+      "inclinada": false
+    }
+  ]
+}

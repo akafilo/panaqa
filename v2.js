@@ -155,7 +155,18 @@
         'Ciudad o distrito (opcional)': { en: 'City or district (optional)', zh: '城市或区（可选）' },
         'ENVIAR PEDIDO POR WHATSAPP': { en: 'SEND ORDER ON WHATSAPP', zh: '通过 WHATSAPP 发送订单' },
         'Coordinamos el pago y el envío por WhatsApp.': { en: 'We arrange payment and shipping on WhatsApp.', zh: '我们会通过 WhatsApp 安排付款和配送。' },
-        'VACIAR CARRITO': { en: 'EMPTY CART', zh: '清空购物车' }
+        'VACIAR CARRITO': { en: 'EMPTY CART', zh: '清空购物车' },
+        /* Archivo de cintas */
+        'CH 09 — ARCHIVO DE CINTAS': { en: 'CH 09 — TAPE ARCHIVE', zh: 'CH 09 — 录像带档案' },
+        'Archivo': { en: 'Archive', zh: '档案' },
+        'ARCHIVO': { en: 'ARCHIVE', zh: '档案馆' },
+        'INSERTE UNA CINTA': { en: 'INSERT A TAPE', zh: '请插入录像带' },
+        '❚❚ PAUSA': { en: '❚❚ PAUSE', zh: '❚❚ 暂停' },
+        '▶ PLAY': { en: '▶ PLAY', zh: '▶ 播放' },
+        'PAUSA ❚❚': { en: 'PAUSE ❚❚', zh: '暂停 ❚❚' },
+        '⏏ EJECT': { en: '⏏ EJECT', zh: '⏏ 退出' },
+        '◀ DESLIZA PARA VER MÁS CINTAS ▶': { en: '◀ SWIPE FOR MORE TAPES ▶', zh: '◀ 滑动查看更多录像带 ▶' },
+        'Elige una cinta del estante': { en: 'Pick a tape from the shelf', zh: '从架子上选一盘录像带' }
     };
     var LANGS = ['es', 'en', 'zh'];
     var lang = 'es';
@@ -478,9 +489,12 @@
                 if (window.YT && window.YT.Player) { createYapita(); return; }
                 var prev = window.onYouTubeIframeAPIReady;
                 window.onYouTubeIframeAPIReady = function () { if (prev) prev(); createYapita(); };
-                var s = document.createElement('script');
-                s.src = 'https://www.youtube.com/iframe_api';
-                document.head.appendChild(s);
+                /* El Archivo (CH 09) también usa la API: cargarla una sola vez */
+                if (!document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+                    var s = document.createElement('script');
+                    s.src = 'https://www.youtube.com/iframe_api';
+                    document.head.appendChild(s);
+                }
             });
         }, { rootMargin: '500px 0px' }).observe(yapitaHost);
     }

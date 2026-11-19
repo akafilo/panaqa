@@ -168,6 +168,76 @@ collections:
                   - { label: "Descripción en inglés", name: descripcion_en, widget: text, required: false }
                   - { label: "Descripción en chino", name: descripcion_zh, widget: text, required: false }
 
+  # ──────────────────────── ARCHIVO ────────────────────────
+  - name: archivo
+    label: Archivo de cintas
+    description: Cintas VHS del estante (CH 09). Cada cinta reproduce un video de YouTube en el televisor. El orden de la lista es el orden en el estante.
+    editor:
+      preview: false
+    files:
+      - name: cintas
+        label: Cintas del estante
+        file: data/archivo.json
+        format: json
+        fields:
+          - label: Cintas
+            name: cintas
+            label_singular: cinta
+            widget: list
+            summary: "{{fields.etiqueta}} — {{fields.detalle}}"
+            fields:
+              - label: Texto de la etiqueta
+                name: etiqueta
+                widget: string
+                hint: Lo que va escrito a mano en el lomo. Corto, idealmente menos de 14 letras.
+              - label: Video de YouTube
+                name: youtube
+                widget: string
+                hint: Pega el enlace del video o Short (youtube.com/watch?v=…, youtu.be/…, youtube.com/shorts/…). Debe ser público o no listado y permitir inserción.
+              - label: Fecha (opcional)
+                name: fecha
+                widget: datetime
+                date_format: DD/MM/YYYY
+                time_format: false
+                format: YYYY-MM-DD
+                picker_utc: false
+                required: false
+                hint: Aparece en naranja en la esquina del televisor, como fecha de cámara casera.
+              - label: Detalle en pantalla
+                name: detalle
+                widget: string
+                required: false
+                hint: Segunda línea bajo la fecha. Ejemplo — CC. Festiva, Ensayo, Backstage Cusco.
+              - label: Franja de color del lomo
+                name: franja
+                widget: select
+                default: ninguna
+                options:
+                  - { label: "Sin franja", value: ninguna }
+                  - { label: "Rojo y amarillo", value: rojo-amarillo }
+                  - { label: "Azul y gris", value: azul-gris }
+                  - { label: "Verde y amarillo", value: verde-amarillo }
+              - label: Tipo de etiqueta
+                name: papel
+                widget: select
+                default: papel
+                options:
+                  - { label: "Papel blanco", value: papel }
+                  - { label: "Papel viejo (amarillento)", value: viejo }
+                  - { label: "Cinta de embalaje", value: embalaje }
+              - label: Letra
+                name: letra
+                widget: select
+                default: plumon
+                options:
+                  - { label: "Plumón", value: plumon }
+                  - { label: "Manuscrita", value: manuscrita }
+              - label: Cinta inclinada
+                name: inclinada
+                widget: boolean
+                default: false
+                hint: Para que el estante se vea más natural, inclina una que otra.
+
   # ──────────────────────── AJUSTES ────────────────────────
   - name: ajustes
     label: Ajustes

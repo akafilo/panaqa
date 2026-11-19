@@ -6,6 +6,7 @@ En **https://www.panaqa.com/admin** se pueden editar, sin tocar código:
 |---|---|---|
 | **Fechas** | Sección *Fechas* (CH 05) y la cinta roja de la portada | `data/fechas.json` |
 | **Teletienda** | Catálogo de *Merch* y la Teletienda de la portada (productos destacados) | `data/merch.json` |
+| **Archivo de cintas** | Estante de cintas VHS (CH 09) que reproducen videos de YouTube | `data/archivo.json` |
 | **Ajustes** | Número de WhatsApp y si se ocultan las fechas pasadas | `data/ajustes.json` |
 
 Cada vez que se pulsa **Publicar**, el panel guarda el cambio en GitHub (rama `main`) y Netlify actualiza www.panaqa.com en 1–2 minutos.
@@ -55,3 +56,11 @@ Abrir **https://www.panaqa.com/admin** → **Iniciar sesión con GitHub**.
 - **Destacado:** aparece en la Teletienda de la portada.
 - **Agotado:** se ve tachado, con sello AGOTADO y sin botón de pedido.
 - **Traducciones (opcional):** nombre y descripción en inglés y chino; si se dejan vacías, se usa el texto en español.
+
+**Archivo de cintas**
+- Cada cinta del estante reproduce un **video de YouTube**: pega el enlace (watch, youtu.be o Shorts). El video debe ser público o no listado y tener activado "Permitir inserción".
+- **Texto de la etiqueta:** lo escrito a mano en el lomo; corto, idealmente menos de 14 letras.
+- **Fecha** y **Detalle en pantalla:** aparecen en naranja en la esquina del televisor, como fecha de cámara casera (si no hay fecha, se muestra PANAQA).
+- **Franja, tipo de etiqueta, letra e inclinada** solo cambian el aspecto de la cinta.
+- El **orden** de la lista es el orden en el estante; arrastra las cintas para reordenarlas.
+- Si el canal tiene anuncios, conviene desactivarlos en esos videos para que no aparezcan en el televisor.

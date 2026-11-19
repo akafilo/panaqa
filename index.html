@@ -46,7 +46,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Permanent+Marker&family=Rock+Salt&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="v2.css?v=2">
 </head>
@@ -92,7 +92,7 @@
             </li>
             <li>
                 <a class="menu-main" href="#ch7">HISTORIA</a>
-                <div class="menu-sub"><a href="#ch7"><small>CH 07</small> La banda</a></div>
+                <div class="menu-sub"><a href="#ch7"><small>CH 07</small> La banda</a><a href="#ch9"><small>CH 09</small> Archivo</a></div>
             </li>
             <li>
                 <a class="menu-main" href="#ch8">COMUNIDAD</a>
@@ -291,6 +291,56 @@
                 <a class="vhs-btn rec" href="https://chat.whatsapp.com/JUQ5yj36mpu4nI17YT7Eah" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> ENTRAR AHORA</a>
             </div>
         </section>
+
+        <!-- CH 09 · ARCHIVO DE CINTAS (cintas editables en /admin → data/archivo.json) -->
+        <section class="ch" id="ch9" data-ch="09" data-name="ARCHIVO">
+            <div class="ch-label"><i>■</i> CH 09 — ARCHIVO DE CINTAS</div>
+            <h2 class="ch-title rgb reveal">Archivo</h2>
+            <div class="arc" id="arc">
+                <div class="arc-wall" aria-hidden="true"></div>
+                <div class="arc-layout">
+                    <div class="arc-left">
+                        <div class="arc-cab">
+                            <div class="arc-row" id="arc-row" role="list" aria-label="Cintas del archivo">
+                                <div class="arc-pile" aria-hidden="true">
+                                    <div class="arc-flat"><span class="arc-fl">no grabar encima</span></div>
+                                    <div class="arc-flat"><span class="arc-fl">varios ???</span></div>
+                                    <div class="arc-flat"><span class="arc-fl">cumple juca</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arc-board" aria-hidden="true"></div>
+                        <div class="arc-swipe" id="arc-swipe">◀ DESLIZA PARA VER MÁS CINTAS ▶</div>
+                    </div>
+                    <div class="arc-stand">
+                        <div class="arc-tv">
+                            <div class="arc-bezel"><div class="arc-scr" id="arc-scr">
+                                <div class="arc-yt"><div id="arc-player"></div></div>
+                                <div class="arc-fx" aria-hidden="true"><div class="lines"></div><div class="track"></div><div class="osd hide" id="arc-osd">PLAY ▶</div><div class="trk hide" id="arc-trk">TRACKING<b id="arc-trkbar">▮▮▯▯▯▯▯▯▯▯</b></div><div class="date" id="arc-date"></div></div>
+                                <div class="arc-lock" aria-hidden="true"></div>
+                                <div class="arc-cover" id="arc-cover"><canvas id="arc-noise" width="120" height="90" aria-hidden="true"></canvas><span id="arc-covertxt">INSERTE UNA CINTA</span></div>
+                                <div class="arc-blue" aria-hidden="true"><span>PLAY ▶</span></div>
+                                <div class="arc-paused" aria-hidden="true">PAUSA ❚❚</div>
+                                <div class="arc-glass" aria-hidden="true"></div>
+                            </div></div>
+                            <div class="arc-brand" aria-hidden="true">COLOR TELEVISION</div>
+                            <div class="arc-knobs" aria-hidden="true"><b></b><i></i><i></i></div>
+                        </div>
+                        <div class="arc-vcr">
+                            <div class="arc-door" id="arc-door" aria-hidden="true"><div class="flap"></div><span class="vl">VHS HQ</span></div>
+                            <div class="arc-vfd" id="arc-vfd" aria-live="off">-:--:--</div>
+                            <div class="arc-keys">
+                                <button type="button" class="arc-key" id="arc-kplay" disabled>❚❚ PAUSA</button>
+                                <button type="button" class="arc-key on" id="arc-ksound" disabled>SONIDO ON</button>
+                                <button type="button" class="arc-key" id="arc-keject" disabled>⏏ EJECT</button>
+                            </div>
+                            <span class="arc-vcrlbl" aria-hidden="true">VIDEO CASSETTE RECORDER</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="arc-cap">Elige una cinta del estante</p>
+            </div>
+        </section>
     </main>
 
     <!-- FIN DE TRANSMISIÓN -->
@@ -323,6 +373,7 @@
         </div>
     </footer>
 
-    <script src="v2.js?v=3"></script>
+    <script src="v2.js?v=5"></script>
+    <script src="archivo.js?v=1"></script>
 </body>
 </html>
