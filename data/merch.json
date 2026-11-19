@@ -1,0 +1,82 @@
+{
+  "productos": [
+    {
+      "nombre": "Polo \"Despierta la Bestia\" negro",
+      "nombre_corto": "Polo \"Bestia\" negro",
+      "precio": 40,
+      "descripcion": "Algodón pima 20/1 con bordado en serigrafiado.",
+      "imagenes": ["assets/polonegro1.jpg", "assets/polonegro2.jpg", "assets/polonegro3.jpg"],
+      "opcion": "talla",
+      "valores": "S, M, L, XL",
+      "mensaje": "Hola, quiero el Polo Negro PANAQA",
+      "destacado": true,
+      "agotado": false,
+      "traducciones": { "nombre_en": "", "nombre_zh": "", "descripcion_en": "", "descripcion_zh": "" }
+    },
+    {
+      "nombre": "Polo \"Despierta la Bestia\" blanco",
+      "nombre_corto": "Polo \"Bestia\" blanco",
+      "precio": 40,
+      "descripcion": "Algodón pima 20/1 con bordado en serigrafiado.",
+      "imagenes": ["assets/poloblanco1.jpg", "assets/poloblanco2.jpg", "assets/poloblanco3.jpg"],
+      "opcion": "talla",
+      "valores": "S, M, L, XL",
+      "mensaje": "Hola, quiero el Polo Blanco PANAQA",
+      "destacado": true,
+      "agotado": false,
+      "traducciones": { "nombre_en": "", "nombre_zh": "", "descripcion_en": "", "descripcion_zh": "" }
+    },
+    {
+      "nombre": "Gorro clásico",
+      "nombre_corto": "",
+      "precio": 20,
+      "descripcion": "Gorro negro con bordado PANAQA y ajuste cómodo.",
+      "imagenes": ["assets/gorra1.jpg", "assets/gorro2.jpg", "assets/gorro3.jpg"],
+      "opcion": "ninguna",
+      "valores": "",
+      "mensaje": "Hola, quiero el Gorro Negro PANAQA",
+      "destacado": true,
+      "agotado": false,
+      "traducciones": { "nombre_en": "", "nombre_zh": "", "descripcion_en": "", "descripcion_zh": "" }
+    },
+    {
+      "nombre": "Disco \"Sesión en vivo\"",
+      "nombre_corto": "",
+      "precio": 20,
+      "descripcion": "Disco físico estilo sobre con portada exclusiva y audio directo desde el escenario.",
+      "imagenes": ["assets/disco1.jpg", "assets/disco2.jpg", "assets/disco3.jpg"],
+      "opcion": "ninguna",
+      "valores": "",
+      "mensaje": "Hola, quiero el Disco Sesión en vivo",
+      "destacado": true,
+      "agotado": false,
+      "traducciones": { "nombre_en": "", "nombre_zh": "", "descripcion_en": "", "descripcion_zh": "" }
+    },
+    {
+      "nombre": "Set de uñas Panaqa",
+      "nombre_corto": "",
+      "precio": 15,
+      "descripcion": "Set de 10 uñas con diseño PANAQA para un look extremo y personalizado.",
+      "imagenes": ["assets/uña1.jpg", "assets/uña2.jpg"],
+      "opcion": "ninguna",
+      "valores": "",
+      "mensaje": "Hola, quiero el Set de Uñas Panaqa",
+      "destacado": false,
+      "agotado": false,
+      "traducciones": { "nombre_en": "", "nombre_zh": "", "descripcion_en": "", "descripcion_zh": "" }
+    },
+    {
+      "nombre": "Póster Panaqa",
+      "nombre_corto": "",
+      "precio": 10,
+      "descripcion": "Imprime tu póster PANAQA en alta calidad con dos diseños exclusivos.",
+      "imagenes": ["assets/poster1.jpg", "assets/poster2.jpg"],
+      "opcion": "diseno",
+      "valores": "1, 2",
+      "mensaje": "Hola, quiero el Poster Panaqa",
+      "destacado": false,
+      "agotado": false,
+      "traducciones": { "nombre_en": "", "nombre_zh": "", "descripcion_en": "", "descripcion_zh": "" }
+    }
+  ]
+}

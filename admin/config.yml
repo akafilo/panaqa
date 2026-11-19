@@ -1,0 +1,190 @@
+# Panel de administración de PANAQA (Decap CMS)
+# Se entra en https://panaqa.net/admin con una cuenta de GitHub que tenga
+# permiso de escritura en el repositorio. Cada cambio publicado es un commit
+# en la rama main y Netlify actualiza el sitio en 1–2 minutos.
+
+backend:
+  name: github
+  repo: akafilo/panaqa
+  branch: main
+  site_domain: panaqa.net
+  commit_messages:
+    update: "Admin: actualiza {{collection}}"
+
+locale: es
+site_url: https://panaqa.net
+display_url: https://panaqa.net
+logo_url: /assets/logonegro.png
+
+# Fotos nuevas de productos
+media_folder: assets/merch
+public_folder: assets/merch
+
+collections:
+  # ───────────────────────── FECHAS ─────────────────────────
+  - name: fechas
+    label: Fechas
+    description: Presentaciones que aparecen en la sección Fechas y en la cinta roja de la portada. Las fechas que ya pasaron se ocultan solas.
+    editor:
+      preview: false
+    files:
+      - name: fechas
+        label: Fechas de presentaciones
+        file: data/fechas.json
+        format: json
+        fields:
+          - label: Fechas
+            name: fechas
+            label_singular: fecha
+            widget: list
+            summary: "{{fields.fecha}} — {{fields.lugar}} ({{fields.ciudad}})"
+            fields:
+              - label: Fecha
+                name: fecha
+                widget: datetime
+                date_format: DD/MM/YYYY
+                time_format: false
+                format: YYYY-MM-DD
+                picker_utc: false
+                required: false
+                hint: Déjala vacía si todavía no hay día.
+              - label: Fecha por confirmar
+                name: por_confirmar
+                widget: boolean
+                default: false
+                hint: Muestra "??.?? POR ANUNCIAR" en lugar del día.
+              - label: Lugar
+                name: lugar
+                widget: string
+              - label: Ciudad
+                name: ciudad
+                widget: string
+              - label: Invitados
+                name: invitados
+                widget: string
+                required: false
+                hint: Se muestra como "w/ …". Ejemplo — WarakaPunk + grupos locales
+              - label: Nota
+                name: nota
+                widget: string
+                required: false
+                hint: Texto libre que se muestra si no hay invitados. Ejemplo — Fechas cada mes
+              - label: Botón
+                name: boton
+                widget: select
+                default: entradas
+                options:
+                  - { label: "ENTRADAS (rojo)", value: entradas }
+                  - { label: "CONSULTAR", value: consultar }
+              - label: Mensaje de WhatsApp
+                name: mensaje
+                widget: string
+                hint: Texto que llega a su WhatsApp cuando alguien toca el botón.
+              - label: Enlace de venta (opcional)
+                name: enlace
+                widget: string
+                required: false
+                hint: Si pones un enlace (Joinnus, Teleticket…), el botón lleva ahí en lugar de WhatsApp.
+
+  # ─────────────────────── TELETIENDA ───────────────────────
+  - name: teletienda
+    label: Teletienda
+    description: Productos del Merch. Los marcados como destacados rotan en la Teletienda de la portada.
+    editor:
+      preview: false
+    files:
+      - name: productos
+        label: Productos
+        file: data/merch.json
+        format: json
+        fields:
+          - label: Productos
+            name: productos
+            label_singular: producto
+            widget: list
+            summary: "{{fields.nombre}} — S/ {{fields.precio}}"
+            fields:
+              - label: Nombre
+                name: nombre
+                widget: string
+              - label: Nombre corto (opcional)
+                name: nombre_corto
+                widget: string
+                required: false
+                hint: Se usa en la lista del catálogo si el nombre es muy largo.
+              - label: Precio (S/)
+                name: precio
+                widget: number
+                value_type: float
+                min: 0
+              - label: Descripción
+                name: descripcion
+                widget: text
+              - label: Fotos
+                name: imagenes
+                widget: list
+                label_singular: foto
+                hint: La primera es la principal. Si el producto tiene diseños, pon una foto por diseño en el mismo orden.
+                field:
+                  label: Foto
+                  name: imagen
+                  widget: image
+                  choose_url: false
+              - label: Opción a elegir
+                name: opcion
+                widget: select
+                default: ninguna
+                options:
+                  - { label: "Ninguna", value: ninguna }
+                  - { label: "Talla", value: talla }
+                  - { label: "Diseño", value: diseno }
+              - label: Valores de la opción
+                name: valores
+                widget: string
+                required: false
+                hint: Separados por comas. Tallas — S, M, L, XL · Diseños — 1, 2
+              - label: Mensaje de WhatsApp
+                name: mensaje
+                widget: string
+                hint: Se agrega solo la talla o el diseño elegido. Ejemplo — Hola, quiero el Polo Negro PANAQA
+              - label: Destacado en la portada
+                name: destacado
+                widget: boolean
+                default: false
+              - label: Agotado
+                name: agotado
+                widget: boolean
+                default: false
+                hint: Se muestra tachado, con sello AGOTADO y sin botón de pedido.
+              - label: Traducciones (opcional)
+                name: traducciones
+                widget: object
+                collapsed: true
+                required: false
+                summary: "EN / 中文"
+                fields:
+                  - { label: "Nombre en inglés", name: nombre_en, widget: string, required: false }
+                  - { label: "Nombre en chino", name: nombre_zh, widget: string, required: false }
+                  - { label: "Descripción en inglés", name: descripcion_en, widget: text, required: false }
+                  - { label: "Descripción en chino", name: descripcion_zh, widget: text, required: false }
+
+  # ──────────────────────── AJUSTES ────────────────────────
+  - name: ajustes
+    label: Ajustes
+    editor:
+      preview: false
+    files:
+      - name: ajustes
+        label: Ajustes generales
+        file: data/ajustes.json
+        format: json
+        fields:
+          - label: Número de WhatsApp
+            name: whatsapp
+            widget: string
+            pattern: ['^[0-9]{8,15}$', 'Solo números, con código de país. Ejemplo — 51907918581']
+            hint: Recibe los pedidos y consultas de entradas.
+          - label: Ocultar fechas pasadas
+            name: ocultar_fechas_pasadas
+            widget: boolean
+            default: true

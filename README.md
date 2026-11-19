@@ -1,55 +1,40 @@
-# PANAQA - Sitio Web Oficial
+# PANAQA — Sitio web oficial
 
-Sitio web oficial de la banda de nu metal PANAQA.
+Sitio de la banda peruana de nu metal PANAQA: **https://panaqa.net**
 
-## 🎵 Características
+Diseño "Señal perdida": el sitio funciona como una cinta VHS / televisor CRT donde cada sección es un canal.
 
-- Reproductor de video de fondo
-- Navegación responsive
-- Integración con plataformas de música
-- WhatsApp para consultas de merchandise
-- Modales interactivos
-- Diseño móvil optimizado
+## Páginas
 
-## 🚀 Tecnologías
+| Página | Contenido |
+|---|---|
+| `index.html` | Portada: Caso Omiso (CH 01), Discografía (CH 02), En vivo (CH 03), La Yapita (CH 04), Fechas (CH 05), Teletienda (CH 06), La banda (CH 07), La Resistencia (CH 08) |
+| `merch.html` | Catálogo completo de la Teletienda |
+| `letras.html` | Letras en formato teletexto |
+| `casoomiso.html` | Linktree de Caso Omiso (`/casoomiso`) |
+| `admin/` | Panel de administración (ver [ADMIN.md](ADMIN.md)) |
 
-- HTML5
-- CSS3 (Grid, Flexbox, Custom Properties)
-- JavaScript Vanilla
-- Font Awesome Icons
-- Google Fonts
+## Archivos
 
-## 📱 Responsive Design
+- `v2.css` — estilos de todo el sitio
+- `v2.js` — efectos de TV, menú, idiomas (ES / EN / 中文), fechas y teletienda de la portada
+- `merch-v2.js` — catálogo de `merch.html`
+- `letras-v2.js` + `letras-data.js` — página de letras y sus textos
+- `data/*.json` — **contenido editable desde el panel**: fechas, productos y ajustes
+- `assets/` — imágenes y videos (`assets/merch/` para fotos subidas desde el panel)
 
-El sitio está optimizado para:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (320px - 767px)
+## Editar contenido
 
-## 🔗 Enlaces
+Fechas, productos, precios y número de WhatsApp se editan en **https://panaqa.net/admin**. Instrucciones completas en [ADMIN.md](ADMIN.md).
 
-- **Sitio web:** [panaqa.net](https://panaqa.net)
-- **Instagram:** [@panaqa_peru](https://instagram.com/panaqa_peru)
-- **Spotify:** [PANAQA](https://open.spotify.com/artist/3jOkrHvv6NoOXO5w19yki7)
-- **YouTube:** [PANAQA](https://youtube.com/panaqa)
+## Publicar
 
-## 📞 Contacto
+El sitio está en **Netlify** y se publica solo con cada push a la rama `main` de GitHub.
 
-- **Email:** panaqaband@gmail.com
+## Contacto
+
+- **Email:** contacto@panaqa.com
 - **WhatsApp:** +51 907 918 581
+- **Instagram:** [@panaqa_peru](https://instagram.com/panaqa_peru)
 
-## 🚀 Deploy
-
-### Hosting Recomendado
-- GitHub Pages (gratuito)
-- Netlify (gratuito)
-- Vercel (gratuito)
-
-### Configuración DNS para panaqa.net
-1. Configurar registros A y CNAME en IONOS
-2. Apuntar al hosting elegido
-3. Configurar SSL automático
-
----
-
-© 2025 PANAQA. Todos los derechos reservados.
+© 2026 PANAQA

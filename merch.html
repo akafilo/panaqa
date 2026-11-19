@@ -3,519 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PANAQA Merch Oficial</title>
-    <meta name="description" content="Merch oficial de PANAQA: polos, gorras, CDs y ediciones limitadas con pedidos por WhatsApp.">
-    <meta name="keywords" content="PANAQA, merch, tienda, polos, gorras, CDs, ediciones limitadas, merchandise">
+    <title>PANAQA — Teletienda</title>
+    <meta name="description" content="Merch oficial de PANAQA: polos, gorros, discos, pósters y más. Pedidos por WhatsApp con envío gratis a todo el Perú.">
+    <meta name="theme-color" content="#050505">
+    <meta property="og:title" content="PANAQA — Teletienda">
+    <meta property="og:description" content="Merch oficial de PANAQA. Pedidos por WhatsApp.">
+    <meta property="og:image" content="https://panaqa.net/assets/polonegro1.jpg">
     <link rel="icon" type="image/png" href="assets/logonegro.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/logonegro.png">
-    <link rel="stylesheet" href="styles-estreno-15agosto.css?v=20261005b">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body.page-merch { background: #ffffff; color: #111111; font-family: 'Open Sans', sans-serif; font-weight: 300; padding-top: 180px; }
-        .container { max-width: 1180px; margin: 0 auto; padding: 0 1.25rem; }
-        .merch-section { padding: 4rem 0; background: #ffffff !important; }
-        .section-title { font-family: 'Open Sans', sans-serif; font-weight: 800; font-size: clamp(2.8rem, 4vw, 4rem); letter-spacing: 0.045em; text-transform: uppercase; text-align: center; margin-bottom: 2rem; color: #111111; line-height: 1.05; }
-        .merch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .product-card { background: #ffffff; border: none; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; box-shadow: none; }
-        .product-top { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #ffffff; cursor: pointer; min-height: 360px; }
-        .product-top::after { content: none; }
-        .product-top img { width: auto; max-width: 100%; max-height: 360px; object-fit: contain; display: block; }
-        .product-info { padding: 1.4rem 1.4rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
-        .product-title { margin: 0; font-size: 1.15rem; letter-spacing: 0.02em; text-transform: none; color: #111111; font-weight: 300; }
-        .product-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; }
-        .product-price { font-weight: 300; font-size: 1.1rem; color: #111111; white-space: nowrap; }
-        .product-details { display: none !important; }
-        .product-description { margin: 0 0 1rem; color: #616161; line-height: 1.75; font-size: 0.95rem; }
-        .product-thumbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1rem; }
-        .product-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(34,34,34,0.65); z-index: 9999; padding: 1.25rem; }
-        .product-modal.show { display: flex; }
-        .modal-window { width: min(900px, 100%); max-height: 90vh; background: #ffffff; border-radius: 32px; overflow: hidden; display: grid; grid-template-columns: 1.05fr 0.95fr; grid-template-rows: auto 1fr; box-shadow: 0 36px 80px rgba(0,0,0,0.18); }
-        .modal-header { grid-column: 1 / -1; display: flex; justify-content: center; align-items: center; padding: 1.4rem 1.4rem 0; background: transparent !important; border-bottom: none !important; }
-        .modal-header h3 { margin: 0; font-size: 1.4rem; color: #111111; text-align: center; background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
-        .modal-header h3::before, #modal-title::before { display: none !important; content: none !important; }
-        .modal-close { background: transparent; border: none; font-size: 1.2rem; color: #111111; cursor: pointer; position: absolute; right: 1.4rem; top: 1.4rem; }
-        .modal-left { padding: 1.4rem; display: flex; align-items: center; justify-content: center; }
-        .modal-main-image { width: 100%; max-height: calc(90vh - 120px); object-fit: contain; border-radius: 24px; background: #f7f7f7; }
-        .modal-right { padding: 1.4rem 1.4rem 1.6rem; overflow: auto; }
-        .modal-body { display: grid; gap: 1rem; }
-        .modal-size-row { display: grid; gap: 0.5rem; }
-        .modal-label { font-size: 0.95rem; color: #7a7a7a; margin: 0; }
-        .modal-text { margin: 0; color: #4f4f4f; line-height: 1.8; }
-        .modal-thumbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
-        .modal-thumb { border-radius: 18px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); cursor: pointer; }
-        .modal-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .modal-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between; }
-        .modal-price { font-weight: 700; font-size: 1.1rem; color: #111111; }
-        .modal-select { width: 100%; border-radius: 18px; background: #ffffff; border: 1px solid rgba(0,0,0,0.12); color: #111111; padding: 0.95rem 1rem; font-size: 0.98rem; }
-        .product-thumbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1rem; }
-        .thumb { border-radius: 18px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); cursor: pointer; transition: border-color 0.2s ease, transform 0.2s ease; }
-        .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .thumb:hover, .thumb.active { border-color: #111111; transform: translateY(-1px); }
-        .product-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between; margin-top: 1rem; }
-        .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 48px; padding: 0 1.4rem; border-radius: 999px; background: #111111; color: #ffffff !important; text-decoration: none; font-weight: 700; transition: transform 0.2s ease, background 0.2s ease; }
-        .btn-primary:hover { transform: translateY(-1px); background: #333333; color: #ffffff !important; }
-        .product-select { width: 100%; border-radius: 18px; background: #ffffff; border: 1px solid rgba(0,0,0,0.12); color: #111111; padding: 0.95rem 1rem; font-size: 0.98rem; }
-        .product-meta { font-size: 0.95rem; color: #7a7a7a; margin-bottom: 0.9rem; }
-        .poster-card .product-thumbs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .promo-banner { background: #000000 url('assets/despierta2.png') center center / contain no-repeat; min-height: 320px; width: 100%; margin: 0; position: relative; z-index: 0; padding-top: 120px; }
-        .promo-banner::before { content: none; }
-        .merch-section { padding: 4rem 0; background: #ffffff !important; margin-top: 0; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
-        .info-box { background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 24px; padding: 1.6rem; box-shadow: 0 12px 24px rgba(0,0,0,0.04); }
-        .info-box h3 { margin-top: 0; margin-bottom: 1rem; font-size: 1.15rem; color: #111111; font-weight: 600; }
-        .info-box p { margin: 0; color: #555555; line-height: 1.75; }
-        footer { padding: 2rem 0; background: #ffffff; color: #666666; text-align: center; }
-        .page-merch a { color: #111111; }
-        .navbar, .nav-logo img, .lang-button { background: transparent; }
-
-        @media (max-width: 768px) {
-            body.page-merch { padding-top: 120px; }
-            .container { padding: 0 1rem; }
-            .merch-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .product-card { border-radius: 24px; }
-            .product-top { min-height: auto; padding: 1rem 0; }
-            .product-top img { max-height: 260px; }
-            .product-info { padding: 1rem; }
-            .product-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.75rem; }
-            .product-price { font-size: 1rem; }
-            .product-thumbs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.65rem; }
-            .product-actions { justify-content: center; }
-            .btn-primary { width: 100%; }
-            .modal-window { grid-template-columns: 1fr; max-height: 95vh; width: min(95vw, 520px); }
-            .modal-header { padding: 1rem; }
-            .modal-left, .modal-right { padding: 1rem; }
-            .modal-main-image { max-height: 220px; }
-            .modal-body { gap: 0.75rem; }
-            .modal-thumbs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-            .modal-actions { justify-content: center; }
-            .modal-select, .product-select { font-size: 0.95rem; }
-            .modal-size-row { gap: 0.5rem; }
-            #modal-title { font-size: 1.4rem; line-height: 1.2; }
-            .modal-close { right: 1rem; top: 1rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="v2.css?v=2">
 </head>
-<body class="page-merch">
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-left">
-                <div class="nav-toggle" id="nav-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-            <div class="nav-logo">
-                <a href="index.html"><img src="assets/logonegro.png" alt="PANAQA Logo" class="logo-image"></a>
-            </div>
-            <div class="nav-right">
-                <button id="lang-toggle" class="lang-button" type="button">
-                    <span class="lang-flag lang-flag-us" aria-hidden="true"></span>
-                    <span class="lang-flag lang-flag-pe" aria-hidden="true"></span>
-                    <span class="lang-flag lang-flag-zh" aria-hidden="true"></span>
-                    <span class="lang-label">EN</span>
-                </button>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="index.html#home" class="nav-link">Inicio</a>
-                <a href="index.html#music" class="nav-link">Música</a>
-                <a href="index.html#tour" class="nav-link">Presentaciones</a>
-                <a href="merch.html" class="nav-link">Merch</a>
-                <a href="index.html#about" class="nav-link">Nosotros</a>
-                <a href="letras.html" class="nav-link">Letras</a>
-            </div>
+<body class="sub">
+
+    <div class="scanlines" aria-hidden="true"></div>
+    <canvas class="noise" id="noise" aria-hidden="true"></canvas>
+    <canvas class="flash" id="flash" aria-hidden="true"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <header class="osd solid" id="osd">
+        <div class="osd-ch" aria-live="polite"><b id="osd-num">CH 06</b><span id="osd-name">CATÁLOGO</span></div>
+        <a href="./" class="osd-logo" aria-label="PANAQA inicio"><img src="assets/logoblanco.png" alt="PANAQA"></a>
+        <div class="osd-right">
+            <button class="lang-btn" id="lang-btn" aria-label="Cambiar idioma"><span class="lang-opt" data-lang="es">ES</span><span class="lang-opt" data-lang="en">EN</span><span class="lang-opt" data-lang="zh">中</span></button>
+            <button class="osd-menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu">MENÚ ☰</button>
         </div>
+    </header>
+
+    <nav class="menu" id="menu" aria-label="Menú principal">
+        <button class="osd-menu-btn menu-close" id="menu-close">CERRAR ✕</button>
+        <ul class="menu-list">
+            <li>
+                <a class="menu-main" href="./#ch1">INICIO</a>
+                <div class="menu-sub"><a href="./#ch1"><small>CH 01</small> Caso Omiso</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch2">MÚSICA</a>
+                <div class="menu-sub"><a href="./#ch2"><small>CH 02</small> Discografía</a><a href="./#ch3"><small>CH 03</small> En vivo</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch4">ESTRENOS</a>
+                <div class="menu-sub"><a href="./#ch1"><small>CH 01</small> Caso Omiso</a><a href="./#ch4"><small>CH 04</small> La Yapita</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch7">HISTORIA</a>
+                <div class="menu-sub"><a href="./#ch7"><small>CH 07</small> La banda</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch8">COMUNIDAD</a>
+                <div class="menu-sub"><a href="./#ch5"><small>CH 05</small> Fechas</a><a href="./#ch8"><small>CH 08</small> La Resistencia</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="merch.html">MERCH</a>
+                <div class="menu-sub"><a href="./#ch6"><small>CH 06</small> Teletienda</a><a href="merch.html"><small>CAT</small> Catálogo completo</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="letras.html">LETRAS</a>
+                <div class="menu-sub"><a href="letras.html"><small>TXT</small> Todas las canciones</a></div>
+            </li>
+        </ul>
     </nav>
 
-    <section class="merch-section">
-        <div class="container">
-            <h1 class="section-title">PRODUCTOS OFICIALES</h1>
-            <div class="merch-grid">
-                <article class="product-card">
-                    <div class="product-top" onclick="openProductModal(this)">
-                        <img class="product-main-img" src="assets/poloblanco1.jpg" alt="Polo Blanco PANAQA">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-header">
-                            <h2 class="product-title">Polo "Despierta la Bestia" Blanco</h2>
-                            <div class="product-price">$/ 40.00</div>
-                        </div>
-                        <div class="product-details">
-                            <p class="product-description">Algodón pima 20/1 con bordado en serigrafiado.</p>
-                            <label class="product-meta">Talla</label>
-                            <select class="product-select">
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                            </select>
-                            <div class="product-thumbs">
-                                <button type="button" class="thumb active" onclick="swapImage(this)" data-src="assets/poloblanco1.jpg"><img src="assets/poloblanco1.jpg" alt="Polo Blanco vista 1"></button>
-                                <button type="button" class="thumb" onclick="swapImage(this)" data-src="assets/poloblanco2.jpg"><img src="assets/poloblanco2.jpg" alt="Polo Blanco vista 2"></button>
-                                <button type="button" class="thumb" onclick="swapImage(this)" data-src="assets/poloblanco3.jpg"><img src="assets/poloblanco3.jpg" alt="Polo Blanco vista 3"></button>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/51907918581?text=Hola,%20quiero%20el%20Polo%20Blanco%20PANAQA" class="btn-primary">Pedir ahora</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+    <main>
+        <section class="ch" id="catalogo" data-ch="06" data-name="CATÁLOGO">
+            <div class="ch-label"><i>■</i> CH 06 — TELETIENDA PANAQA</div>
+            <h1 class="ch-title rgb">Merch</h1>
 
-                <article class="product-card">
-                    <div class="product-top" onclick="openProductModal(this)">
-                        <img class="product-main-img" src="assets/polonegro1.jpg" alt="Polo Negro PANAQA">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-header">
-                            <h2 class="product-title">Polo "Despierta la Bestia" Negro</h2>
-                            <div class="product-price">$/ 40.00</div>
+            <div class="cat">
+                <!-- Visor -->
+                <div class="cat-viewer">
+                    <div class="crt">
+                        <div class="crt-screen cat-screen" id="cat-screen">
+                            <img id="cat-img" src="assets/polonegro1.jpg" alt="">
+                            <canvas id="cat-noise" aria-hidden="true"></canvas>
+                            <div class="crt-osd"><span id="cat-osd-art">ART. 01/06</span><span id="cat-osd-view">1/3</span></div>
                         </div>
-                        <div class="product-details">
-                            <p class="product-description">Algodón pima 20/1 con bordado en serigrafiado.</p>
-                            <label class="product-meta">Talla</label>
-                            <select class="product-select">
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                            </select>
-                            <div class="product-thumbs">
-                                <button type="button" class="thumb active" onclick="swapImage(this)" data-src="assets/polonegro1.jpg"><img src="assets/polonegro1.jpg" alt="Polo Negro vista 1"></button>
-                                <button type="button" class="thumb" onclick="swapImage(this)" data-src="assets/polonegro2.jpg"><img src="assets/polonegro2.jpg" alt="Polo Negro vista 2"></button>
-                                <button type="button" class="thumb" onclick="swapImage(this)" data-src="assets/polonegro3.jpg"><img src="assets/polonegro3.jpg" alt="Polo Negro vista 3"></button>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/51907918581?text=Hola,%20quiero%20el%20Polo%20Negro%20PANAQA" class="btn-primary">Pedir ahora</a>
-                            </div>
-                        </div>
+                        <div class="shop-burst">¡Llame ya!</div>
+                        <span class="crt-led" aria-hidden="true"></span>
                     </div>
-                </article>
+                    <div class="cat-thumbs" id="cat-thumbs" aria-label="Vistas del producto"></div>
+                </div>
 
-                <article class="product-card">
-                    <div class="product-top" onclick="openProductModal(this)">
-                        <img class="product-main-img" src="assets/gorra1.jpg" alt="Gorro Negro PANAQA">
+                <!-- Ficha -->
+                <div class="cat-info">
+                    <div class="ch-label"><i class="blink">●</i> OFERTA EN PANTALLA</div>
+                    <h2 class="shop-name" id="cat-name"></h2>
+                    <div class="shop-price" id="cat-price"></div>
+                    <p class="cat-desc" id="cat-desc"></p>
+                    <div class="cat-option" id="cat-option" hidden>
+                        <span class="cat-option-label" id="cat-option-label"></span>
+                        <div class="cat-option-btns" id="cat-option-btns"></div>
                     </div>
-                    <div class="product-info">
-                        <div class="product-header">
-                            <h2 class="product-title">Gorro Clásico</h2>
-                            <div class="product-price">$/ 20.00</div>
-                        </div>
-                        <div class="product-details">
-                            <p class="product-description">Gorro negro con bordado PANAQA y ajuste cómodo.</p>
-                            <div class="product-thumbs">
-                                <button type="button" class="thumb active" onclick="swapImage(this)" data-src="assets/gorra1.jpg"><img src="assets/gorra1.jpg" alt="Gorro Negro vista 1"></button>
-                                <button type="button" class="thumb" onclick="swapImage(this)" data-src="assets/gorro2.jpg"><img src="assets/gorro2.jpg" alt="Gorro Negro vista 2"></button>
-                                <button type="button" class="thumb" onclick="swapImage(this)" data-src="assets/gorro3.jpg"><img src="assets/gorro3.jpg" alt="Gorro Negro vista 3"></button>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/51907918581?text=Hola,%20quiero%20el%20Gorro%20Negro%20PANAQA" class="btn-primary">Pedir ahora</a>
-                            </div>
-                        </div>
+                    <a class="vhs-btn rec cat-buy" id="cat-buy" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> PEDIR POR WHATSAPP</a>
+                    <div class="cat-step">
+                        <button class="vhs-btn" id="cat-prev" aria-label="Producto anterior">◀</button>
+                        <button class="vhs-btn" id="cat-next" aria-label="Producto siguiente">▶</button>
                     </div>
-                </article>
+                </div>
 
-                <article class="product-card">
-                    <div class="product-top" onclick="openProductModal(this)">
-                        <img class="product-main-img" src="assets/disco1.jpg" alt="Disco Sesión en vivo PANAQA">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-header">
-                            <h2 class="product-title">Disco "Sesión en vivo"</h2>
-                            <div class="product-price">$/ 20.00</div>
-                        </div>
-                        <div class="product-details">
-                            <p class="product-description">Disco físico estilo sobre con portada exclusiva y audio directo desde el escenario.</p>
-                            <div class="product-thumbs">
-                                <button type="button" class="thumb active" onclick="swapImage(this)" data-src="assets/disco1.jpg"><img src="assets/disco1.jpg" alt="Disco Sesión en vivo vista 1"></button>
-                                <button type="button" class="thumb" onclick="swapImage(this)" data-src="assets/disco2.jpg"><img src="assets/disco2.jpg" alt="Disco Sesión en vivo vista 2"></button>
-                                <button type="button" class="thumb" onclick="swapImage(this)" data-src="assets/disco3.jpg"><img src="assets/disco3.jpg" alt="Disco Sesión en vivo vista 3"></button>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/51907918581?text=Hola,%20quiero%20el%20Disco%20Sesión%20en%20vivo" class="btn-primary">Pedir ahora</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                <!-- Lista -->
+                <div class="cat-list">
+                    <div class="guide-head"><span>ARTÍCULOS</span><span>PRECIO</span></div>
+                    <div id="cat-items" role="listbox" aria-label="Productos"></div>
+                </div>
+            </div>
+        </section>
 
-                <article class="product-card">
-                    <div class="product-top" onclick="openProductModal(this)">
-                        <img class="product-main-img" src="assets/uña1.jpg" alt="Uña Panaqa">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-header">
-                            <h2 class="product-title">Set de Uñas Panaqa</h2>
-                            <div class="product-price">$/ 15.00</div>
-                        </div>
-                        <div class="product-details">
-                            <p class="product-description">Set de 10 uñas con diseño PANAQA para un look extremo y personalizado.</p>
-                            <div class="product-thumbs">
-                                <button type="button" class="thumb active" onclick="swapImage(this)" data-src="assets/uña1.jpg"><img src="assets/uña1.jpg" alt="Uña Panaqa vista 1"></button>
-                                <button type="button" class="thumb" onclick="swapImage(this)" data-src="assets/uña2.jpg"><img src="assets/uña2.jpg" alt="Uña Panaqa vista 2"></button>
-                                <div></div>
-                            </div>
-                            <div class="product-actions">
-                                <a href="https://wa.me/51907918581?text=Hola,%20quiero%20la%20Uña%20Panaqa" class="btn-primary">Pedir ahora</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+        <!-- Información de envío -->
+        <section class="cat-notes" aria-label="Información de envío">
+            <div class="cat-note">
+                <i class="fas fa-truck" aria-hidden="true"></i>
+                <h3>Envío nacional</h3>
+                <p>Envío gratuito a todo el Perú mediante agentes como Shalom y Olva Courier.</p>
+            </div>
+            <div class="cat-note">
+                <i class="fas fa-earth-americas" aria-hidden="true"></i>
+                <h3>Envío internacional</h3>
+                <p>Consulta por nuestro envío internacional, tarifas y posibilidades.</p>
+            </div>
+            <div class="cat-note">
+                <i class="fas fa-bolt" aria-hidden="true"></i>
+                <h3>Diseño auténtico</h3>
+                <p>Productos oficiales PANAQA con ediciones visuales pensadas para fans reales.</p>
+            </div>
+        </section>
+    </main>
 
-                <article class="product-card poster-card">
-                    <div class="product-top" onclick="openProductModal(this)">
-                        <img id="poster-main-image" class="product-main-img" src="assets/poster1.jpg" alt="Poster Panaqa">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-header">
-                            <h2 class="product-title">Poster Panaqa</h2>
-                            <div class="product-price">$/ 10.00</div>
-                        </div>
-                        <div class="product-details">
-                            <p class="product-description">Imprime tu poster PANAQA en alta calidad con dos diseños exclusivos.</p>
-                            <label for="poster-selector" class="product-meta">Elige tu versión</label>
-                            <select id="poster-selector" class="product-select" onchange="updatePosterPreview(this)">
-                                <option value="assets/poster1.jpg" data-text="Poster Panaqa diseño 1">Diseño 1</option>
-                                <option value="assets/poster2.jpg" data-text="Poster Panaqa diseño 2">Diseño 2</option>
-                            </select>
-                            <div class="product-actions">
-                                <a id="poster-order-btn" href="https://wa.me/51907918581?text=Hola,%20quiero%20el%20Poster%20Panaqa%20diseño%201" class="btn-primary">Pedir ahora</a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-box">
-                    <h3>Envío internacional</h3>
-                    <p>Consulta por nuestro envío internacional, tarifas y posibilidades.</p>
-                </div>
-                <div class="info-box">
-                    <h3>Envío nacional</h3>
-                    <p>Envío gratuito a todo el Perú  mediante agentes de envío como Shalom y Olva Courier.</p>
-                </div>
-                <div class="info-box">
-                    <h3>Diseño auténtico</h3>
-                    <p>Productos oficiales PANAQA con estampados valvulados y ediciones visuales pensadas para fans reales.</p>
+    <footer>
+        <div class="bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="bars-low" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="end">
+            <div>
+                <div class="end-title">Fin de la<br>transmisión</div>
+                <div class="end-social">
+                    <a href="https://www.instagram.com/panaqa_peru" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://open.spotify.com/intl-es/artist/3jOkrHvv6NoOXO5w19yki7" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+                    <a href="https://www.youtube.com/panaqa" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@panaqa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/Panaqaperu" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
-    <div id="product-modal" class="product-modal" aria-hidden="true">
-        <div class="modal-window">
-            <div class="modal-header">
-                <h3 id="modal-title">Producto</h3>
-                <button type="button" class="modal-close" onclick="closeProductModal()" aria-label="Cerrar modal">✕</button>
+            <div>
+                <h4>CONTRATACIONES</h4>
+                <a href="mailto:contacto@panaqa.com">CONTACTO@PANAQA.COM</a>
+                <a href="tel:+51907918581">+51 907 918 581</a>
             </div>
-            <div class="modal-left">
-                <img id="modal-main-image" class="modal-main-image" src="" alt="Vista del producto">
+            <div>
+                <h4>CANALES</h4>
+                <a href="./">INICIO</a>
+                <a href="letras.html">LETRAS</a>
+                <a href="./#ch5">FECHAS</a>
             </div>
-            <div class="modal-right">
-                <div class="modal-body">
-                    <p class="modal-label" id="modal-price">Precio</p>
-                    <p class="modal-text" id="modal-description"></p>
-                    <div class="modal-size-row" id="modal-size-row">
-                        <label class="modal-label" for="modal-size-select">Talla</label>
-                        <select id="modal-size-select" class="modal-select"></select>
-                    </div>
-                    <div class="modal-thumbs" id="modal-thumbs"></div>
-                    <div class="modal-actions">
-                        <a id="modal-order-link" class="btn-primary" href="#">Pedir ahora</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="assets/logonegro.png" alt="PANAQA Logo" class="footer-logo-image">
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/Panaqa_peru" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/Panaqaperu" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.youtube.com/panaqa" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="www.tiktok.com/@panaqa" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://open.spotify.com/intl-es/artist/3jOkrHvv6NoOXO5w19yki7?si=Rp7eDcJUQo2dNYi12ye7Jg" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces</h4>
-                    <ul>
-                        <li><a href="index.html#music">Música</a></li>
-                        <li><a href="index.html#tour">Presentaciones</a></li>
-                        <li><a href="index.html#merch">Productos</a></li>
-                        <li><a href="index.html#about">Nosotros</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Más Información</h4>
-                    <ul>
-                        <li><a href="#" id="contact-link">Contacto</a></li>
-                        <li><a href="#" id="privacy-link">Política de Privacidad</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 PANAQA. Todos los derechos reservados.</p>
-            </div>
+            <div class="end-bottom"><span>© 2026 PANAQA</span><span>NU METAL — PERÚ</span></div>
         </div>
     </footer>
 
-    <script>
-        function openProductModal(element) {
-            var card = element.closest('.product-card');
-            var title = card.querySelector('.product-title').textContent;
-            var price = card.querySelector('.product-price').textContent;
-            var description = card.querySelector('.product-description').textContent;
-            var orderLink = card.querySelector('.btn-primary').href;
-            var mainImage = card.querySelector('.product-main-img').src;
-            var thumbButtons = card.querySelectorAll('.thumb');
-            var sizeSelect = card.querySelector('.product-select');
-
-            document.getElementById('modal-title').textContent = title;
-            document.getElementById('modal-price').textContent = price;
-            document.getElementById('modal-description').textContent = description;
-            document.getElementById('modal-main-image').src = mainImage;
-            document.getElementById('modal-main-image').alt = title;
-            document.getElementById('modal-order-link').href = orderLink;
-
-            var modalSize = document.getElementById('modal-size-select');
-            var modalSizeRow = document.getElementById('modal-size-row');
-            modalSize.innerHTML = '';
-            if (sizeSelect && sizeSelect.options.length > 0) {
-                sizeSelect.querySelectorAll('option').forEach(function(option) {
-                    var item = document.createElement('option');
-                    item.value = option.value;
-                    item.textContent = option.textContent;
-                    modalSize.appendChild(item);
-                });
-                modalSize.onchange = function() {
-                    updatePosterPreview(this, card);
-                };
-                if (modalSizeRow) {
-                    modalSizeRow.style.display = 'grid';
-                }
-            } else if (modalSizeRow) {
-                modalSizeRow.style.display = 'none';
-            }
-
-            var modalThumbs = document.getElementById('modal-thumbs');
-            modalThumbs.innerHTML = '';
-            thumbButtons.forEach(function(button) {
-                var thumb = button.cloneNode(true);
-                thumb.classList.add('modal-thumb');
-                thumb.classList.remove('active');
-                thumb.onclick = function() {
-                    document.getElementById('modal-main-image').src = thumb.getAttribute('data-src');
-                    modalThumbs.querySelectorAll('.modal-thumb').forEach(function(item) {
-                        item.classList.remove('active');
-                    });
-                    thumb.classList.add('active');
-                };
-                modalThumbs.appendChild(thumb);
-            });
-
-            document.getElementById('product-modal').classList.add('show');
-            document.getElementById('product-modal').removeAttribute('aria-hidden');
-        }
-
-        function closeProductModal() {
-            var modal = document.getElementById('product-modal');
-            modal.classList.remove('show');
-            modal.setAttribute('aria-hidden', 'true');
-        }
-
-        document.getElementById('product-modal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                closeProductModal();
-            }
-        });
-
-        function swapImage(button) {
-            var card = button.closest('.product-card');
-            var mainImage = card.querySelector('.product-main-img');
-            var thumbButtons = card.querySelectorAll('.thumb');
-            thumbButtons.forEach(function(item) {
-                item.classList.remove('active');
-            });
-            button.classList.add('active');
-            mainImage.src = button.getAttribute('data-src');
-        }
-
-        function updatePosterPreview(select, posterCard) {
-            var selectedOption = select.options[select.selectedIndex];
-            var imageSrc = selectedOption.value;
-            var productText = selectedOption.getAttribute('data-text');
-            var cacheBustedSrc = imageSrc + '?v=' + Date.now();
-            var posterImage = posterCard && posterCard.classList.contains('poster-card') ? posterCard.querySelector('.product-main-img') : document.getElementById('poster-main-image');
-            var posterButton = document.getElementById('poster-order-btn');
-
-            if (posterImage) {
-                posterImage.src = cacheBustedSrc;
-                posterImage.alt = productText;
-            }
-
-            if (posterButton) {
-                posterButton.href = 'https://wa.me/51907918581?text=' + encodeURIComponent('Hola, quiero el ' + productText);
-            }
-
-            var modalImage = document.getElementById('modal-main-image');
-            if (modalImage && document.getElementById('product-modal').classList.contains('show')) {
-                modalImage.src = cacheBustedSrc;
-                modalImage.alt = productText;
-            }
-        }
-    </script>
-    <!-- Modal para información de contacto -->
-    <div id="contact-modal" class="contact-modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <h3>Información de Contacto</h3>
-            <div class="contact-info">
-                <p><strong>Para contratos y presskit:</strong></p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:panaqaband@gmail.com">panaqaband@gmail.com</a></p>
-                <p><i class="fas fa-phone"></i> <a href="tel:+51907918581">+51 907 918 581</a></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal para política de privacidad -->
-    <div id="privacy-modal" class="privacy-modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <h3>Política de Privacidad</h3>
-            <div class="privacy-content">
-                <p><strong>Última actualización:</strong> Febrero 2026</p>
-                <h4>1. Información que recopilamos</h4>
-                <p>PANAQA recopila información cuando visitas nuestro sitio web, te suscribes a nuestros servicios, participas en nuestras comunidades o interactúas con nuestro contenido.</p>
-                <h4>2. Cómo utilizamos tu información</h4>
-                <p>Utilizamos la información recopilada para:</p>
-                <ul>
-                    <li>Mejorar nuestros servicios y experiencia del usuario</li>
-                    <li>Enviar actualizaciones sobre conciertos y lanzamientos</li>
-                    <li>Responder a consultas y proporcionar soporte</li>
-                    <li>Personalizar contenido y recomendaciones</li>
-                </ul>
-                <h4>3. Compartir información</h4>
-                <p>No vendemos, intercambiamos ni transferimos tu información personal a terceros sin tu consentimiento, excepto cuando sea necesario para proporcionar nuestros servicios.</p>
-                <h4>4. Cookies y tecnologías similares</h4>
-                <p>Utilizamos cookies para mejorar tu experiencia de navegación y analizar el tráfico del sitio web.</p>
-                <h4>5. Seguridad</h4>
-                <p>Implementamos medidas de seguridad apropiadas para proteger tu información personal contra acceso no autorizado, alteración o divulgación.</p>
-                <h4>6. Tus derechos</h4>
-                <p>Tienes derecho a acceder, actualizar o eliminar tu información personal. Para ejercer estos derechos, contáctanos en panaqaband@gmail.com</p>
-                <h4>7. Contacto</h4>
-                <p>Si tienes preguntas sobre esta política de privacidad, contáctanos:</p>
-                <p>Email: panaqaband@gmail.com<br>Teléfono: +51 907 918 581</p>
-            </div>
-        </div>
-    </div>
-
-    <script src="script-estreno-15agosto.js?v=20261005b"></script>
+    <script src="v2.js?v=3"></script>
+    <script src="merch-v2.js?v=1"></script>
 </body>
 </html>

@@ -1,89 +1,18 @@
-const CACHE_NAME = 'panaqa-v18-2026-10-05b';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/styles-estreno-15agosto.css?v=20261005b',
-  '/script-estreno-15agosto.js?v=20261005b',
-  '/letras.html',
-  '/letras.js?v=20261005b',
-  '/script-letras-safe.js?v=20261005b',
-  '/manifest.json',
-  'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
-];
-
-// Instalación del Service Worker
-self.addEventListener('install', function(event) {
+/* PANAQA — service worker de retiro.
+   La web anterior instalaba un service worker con caché. Este archivo lo
+   reemplaza: borra todas las cachés viejas, se desinstala y recarga las
+   pestañas abiertas para que todos vean la versión nueva del sitio.
+   La web nueva ya no registra ningún service worker. */
+self.addEventListener('install', function () {
   self.skipWaiting();
+});
+
+self.addEventListener('activate', function (event) {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(urlsToCache);
-    })
+    caches.keys()
+      .then(function (names) { return Promise.all(names.map(function (n) { return caches.delete(n); })); })
+      .then(function () { return self.registration.unregister(); })
+      .then(function () { return self.clients.matchAll({ type: 'window' }); })
+      .then(function (clients) { clients.forEach(function (c) { c.navigate(c.url); }); })
   );
-});
-
-// Activación del Service Worker
-self.addEventListener('activate', function(event) {
-  event.waitUntil(
-    Promise.all([
-      // Limpiar cachés viejos
-      caches.keys().then(function(cacheNames) {
-        return Promise.all(
-          cacheNames.map(function(cacheName) {
-            if (cacheName !== CACHE_NAME) return caches.delete(cacheName);
-          })
-        );
-      }),
-      // Tomar control de todos los clientes inmediatamente
-      clients.claim()
-    ]).then(function() {
-      // Forzar recarga de todas las pestañas abiertas con contenido antiguo
-      return clients.matchAll({ type: 'window' }).then(function(clientList) {
-        clientList.forEach(function(client) {
-          client.navigate(client.url);
-        });
-      });
-    })
-  );
-});
-
-// Interceptar peticiones de red
-self.addEventListener('fetch', function(event) {
-  const url = new URL(event.request.url);
-
-  // Para archivos externos (fonts, CDN) usar cache-first
-  if (!url.origin.includes(self.location.hostname)) {
-    event.respondWith(
-      caches.match(event.request).then(function(cached) {
-        return cached || fetch(event.request).then(function(response) {
-          if (response && response.status === 200 && response.type === 'basic') {
-            var clone = response.clone();
-            caches.open(CACHE_NAME).then(function(cache) { cache.put(event.request, clone); });
-          }
-          return response;
-        });
-      })
-    );
-    return;
-  }
-
-  // Para archivos propios: network-first para asegurar actualizaciones inmediatas
-  event.respondWith(
-    fetch(event.request).then(function(response) {
-      if (response && response.status === 200) {
-        var clone = response.clone();
-        caches.open(CACHE_NAME).then(function(cache) { cache.put(event.request, clone); });
-      }
-      return response;
-    }).catch(function() {
-      return caches.match(event.request);
-    })
-  );
-});
-
-// Manejar mensajes del cliente
-self.addEventListener('message', function(event) {
-  if (event.data.action === 'skipWaiting') {
-    self.skipWaiting();
-  }
 });

@@ -1,0 +1,37 @@
+{
+  "fechas": [
+    {
+      "fecha": "2026-04-04",
+      "por_confirmar": false,
+      "lugar": "Locación secreta",
+      "ciudad": "Cusco, Perú",
+      "invitados": "WarakaPunk + grupos locales",
+      "nota": "",
+      "boton": "entradas",
+      "mensaje": "Hola, quiero entradas para Cusco 04 de abril",
+      "enlace": ""
+    },
+    {
+      "fecha": "2026-05-02",
+      "por_confirmar": false,
+      "lugar": "CC. Festiva",
+      "ciudad": "Centro de Lima",
+      "invitados": "Varios artistas",
+      "nota": "",
+      "boton": "entradas",
+      "mensaje": "Hola, quiero entradas para CC. Festiva 02 de mayo",
+      "enlace": ""
+    },
+    {
+      "fecha": "",
+      "por_confirmar": true,
+      "lugar": "Asiste a un ensayo",
+      "ciudad": "Lima, Perú",
+      "invitados": "",
+      "nota": "Fechas cada mes",
+      "boton": "consultar",
+      "mensaje": "Hola, quiero consultar sobre sus ensayos",
+      "enlace": ""
+    }
+  ]
+}

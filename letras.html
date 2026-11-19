@@ -3,341 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>PANAQA - Letras de Canciones</title>
-    <meta name="description" content="Letras completas de todas las canciones de PANAQA. Descubre el mensaje detrás de cada tema y conecta con la resistencia.">
-    <meta name="keywords" content="PANAQA, letras, canciones, nu metal, resistencia, qumbia, somos, impostor">
-    <meta name="author" content="PANAQA">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="PANAQA - Letras de Canciones">
-    <meta property="og:description" content="Letras completas de todas las canciones de PANAQA">
-    <meta property="og:image" content="assets/panaqa-grupal.jpg?v=20261007">
-    <meta property="og:url" content="https://panaqa.net/letras.html">
-    <meta property="og:type" content="website">
-    
-    <!-- Icons -->
+    <title>PANAQA — Letras</title>
+    <meta name="description" content="Letras de las canciones de PANAQA: Caso Omiso, Impostor, Águila, Somos, Qumbia y más.">
+    <meta name="theme-color" content="#050505">
+    <meta property="og:title" content="PANAQA — Letras">
+    <meta property="og:description" content="Todas las letras de PANAQA en teletexto.">
+    <meta property="og:image" content="https://panaqa.net/assets/omiso.jpeg">
     <link rel="icon" type="image/png" href="assets/logonegro.png">
-    <link rel="manifest" href="manifest.json">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles-estreno-15agosto.css?v=20261005b">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="v2.css?v=2">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-left">
-                <div class="nav-toggle" id="nav-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-            <div class="nav-logo">
-                <a href="index.html">
-                    <img src="assets/logonegro.png" alt="PANAQA Logo" class="logo-image">
-                </a>
-            </div>
-            <div class="nav-right">
-                <button id="lang-toggle" class="lang-button" type="button">
-                    <span class="lang-flag lang-flag-us" aria-hidden="true"></span>
-                    <span class="lang-flag lang-flag-pe" aria-hidden="true"></span>
-                    <span class="lang-flag lang-flag-zh" aria-hidden="true"></span>
-                    <span class="lang-label">EN</span>
-                </button>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="index.html#home" class="nav-link">Inicio</a>
-                <a href="index.html#music" class="nav-link">Música</a>
-                <a href="index.html#tour" class="nav-link">Presentaciones</a>
-                <a href="index.html#merch" class="nav-link">Merch</a>
-                <a href="index.html#about" class="nav-link">Nosotros</a>
-                <a href="letras.html" class="nav-link active">Letras</a>
-            </div>
+<body class="sub">
+
+    <div class="scanlines" aria-hidden="true"></div>
+    <canvas class="noise" id="noise" aria-hidden="true"></canvas>
+    <canvas class="flash" id="flash" aria-hidden="true"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <header class="osd solid" id="osd">
+        <div class="osd-ch" aria-live="polite"><b id="osd-num">CH LT</b><span id="osd-name">LETRAS</span></div>
+        <a href="./" class="osd-logo" aria-label="PANAQA inicio"><img src="assets/logoblanco.png" alt="PANAQA"></a>
+        <div class="osd-right">
+            <button class="lang-btn" id="lang-btn" aria-label="Cambiar idioma"><span class="lang-opt" data-lang="es">ES</span><span class="lang-opt" data-lang="en">EN</span><span class="lang-opt" data-lang="zh">中</span></button>
+            <button class="osd-menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu">MENÚ ☰</button>
         </div>
+    </header>
+
+    <nav class="menu" id="menu" aria-label="Menú principal">
+        <button class="osd-menu-btn menu-close" id="menu-close">CERRAR ✕</button>
+        <ul class="menu-list">
+            <li>
+                <a class="menu-main" href="./#ch1">INICIO</a>
+                <div class="menu-sub"><a href="./#ch1"><small>CH 01</small> Caso Omiso</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch2">MÚSICA</a>
+                <div class="menu-sub"><a href="./#ch2"><small>CH 02</small> Discografía</a><a href="./#ch3"><small>CH 03</small> En vivo</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch4">ESTRENOS</a>
+                <div class="menu-sub"><a href="./#ch1"><small>CH 01</small> Caso Omiso</a><a href="./#ch4"><small>CH 04</small> La Yapita</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch7">HISTORIA</a>
+                <div class="menu-sub"><a href="./#ch7"><small>CH 07</small> La banda</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch8">COMUNIDAD</a>
+                <div class="menu-sub"><a href="./#ch5"><small>CH 05</small> Fechas</a><a href="./#ch8"><small>CH 08</small> La Resistencia</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="merch.html">MERCH</a>
+                <div class="menu-sub"><a href="./#ch6"><small>CH 06</small> Teletienda</a><a href="merch.html"><small>CAT</small> Catálogo completo</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="letras.html">LETRAS</a>
+                <div class="menu-sub"><a href="letras.html"><small>TXT</small> Todas las canciones</a></div>
+            </li>
+        </ul>
     </nav>
 
-    <!-- Letras Section -->
-    <section class="letras-section">
-        <div class="container">
-            <h1 class="section-title">LETRAS DE CANCIONES</h1>
-            <p class="letras-intro">Descubre las letras completas de nuestras canciones. Cada palabra tiene un significado, cada verso cuenta una historia de resistencia y esperanza.</p>
-            
-            <!-- Singles actuales -->
-            <h2 class="lyrics-group-title">SINGLES</h2>
-            <div class="songs-grid">
-                <div class="song-card" data-song="caso-omiso">
-                    <div class="song-image">
-                        <img src="assets/omiso.jpeg" alt="Caso Omiso">
-                        <div class="song-overlay">
-                            <i class="fas fa-music"></i>
-                        </div>
-                    </div>
-                    <div class="song-info">
-                        <h3>Caso Omiso</h3>
-                        <p>Single - 2026</p>
-                        <button class="btn btn-primary song-btn">VER LETRA</button>
-                    </div>
-                </div>
-            </div>
+    <main>
+        <section class="ch" id="teletexto" data-ch="LT" data-name="LETRAS">
+            <div class="ch-label"><i>■</i> TELETEXTO — PÁGINA 100</div>
+            <h1 class="ch-title rgb">Letras</h1>
 
-            <!-- Disco: Sesión en vivo -->
-            <h2 class="lyrics-group-title">SESIÓN EN VIVO</h2>
-            <div class="songs-grid">
-                <div class="song-card" data-song="qumbia">
-                    <div class="song-image">
-                        <img src="assets/panaqa-live..jpg" alt="Qumbia">
-                        <div class="song-overlay">
-                            <i class="fas fa-music"></i>
-                        </div>
+            <div class="ttx">
+                <!-- Columna lateral: índice + monitor de video (fija en escritorio) -->
+                <aside class="ttx-side">
+                    <nav class="ttx-index" id="ttx-index" aria-label="Canciones"></nav>
+                    <div class="ttx-video" id="ttx-video" hidden>
+                        <div class="ttx-video-bar" id="ttx-video-bar"><span><span class="ttx-grip" aria-hidden="true">⠿</span><span class="blink" style="color:var(--rec)">●</span> EN REPRODUCCIÓN</span><button type="button" class="ttx-video-close" id="ttx-video-close" aria-label="Cerrar video">✕</button></div>
+                        <div class="ttx-video-frame" id="ttx-video-frame"></div>
                     </div>
-                    <div class="song-info">
-                        <h3>Qumbia</h3>
-                        <p>EP Sesión en vivo - 2025</p>
-                        <button class="btn btn-primary song-btn">VER LETRA</button>
-                    </div>
-                </div>
+                </aside>
 
-                <div class="song-card" data-song="somos">
-                    <div class="song-image">
-                        <img src="assets/panaqa-live..jpg" alt="Somos">
-                        <div class="song-overlay">
-                            <i class="fas fa-music"></i>
-                        </div>
-                    </div>
-                    <div class="song-info">
-                        <h3>Somos</h3>
-                        <p>EP Sesión en vivo - 2025</p>
-                        <button class="btn btn-primary song-btn">VER LETRA</button>
-                    </div>
-                </div>
-
-                <div class="song-card" data-song="impostor">
-                    <div class="song-image">
-                        <img src="assets/panaqa-live..jpg" alt="Impostor">
-                        <div class="song-overlay">
-                            <i class="fas fa-music"></i>
-                        </div>
-                    </div>
-                    <div class="song-info">
-                        <h3>Impostor</h3>
-                        <p>EP Sesión en vivo - 2025</p>
-                        <button class="btn btn-primary song-btn">VER LETRA</button>
-                    </div>
-                </div>
-
-                <div class="song-card" data-song="octágono">
-                    <div class="song-image">
-                        <img src="assets/panaqa-live..jpg" alt="Octágono">
-                        <div class="song-overlay">
-                            <i class="fas fa-music"></i>
-                        </div>
-                    </div>
-                    <div class="song-info">
-                        <h3>Octágono</h3>
-                        <p>EP Sesión en vivo - 2025</p>
-                        <button class="btn btn-primary song-btn">VER LETRA</button>
-                    </div>
-                </div>
-
-                <div class="song-card" data-song="panaqa-real">
-                    <div class="song-image">
-                        <img src="assets/panaqa-live..jpg" alt="Panaqa Real">
-                        <div class="song-overlay">
-                            <i class="fas fa-music"></i>
-                        </div>
-                    </div>
-                    <div class="song-info">
-                        <h3>Panaqa Real</h3>
-                        <p>EP Sesión en vivo - 2025</p>
-                        <button class="btn btn-primary song-btn">VER LETRA</button>
-                    </div>
-                </div>
-
-                <div class="song-card" data-song="préndelo">
-                    <div class="song-image">
-                        <img src="assets/panaqa-live..jpg" alt="Préndelo">
-                        <div class="song-overlay">
-                            <i class="fas fa-music"></i>
-                        </div>
-                    </div>
-                    <div class="song-info">
-                        <h3>Préndelo</h3>
-                        <p>EP Sesión en vivo - 2025</p>
-                        <button class="btn btn-primary song-btn">VER LETRA</button>
-                    </div>
-                </div>
-
-                <div class="song-card" data-song="águila">
-                    <div class="song-image">
-                        <img src="assets/panaqa-live..jpg" alt="Águila">
-                        <div class="song-overlay">
-                            <i class="fas fa-music"></i>
-                        </div>
-                    </div>
-                    <div class="song-info">
-                        <h3>Águila</h3>
-                        <p>EP Sesión en vivo - 2025</p>
-                        <button class="btn btn-primary song-btn">VER LETRA</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Disco: Panaqa -->
-            <h2 class="lyrics-group-title">PANAQA</h2>
-            <div class="songs-grid">
-                <div class="song-card song-card-soon">
-                    <div class="song-image">
-                        <img src="assets/panaqa-disco.jpg" alt="Disco Panaqa">
-                        <div class="song-overlay">
-                            <i class="fas fa-music"></i>
-                        </div>
-                    </div>
-                    <div class="song-info">
-                        <h3>Disco Panaqa</h3>
-                        <p>EP - 2024</p>
-                        <button class="btn btn-primary song-btn" disabled>PRÓXIMAMENTE</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal para mostrar letras -->
-    <div id="lyrics-modal" class="lyrics-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title-section">
-                    <h3 id="modal-song-title">Título de la Canción</h3>
-                    <button id="play-btn" class="play-text-btn">
-                        <i class="fas fa-play" id="play-icon"></i> Click aquí para escuchar
-                    </button>
-                </div>
-                <span class="modal-close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <!-- Reproductor de YouTube -->
-                <div id="youtube-player-container" class="youtube-player-container" style="display: none;">
-                    <div id="youtube-player"></div>
-                    <div class="player-controls">
-                        <button id="player-play-pause" class="control-btn">
-                            <i class="fas fa-pause"></i>
-                        </button>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-fill" id="progress-fill"></div>
+                <!-- Pantalla de teletexto -->
+                <div class="crt ttx-crt" id="ttx-crt">
+                    <div class="ttx-screen">
+                        <div class="ttx-top">
+                            <div class="ttx-bar">
+                                <span><b id="ttx-page">P101</b> PANAQA TXT</span>
+                                <span id="ttx-clock"></span>
                             </div>
-                            <span class="time-display" id="time-display">0:00 / 0:00</span>
+                            <div class="ttx-head">
+                                <div class="ttx-head-main">
+                                    <div class="ttx-group" id="ttx-group"></div>
+                                    <h2 class="ttx-title" id="ttx-title"></h2>
+                                    <!-- En celular el título se reemplaza por este selector -->
+                                    <label class="sr-only" for="ttx-select">Elegir canción</label>
+                                    <select class="ttx-select" id="ttx-select"></select>
+                                </div>
+                                <button class="vhs-btn rec ttx-play" id="ttx-play" aria-pressed="false">▶ ESCUCHAR</button>
+                            </div>
                         </div>
-                        <button id="player-volume" class="control-btn">
-                            <i class="fas fa-volume-up"></i>
-                        </button>
+                        <div class="ttx-lyrics" id="ttx-lyrics" aria-live="polite"></div>
+                        <div class="ttx-foot">
+                            <button class="ttx-key red" id="ttx-prev">◀ ANTERIOR</button>
+                            <span class="ttx-key green" id="ttx-count"></span>
+                            <button class="ttx-key yellow" id="ttx-next">SIGUIENTE ▶</button>
+                        </div>
                     </div>
-                </div>
-                
-                <div id="modal-lyrics-content" class="lyrics-content">
-                    <!-- Las letras se cargarán aquí -->
+                    <span class="crt-led" aria-hidden="true"></span>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="assets/logonegro.png" alt="PANAQA Logo" class="footer-logo-image">
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/Panaqa_peru" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/Panaqaperu" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.youtube.com/panaqa" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="www.tiktok.com/@panaqa" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://open.spotify.com/intl-es/artist/3jOkrHvv6NoOXO5w19yki7?si=Rp7eDcJUQo2dNYi12ye7Jg" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces</h4>
-                    <ul>
-                        <li><a href="index.html#music">Música</a></li>
-                        <li><a href="index.html#tour">Presentaciones</a></li>
-                        <li><a href="index.html#merch">Productos</a></li>
-                        <li><a href="index.html#about">Nosotros</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Más Información</h4>
-                    <ul>
-                        <li><a href="#" id="contact-link">Contacto</a></li>
-                        <li><a href="#" id="privacy-link">Política de Privacidad</a></li>
-                    </ul>
+    <footer>
+        <div class="bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="bars-low" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="end">
+            <div>
+                <div class="end-title">Fin de la<br>transmisión</div>
+                <div class="end-social">
+                    <a href="https://www.instagram.com/panaqa_peru" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://open.spotify.com/intl-es/artist/3jOkrHvv6NoOXO5w19yki7" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+                    <a href="https://www.youtube.com/panaqa" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@panaqa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/Panaqaperu" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 PANAQA. Todos los derechos reservados.</p>
+            <div>
+                <h4>CONTRATACIONES</h4>
+                <a href="mailto:contacto@panaqa.com">CONTACTO@PANAQA.COM</a>
+                <a href="tel:+51907918581">+51 907 918 581</a>
             </div>
+            <div>
+                <h4>CANALES</h4>
+                <a href="./">INICIO</a>
+                <a href="merch.html">MERCH</a>
+                <a href="./#ch5">FECHAS</a>
+            </div>
+            <div class="end-bottom"><span>© 2026 PANAQA</span><span>NU METAL — PERÚ</span></div>
         </div>
     </footer>
 
-    <!-- YouTube API -->
-    <!-- Modal para información de contacto -->
-    <div id="contact-modal" class="contact-modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <h3>Información de Contacto</h3>
-            <div class="contact-info">
-                <p><strong>Para contratos y presskit:</strong></p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:panaqaband@gmail.com">panaqaband@gmail.com</a></p>
-                <p><i class="fas fa-phone"></i> <a href="tel:+51907918581">+51 907 918 581</a></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal para política de privacidad -->
-    <div id="privacy-modal" class="privacy-modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <h3>Política de Privacidad</h3>
-            <div class="privacy-content">
-                <p><strong>Última actualización:</strong> Febrero 2026</p>
-                <h4>1. Información que recopilamos</h4>
-                <p>PANAQA recopila información cuando visitas nuestro sitio web, te suscribes a nuestros servicios, participas en nuestras comunidades o interactúas con nuestro contenido.</p>
-                <h4>2. Cómo utilizamos tu información</h4>
-                <p>Utilizamos la información recopilada para:</p>
-                <ul>
-                    <li>Mejorar nuestros servicios y experiencia del usuario</li>
-                    <li>Enviar actualizaciones sobre conciertos y lanzamientos</li>
-                    <li>Responder a consultas y proporcionar soporte</li>
-                    <li>Personalizar contenido y recomendaciones</li>
-                </ul>
-                <h4>3. Compartir información</h4>
-                <p>No vendemos, intercambiamos ni transferimos tu información personal a terceros sin tu consentimiento, excepto cuando sea necesario para proporcionar nuestros servicios.</p>
-                <h4>4. Cookies y tecnologías similares</h4>
-                <p>Utilizamos cookies para mejorar tu experiencia de navegación y analizar el tráfico del sitio web.</p>
-                <h4>5. Seguridad</h4>
-                <p>Implementamos medidas de seguridad apropiadas para proteger tu información personal contra acceso no autorizado, alteración o divulgación.</p>
-                <h4>6. Tus derechos</h4>
-                <p>Tienes derecho a acceder, actualizar o eliminar tu información personal. Para ejercer estos derechos, contáctanos en panaqaband@gmail.com</p>
-                <h4>7. Contacto</h4>
-                <p>Si tienes preguntas sobre esta política de privacidad, contáctanos:</p>
-                <p>Email: panaqaband@gmail.com<br>Teléfono: +51 907 918 581</p>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <!-- Script seguro sin cache busting problemático -->
-    <script src="script-letras-safe.js?v=20261005b"></script>
-    <script src="letras.js?v=20261005b"></script>
-    <script src="script-estreno-15agosto.js?v=20261005b"></script>
+    <script src="v2.js?v=3"></script>
+    <script src="letras-data.js?v=1"></script>
+    <script src="letras-v2.js?v=1"></script>
 </body>
 </html>
