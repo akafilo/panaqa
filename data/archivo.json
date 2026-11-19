@@ -1,24 +1,14 @@
 {
   "cintas": [
     {
-      "etiqueta": "caso omiso",
-      "youtube": "https://www.youtube.com/watch?v=EArbmlM4Mqk",
-      "fecha": "",
-      "detalle": "Videoclip oficial",
-      "franja": "rojo-amarillo",
-      "papel": "papel",
+      "etiqueta": "Archivos Panaqa Cap. 1",
+      "youtube": "https://youtu.be/sZ2lhtgggUQ?si=vD2QjSQYnXJhxbsg",
+      "fecha": "2026-06-24",
+      "detalle": "Cap. 1",
+      "franja": "verde-amarillo",
+      "papel": "embalaje",
       "letra": "plumon",
-      "inclinada": false
-    },
-    {
-      "etiqueta": "impostor",
-      "youtube": "https://www.youtube.com/watch?v=Av9CaVcHFHs",
-      "fecha": "",
-      "detalle": "Sesión en vivo",
-      "franja": "ninguna",
-      "papel": "viejo",
-      "letra": "plumon",
-      "inclinada": false
+      "inclinada": true
     },
     {
       "etiqueta": "águila !!",
@@ -68,6 +58,16 @@
       "franja": "ninguna",
       "papel": "embalaje",
       "letra": "manuscrita",
+      "inclinada": false
+    },
+    {
+      "etiqueta": "caso omiso",
+      "youtube": "https://www.youtube.com/watch?v=EArbmlM4Mqk",
+      "fecha": "",
+      "detalle": "Videoclip oficial",
+      "franja": "rojo-amarillo",
+      "papel": "papel",
+      "letra": "plumon",
       "inclinada": false
     }
   ]
