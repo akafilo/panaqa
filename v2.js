@@ -403,8 +403,27 @@
             yapitaCover.classList.add('off');
             if (coverLoop) setTimeout(function () { coverLoop.stop(); }, 600);
         };
+        /* Botón de sonido debajo del televisor */
+        var soundBtn = document.getElementById('yapita-sound');
+        var soundLabel = document.getElementById('yapita-sound-label');
+        var yapitaPlayer = null;
+        var setSoundUI = function (on) {
+            soundBtn.setAttribute('aria-pressed', String(on));
+            soundLabel.textContent = t(on ? 'SONIDO ON' : 'SONIDO OFF');
+        };
+        if (soundBtn) {
+            soundBtn.addEventListener('click', function () {
+                if (!yapitaPlayer) return;
+                var on = soundBtn.getAttribute('aria-pressed') !== 'true';
+                try {
+                    if (on) { yapitaPlayer.unMute(); yapitaPlayer.setVolume(80); yapitaPlayer.playVideo(); }
+                    else { yapitaPlayer.mute(); }
+                } catch (e) {}
+                setSoundUI(on);
+            });
+        }
         var createYapita = function () {
-            var player = new YT.Player('yapita-player', {
+            var player = yapitaPlayer = new YT.Player('yapita-player', {
                 host: 'https://www.youtube-nocookie.com',
                 videoId: yapitaHost.getAttribute('data-video'),
                 playerVars: {
@@ -417,6 +436,7 @@
                         e.target.mute();
                         killCaptions(e.target);
                         e.target.playVideo();
+                        if (soundBtn) soundBtn.disabled = false;
                     },
                     onStateChange: function (e) {
                         if (e.data === YT.PlayerState.PLAYING) {

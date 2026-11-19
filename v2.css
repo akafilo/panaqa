@@ -568,6 +568,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     cursor: default;
 }
 .yapita .crt-osd { z-index: 3; pointer-events: none; }
+.yapita-controls { display: flex; justify-content: center; margin-top: 16px; }
+.yapita-controls .vol-btn { font-size: 19px; padding: 8px 18px; }
+.vol-btn:disabled { opacity: .45; cursor: wait; }
 .alert p { font-family: var(--osd); font-size: clamp(19px, 1.8vw, 22px); letter-spacing: 1px; color: var(--ink); max-width: 46ch; margin-bottom: 28px; }
 
 /* ---------- Fin de transmisión ---------- */
@@ -629,7 +632,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     #ch3 .tape { height: clamp(300px, var(--avail), 760px); width: auto; aspect-ratio: 9 / 16; }
 
     /* CH 04 · La Yapita: TV 16:9 limitado por la altura */
-    #ch4 .yapita { width: min(100%, calc(var(--avail) * 16 / 9 + 40px)); }
+    #ch4 .yapita { width: min(100%, calc((var(--avail) - 62px) * 16 / 9 + 40px)); }
 
     /* CH 05 · Fechas: filas más compactas */
     #ch5 .show { padding: clamp(12px, 2vh, 22px) 0; }
