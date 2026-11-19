@@ -1,6 +1,6 @@
 # Panel de administración de PANAQA
 
-En **https://panaqa.net/admin** se pueden editar, sin tocar código:
+En **https://www.panaqa.com/admin** se pueden editar, sin tocar código:
 
 | Sección del panel | Qué cambia en la web | Archivo |
 |---|---|---|
@@ -8,7 +8,7 @@ En **https://panaqa.net/admin** se pueden editar, sin tocar código:
 | **Teletienda** | Catálogo de *Merch* y la Teletienda de la portada (productos destacados) | `data/merch.json` |
 | **Ajustes** | Número de WhatsApp y si se ocultan las fechas pasadas | `data/ajustes.json` |
 
-Cada vez que se pulsa **Publicar**, el panel guarda el cambio en GitHub (rama `main`) y Netlify actualiza panaqa.net en 1–2 minutos.
+Cada vez que se pulsa **Publicar**, el panel guarda el cambio en GitHub (rama `main`) y Netlify actualiza www.panaqa.com en 1–2 minutos.
 
 ---
 
@@ -20,12 +20,12 @@ Cada vez que se pulsa **Publicar**, el panel guarda el cambio en GitHub (rama `m
 1. Entrar a GitHub → foto de perfil → **Settings** → **Developer settings** → **OAuth Apps** → **New OAuth App**.
 2. Completar:
    - **Application name:** `PANAQA Admin`
-   - **Homepage URL:** `https://panaqa.net`
+   - **Homepage URL:** `https://www.panaqa.com`
    - **Authorization callback URL:** `https://api.netlify.com/auth/done`
 3. **Register application**. Copiar el **Client ID** y pulsar **Generate a new client secret** para copiar el **Client secret**.
 
 ### 2. Conectar esa app en Netlify
-1. Entrar a Netlify → el sitio de panaqa.net → **Site configuration** → **Access & security** → **OAuth**.
+1. Entrar a Netlify → el sitio de panaqa.com → **Site configuration** → **Access & security** → **OAuth**.
 2. En **Authentication providers** → **Install provider** → **GitHub**.
 3. Pegar el **Client ID** y el **Client secret** → **Install**.
 
@@ -34,7 +34,7 @@ Cada persona necesita una cuenta de GitHub con permiso de escritura en el reposi
 GitHub → repositorio `akafilo/panaqa` → **Settings** → **Collaborators** → **Add people**.
 
 ### 4. Entrar
-Abrir **https://panaqa.net/admin** → **Iniciar sesión con GitHub**.
+Abrir **https://www.panaqa.com/admin** → **Iniciar sesión con GitHub**.
 
 ---
 

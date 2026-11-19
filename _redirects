@@ -1,15 +1,15 @@
-# Netlify redirects file
-# Simple redirects for better SEO and user experience
+# Netlify redirects — se aplica la primera regla que coincide
 
-# Root redirect (if needed)
-# /old-url /new-url 301
+# Dominio principal: www.panaqa.com
+# panaqa.net (con o sin www) redirige a la misma página en panaqa.com.
+# panaqa.com → www.panaqa.com lo hace Netlify automáticamente.
+https://panaqa.net/*      https://www.panaqa.com/:splat  301!
+http://panaqa.net/*       https://www.panaqa.com/:splat  301!
+https://www.panaqa.net/*  https://www.panaqa.com/:splat  301!
+http://www.panaqa.net/*   https://www.panaqa.com/:splat  301!
 
 # Linktree Caso Omiso
 /casoomiso /casoomiso.html 200
 
-# SPA fallback (not needed for this static site, but good to have)
+# Cualquier otra ruta inexistente muestra la portada
 /* /index.html 200
-
-# Force HTTPS (Netlify handles this automatically, but good to be explicit)
-# http://panaqa.net/* https://panaqa.net/:splat 301!
-# http://www.panaqa.net/* https://panaqa.net/:splat 301!

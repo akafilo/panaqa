@@ -1,5 +1,5 @@
 # Panel de administración de PANAQA (Decap CMS)
-# Se entra en https://panaqa.net/admin con una cuenta de GitHub que tenga
+# Se entra en https://www.panaqa.com/admin con una cuenta de GitHub que tenga
 # permiso de escritura en el repositorio. Cada cambio publicado es un commit
 # en la rama main y Netlify actualiza el sitio en 1–2 minutos.
 
@@ -7,13 +7,13 @@ backend:
   name: github
   repo: akafilo/panaqa
   branch: main
-  site_domain: panaqa.net
+  site_domain: www.panaqa.com
   commit_messages:
     update: "Admin: actualiza {{collection}}"
 
 locale: es
-site_url: https://panaqa.net
-display_url: https://panaqa.net
+site_url: https://www.panaqa.com
+display_url: https://www.panaqa.com
 logo_url: /assets/logonegro.png
 
 # Fotos nuevas de productos

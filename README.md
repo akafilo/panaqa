@@ -1,6 +1,6 @@
 # PANAQA — Sitio web oficial
 
-Sitio de la banda peruana de nu metal PANAQA: **https://panaqa.net**
+Sitio de la banda peruana de nu metal PANAQA: **https://www.panaqa.com**
 
 Diseño "Señal perdida": el sitio funciona como una cinta VHS / televisor CRT donde cada sección es un canal.
 
@@ -25,7 +25,7 @@ Diseño "Señal perdida": el sitio funciona como una cinta VHS / televisor CRT d
 
 ## Editar contenido
 
-Fechas, productos, precios y número de WhatsApp se editan en **https://panaqa.net/admin**. Instrucciones completas en [ADMIN.md](ADMIN.md).
+Fechas, productos, precios y número de WhatsApp se editan en **https://www.panaqa.com/admin**. Instrucciones completas en [ADMIN.md](ADMIN.md).
 
 ## Publicar
 
