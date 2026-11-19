@@ -2,370 +2,248 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Caso Omiso | PANAQA</title>
-    <meta name="description" content="Escucha Caso Omiso de PANAQA en Spotify, Apple Music y YouTube.">
-    <meta name="theme-color" content="#0f0f10">
-
+    <meta name="description" content="Escucha Caso Omiso de PANAQA en Spotify, Apple Music, YouTube y Deezer.">
+    <meta name="theme-color" content="#050505">
+    <link rel="canonical" href="https://www.panaqa.com/casoomiso">
     <meta property="og:title" content="Caso Omiso | PANAQA">
-    <meta property="og:description" content="Linktree oficial de Caso Omiso.">
-    <meta property="og:image" content="assets/omiso.jpeg">
+    <meta property="og:description" content="Hacemos caso omiso. Escúchalo en tu plataforma favorita.">
+    <meta property="og:image" content="https://www.panaqa.com/assets/omiso.jpeg">
+    <meta property="og:url" content="https://www.panaqa.com/casoomiso">
     <meta property="og:type" content="music.song">
-
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="assets/logonegro.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logonegro.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="stylesheet" href="v2.css?v=3">
     <style>
-        :root {
-            --bg-1: #060606;
-            --bg-2: #1d1d22;
-            --card: rgba(255, 255, 255, 0.08);
-            --text: #f6f6f6;
-            --muted: #c9c9c9;
-            --line: rgba(255, 255, 255, 0.18);
-            --spotify: #1db954;
-            --apple: #fc3c44;
-            --yt: #ff0000;
-        }
+        /* ---------- Linktree "Caso Omiso" ---------- */
+        .lt-bg { position: fixed; inset: 0; z-index: -2; }
+        .lt-bg video, .lt-bg img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.15) saturate(.8) brightness(.55); }
+        .lt-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,5,5,.55), rgba(5,5,5,.75) 45%, rgba(5,5,5,.96)); }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            min-height: 100vh;
-            font-family: 'Roboto', sans-serif;
-            color: var(--text);
-            background: #060606;
-            display: grid;
-            place-items: center;
-            padding: 24px;
-            position: relative;
-            overflow-x: hidden;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .background-video {
+        .lt-hud {
             position: fixed;
-            inset: 0;
+            top: 0; left: 0; right: 0;
+            z-index: 20;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: max(10px, env(safe-area-inset-top)) 16px 10px;
+            font-family: var(--osd);
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 6px rgba(255,255,255,.35);
+            background: linear-gradient(to bottom, rgba(0,0,0,.65), transparent);
+        }
+        .lt-hud .rec .blink { color: var(--rec); }
+        .lt-hud a { justify-self: center; }
+        .lt-hud img { height: 40px; width: auto; }
+        .lt-hud .play { justify-self: end; }
+
+        .lt {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .background-video-overlay {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background:
-                radial-gradient(1200px 550px at 50% -10%, rgba(181, 22, 30, 0.28), transparent 60%),
-                rgba(8, 8, 10, 0.6);
-            z-index: 0;
-        }
-
-        .shell {
-            width: min(520px, 100%);
-            border: 1px solid var(--line);
-            border-radius: 26px;
-            background: var(--card);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 24px;
-            box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
-            animation: pop 0.5s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes pop {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .top {
+            max-width: 460px;
+            margin: 0 auto;
+            min-height: 100svh;
+            padding: 78px 16px max(28px, env(safe-area-inset-bottom));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            margin-bottom: 20px;
         }
-
-        .cover {
-            width: 234px;
-            height: 234px;
-            object-fit: cover;
-            border-radius: 18px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
-            margin-bottom: 14px;
+        .lt-cover { width: min(62vw, 250px); margin-top: 6px; }
+        .lt-cover .crt { padding: 10px; border-radius: 18px; }
+        .lt-cover .crt-screen { aspect-ratio: 1; }
+        .lt-kicker { font-family: var(--osd); font-size: 17px; letter-spacing: 4px; color: var(--ink-dim); margin-top: 20px; }
+        .lt-title {
+            font-family: var(--display);
+            font-weight: 400;
+            font-size: clamp(54px, 17vw, 82px);
+            line-height: .85;
+            letter-spacing: -1px;
+            margin-top: 6px;
+            text-shadow: 3px 0 rgba(255,31,31,.8), -3px 0 rgba(34,229,255,.7);
         }
+        .lt-lyric { font-family: var(--osd); font-size: 19px; letter-spacing: 2px; margin-top: 8px; min-height: 1.3em; }
+        .lt-lyric::after { content: '▌'; animation: blink 1s steps(1) infinite; margin-left: 2px; }
 
-        h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2rem, 8vw, 2.8rem);
-            letter-spacing: 1.5px;
-            line-height: 1;
-        }
+        .lt-video { width: 100%; margin-top: 22px; justify-content: center; font-size: 21px; min-height: 54px; }
 
-        .artist {
-            color: var(--muted);
-            margin-top: 5px;
-            letter-spacing: 0.2px;
-        }
-
-        .links {
+        .lt-guide { width: 100%; margin-top: 22px; font-family: var(--osd); text-align: left; }
+        .lt-guide-head { display: flex; justify-content: space-between; color: var(--ink-faint); font-size: 15px; letter-spacing: 2px; border-bottom: 1px solid var(--line); padding: 0 4px 6px; }
+        .lt-row {
             display: grid;
-            gap: 12px;
-            margin-top: 12px;
-        }
-
-        .official-video {
-            text-decoration: none;
-            color: #fff;
-            border: 1px solid rgba(210, 45, 55, 0.75);
-            border-radius: 999px;
-            padding: 13px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            justify-content: center;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 1.2px;
-            font-size: 1.08rem;
-            background: #6f1d22;
-            box-shadow: 0 8px 18px rgba(184, 35, 45, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-        }
-
-        .official-video:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(111, 29, 34, 0.45);
-            filter: brightness(1.03);
-        }
-
-        .stream-btn {
-            text-decoration: none;
-            color: var(--text);
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 14px 16px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            justify-content: space-between;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 1px;
-            font-size: 1.15rem;
-            background: rgba(0, 0, 0, 0.33);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-        }
-
-        .stream-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 9px 20px rgba(0, 0, 0, 0.32);
-        }
-
-        .stream-btn i {
-            font-size: 1.1rem;
-        }
-
-        .stream-left {
-            display: flex;
+            grid-template-columns: 4ch 26px 1fr auto;
             align-items: center;
             gap: 10px;
-            min-width: 0;
+            padding: 12px 10px;
+            min-height: 58px;
+            border-bottom: 1px solid var(--line);
+            font-size: 22px;
+            letter-spacing: 2px;
+            background: rgba(5,5,5,.45);
+            transition: background .1s, color .1s;
         }
+        .lt-row .num { color: var(--ink-faint); font-size: 17px; }
+        .lt-row i { font-size: 22px; text-align: center; }
+        .lt-row .go { font-size: 16px; letter-spacing: 2px; border: 1px solid var(--line); padding: 4px 10px 3px; }
+        .lt-row:hover, .lt-row:focus-visible { background: var(--ink); color: #000; outline: none; }
+        .lt-row:hover .num, .lt-row:focus-visible .num { color: #333; }
+        .lt-row:hover .go, .lt-row:focus-visible .go { border-color: #000; }
+        .lt-row.spotify i { color: #1ed760; }
+        .lt-row.apple i { color: #fc3c44; }
+        .lt-row.youtube i { color: #ff2a2a; }
+        .lt-row.deezer i { color: #a238ff; }
+        .lt-row:hover i, .lt-row:focus-visible i { color: #000; }
 
-        .stream-name {
-            white-space: nowrap;
-        }
-
-        .listen-pill {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: #166f7f;
-            border: 1px solid #166f7f;
-            color: #ffffff;
-            font-size: 0.92rem;
-            letter-spacing: 1px;
-            flex: 0 0 auto;
-        }
-
-        .stream-btn.spotify:hover {
-            background: rgba(29, 185, 84, 0.18);
-            border-color: rgba(29, 185, 84, 0.8);
-        }
-
-        .stream-btn.apple:hover {
-            background: rgba(252, 60, 68, 0.18);
-            border-color: rgba(252, 60, 68, 0.8);
-        }
-
-        .stream-btn.youtube:hover {
-            background: rgba(255, 0, 0, 0.18);
-            border-color: rgba(255, 0, 0, 0.8);
-        }
-
-        .stream-btn.deezer:hover {
-            background: rgba(162, 56, 255, 0.18);
-            border-color: rgba(162, 56, 255, 0.8);
-        }
-
-        .back {
-            display: inline-flex;
-            margin-top: 18px;
+        .lt-note {
             width: 100%;
-            justify-content: center;
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.95rem;
+            margin-top: 22px;
+            border: 1px dashed var(--line);
+            padding: 14px 16px;
+            font-family: var(--osd);
+            font-size: 17px;
+            letter-spacing: 1px;
+            line-height: 1.4;
+            color: var(--ink-dim);
         }
+        .lt-note a { color: #ffe600; text-decoration: underline; text-underline-offset: 3px; }
 
-        .back:hover {
-            color: var(--text);
-        }
+        .lt-back { margin-top: 22px; font-family: var(--osd); font-size: 18px; letter-spacing: 2px; color: var(--ink-dim); padding: 10px; }
+        .lt-back:hover { color: var(--ink); }
+        .lt-counter { margin-top: auto; padding-top: 18px; font-family: var(--osd); font-size: 15px; letter-spacing: 2px; color: var(--ink-faint); }
 
-        .download-note {
-            position: relative;
-            z-index: 1;
-            width: min(520px, 100%);
-            text-align: center;
-            margin-top: 14px;
-            color: #e7e7e7;
-            font-size: 0.95rem;
-            line-height: 1.45;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
-        }
-
-        @media (max-width: 480px) {
-            .shell {
-                padding: 20px 16px;
-                border-radius: 20px;
-            }
-
-            .cover {
-                width: 207px;
-                height: 207px;
-            }
-
-            .stream-btn {
-                font-size: 1rem;
-                padding: 12px 14px;
-            }
-
-            .listen-pill {
-                padding: 7px 12px;
-                font-size: 0.84rem;
-            }
-
-            .official-video {
-                font-size: 0.96rem;
-                padding: 12px 13px;
-            }
-
-            .download-note {
-                font-size: 0.88rem;
-                margin-top: 12px;
-                padding: 0 4px;
-            }
+        @media (min-width: 700px) {
+            .lt-hud { padding-left: 32px; padding-right: 32px; }
+            .lt { padding-top: 92px; }
         }
     </style>
 </head>
 <body>
-    <video class="background-video" autoplay muted loop playsinline webkit-playsinline x5-playsinline poster="assets/omiso.jpeg">
-        <source src="assets/caso.mp4" type="video/mp4">
-    </video>
-    <div class="background-video-overlay" aria-hidden="true"></div>
-    <main class="shell">
-        <section class="top">
-            <img src="assets/omiso.jpeg" alt="Portada de Caso Omiso" class="cover">
-            <p class="artist">PANAQA</p>
-        </section>
+    <div class="lt-bg" aria-hidden="true">
+        <video autoplay muted loop playsinline webkit-playsinline x5-playsinline poster="assets/omiso.jpeg">
+            <source src="assets/caso.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="scanlines" aria-hidden="true"></div>
+    <canvas class="noise" id="noise" aria-hidden="true"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
 
-        <section class="links" aria-label="Plataformas de streaming">
-            <a class="official-video" href="https://youtu.be/EArbmlM4Mqk">
-                <i class="fas fa-play-circle" aria-hidden="true"></i>
-                VER VIDEOCLIP OFICIAL
-            </a>
-            <a class="stream-btn spotify" href="https://open.spotify.com/intl-es/track/0GOv1ReuykGcUNw3NMTVM2?si=f7881d0b47654327" target="_blank" rel="noopener noreferrer" data-app-url="spotify:track:0GOv1ReuykGcUNw3NMTVM2">
-                <span class="stream-left">
-                    <i class="fab fa-spotify" aria-hidden="true"></i>
-                    <span class="stream-name">SPOTIFY</span>
-                </span>
-                <span class="listen-pill">ESCUCHAR</span>
-            </a>
-            <a class="stream-btn apple" href="https://music.apple.com/es/song/caso-omiso/6771792254" target="_blank" rel="noopener noreferrer" data-app-url="music://song/6771792254">
-                <span class="stream-left">
-                    <i class="fab fa-apple" aria-hidden="true"></i>
-                    <span class="stream-name">APPLE MUSIC</span>
-                </span>
-                <span class="listen-pill">ESCUCHAR</span>
-            </a>
-            <a class="stream-btn youtube" href="https://www.youtube.com/watch?v=kk-gxwCHHeQ" target="_blank" rel="noopener noreferrer" data-app-url="vnd.youtube://watch?v=kk-gxwCHHeQ">
-                <span class="stream-left">
-                    <i class="fab fa-youtube" aria-hidden="true"></i>
-                    <span class="stream-name">YOUTUBE</span>
-                </span>
-                <span class="listen-pill">ESCUCHAR</span>
-            </a>
-            <a class="stream-btn deezer" href="https://link.deezer.com/s/33pcpR6r4cwTTsLtXIS61" target="_blank" rel="noopener noreferrer" data-app-url="deezer://link.deezer.com/s/33pcpR6r4cwTTsLtXIS61">
-                <span class="stream-left">
-                    <i class="fab fa-deezer" aria-hidden="true"></i>
-                    <span class="stream-name">DEEZER</span>
-                </span>
-                <span class="listen-pill">ESCUCHAR</span>
-            </a>
-        </section>
+    <header class="lt-hud">
+        <span class="rec"><span class="blink">●</span> REC</span>
+        <a href="./" aria-label="Ir a la web de PANAQA"><img src="assets/logoblanco.png" alt="PANAQA"></a>
+        <span class="play">▶ PLAY</span>
+    </header>
 
-        <a class="back" href="index.html">Volver a PANAQA</a>
+    <main class="lt">
+        <div class="lt-cover">
+            <div class="crt">
+                <div class="crt-screen">
+                    <img src="assets/omiso.jpeg" alt="Portada de Caso Omiso de PANAQA">
+                    <div class="crt-osd"><span>CH 01</span><span>▶</span></div>
+                </div>
+                <span class="crt-led" aria-hidden="true"></span>
+            </div>
+        </div>
+
+        <p class="lt-kicker">NUEVO SINGLE — PANAQA</p>
+        <h1 class="lt-title glitch" data-text="CASO OMISO">CASO OMISO</h1>
+        <p class="lt-lyric" id="lt-lyric" aria-label="Hacemos caso omiso"></p>
+
+        <a class="vhs-btn rec lt-video" href="https://youtu.be/EArbmlM4Mqk" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-play" aria-hidden="true"></i> VER VIDEOCLIP OFICIAL
+        </a>
+
+        <nav class="lt-guide" aria-label="Plataformas de streaming">
+            <div class="lt-guide-head"><span>CANAL / PLATAFORMA</span><span>▶</span></div>
+            <a class="lt-row spotify" href="https://open.spotify.com/intl-es/track/0GOv1ReuykGcUNw3NMTVM2?si=f7881d0b47654327" target="_blank" rel="noopener noreferrer" data-app-url="spotify:track:0GOv1ReuykGcUNw3NMTVM2">
+                <span class="num">CH 1</span><i class="fab fa-spotify" aria-hidden="true"></i><span>SPOTIFY</span><span class="go">ESCUCHAR</span>
+            </a>
+            <a class="lt-row apple" href="https://music.apple.com/es/song/caso-omiso/6771792254" target="_blank" rel="noopener noreferrer" data-app-url="music://song/6771792254">
+                <span class="num">CH 2</span><i class="fab fa-apple" aria-hidden="true"></i><span>APPLE MUSIC</span><span class="go">ESCUCHAR</span>
+            </a>
+            <a class="lt-row youtube" href="https://www.youtube.com/watch?v=kk-gxwCHHeQ" target="_blank" rel="noopener noreferrer" data-app-url="vnd.youtube://watch?v=kk-gxwCHHeQ">
+                <span class="num">CH 3</span><i class="fab fa-youtube" aria-hidden="true"></i><span>YOUTUBE</span><span class="go">ESCUCHAR</span>
+            </a>
+            <a class="lt-row deezer" href="https://link.deezer.com/s/33pcpR6r4cwTTsLtXIS61" target="_blank" rel="noopener noreferrer" data-app-url="deezer://link.deezer.com/s/33pcpR6r4cwTTsLtXIS61">
+                <span class="num">CH 4</span><i class="fab fa-deezer" aria-hidden="true"></i><span>DEEZER</span><span class="go">ESCUCHAR</span>
+            </a>
+        </nav>
+
+        <p class="lt-note">¿Quieres descargar el audio y tenerlo en tu teléfono para siempre? Escríbenos a <a href="mailto:contacto@panaqa.com?subject=Descarga%20Caso%20Omiso">contacto@panaqa.com</a> ;)</p>
+
+        <a class="lt-back" href="./">◀ VOLVER A PANAQA</a>
+        <p class="lt-counter" id="lt-counter" aria-hidden="true">SP 00:00:00</p>
     </main>
-
-    <p class="download-note">¿Quieres descargar el audio y tenerlo en tu teléfono para siempre? escribenos a contacto@panaqa.com ;)</p>
 
     <script>
         (function () {
-            const buttons = document.querySelectorAll('.stream-btn[data-app-url]');
-            const fallbackDelay = 1200;
+            'use strict';
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            buttons.forEach(function (button) {
-                button.addEventListener('click', function (event) {
-                    event.preventDefault();
-
-                    const appUrl = button.dataset.appUrl;
-                    const fallbackUrl = button.href;
-                    let appOpened = false;
-
-                    const onVisibilityChange = function () {
-                        if (document.visibilityState === 'hidden') {
-                            appOpened = true;
+            /* Estática de fondo */
+            var canvas = document.getElementById('noise');
+            if (canvas && !reduceMotion) {
+                canvas.width = 160; canvas.height = 100;
+                var ctx = canvas.getContext('2d'), img = ctx.createImageData(160, 100), last = 0;
+                (function draw(t) {
+                    if (t - last > 80) {
+                        for (var i = 0; i < img.data.length; i += 4) {
+                            var v = Math.random() * 255 | 0;
+                            img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255;
                         }
-                    };
+                        ctx.putImageData(img, 0, 0); last = t;
+                    }
+                    requestAnimationFrame(draw);
+                })(0);
+            }
 
-                    document.addEventListener('visibilitychange', onVisibilityChange, { once: true });
-                    window.location.href = appUrl;
+            /* Letra que se escribe sola */
+            var el = document.getElementById('lt-lyric');
+            var lines = ['HACEMOS CASO OMISO', 'YA SÉ QUE ME QUIERES MÁS SUMISO', 'OBEY. OBEY. OBEY.'];
+            if (reduceMotion) { el.textContent = lines[0]; }
+            else {
+                var li = 0, ci = 0, del = false;
+                (function type() {
+                    var line = lines[li];
+                    if (!del) {
+                        el.textContent = line.slice(0, ++ci);
+                        if (ci === line.length) { del = true; return setTimeout(type, 2200); }
+                        return setTimeout(type, 55 + Math.random() * 60);
+                    }
+                    el.textContent = line.slice(0, --ci);
+                    if (ci === 0) { del = false; li = (li + 1) % lines.length; return setTimeout(type, 350); }
+                    setTimeout(type, 25);
+                })();
+            }
 
+            /* Contador de cinta */
+            var counter = document.getElementById('lt-counter'), start = Date.now();
+            function pad(n) { return n < 10 ? '0' + n : '' + n; }
+            setInterval(function () {
+                var s = Math.floor((Date.now() - start) / 1000);
+                counter.textContent = 'SP ' + pad(Math.floor(s / 3600)) + ':' + pad(Math.floor(s / 60) % 60) + ':' + pad(s % 60);
+            }, 1000);
+
+            /* En el celular intenta abrir la app; si no está instalada, abre la web */
+            var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            document.querySelectorAll('.lt-row[data-app-url]').forEach(function (a) {
+                a.addEventListener('click', function (e) {
+                    if (!isMobile) return;
+                    e.preventDefault();
+                    var opened = false;
+                    var onHide = function () { if (document.visibilityState === 'hidden') opened = true; };
+                    document.addEventListener('visibilitychange', onHide, { once: true });
+                    window.location.href = a.getAttribute('data-app-url');
                     setTimeout(function () {
-                        document.removeEventListener('visibilitychange', onVisibilityChange);
-
-                        if (!appOpened && document.visibilityState === 'visible') {
-                            window.location.href = fallbackUrl;
-                        }
-                    }, fallbackDelay);
+                        document.removeEventListener('visibilitychange', onHide);
+                        if (!opened && document.visibilityState === 'visible') window.location.href = a.href;
+                    }, 1200);
                 });
             });
         })();
