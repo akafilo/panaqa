@@ -53,7 +53,7 @@
             </li>
             <li>
                 <a class="menu-main" href="#ch7">VIDEOCLUB</a>
-                <div class="menu-sub"><a href="#ch7"><small>CH 07</small> En vivo</a><a href="#ch8"><small>CH 08</small> La Yapita</a><a href="#ch9"><small>CH 09</small> Archivo</a></div>
+                <div class="menu-sub"><a href="#ch7"><small>CH 07</small> Archivo</a><a href="#ch8"><small>CH 08</small> En vivo</a><a href="#ch9"><small>CH 09</small> La Yapita</a></div>
             </li>
             <li>
                 <a class="menu-main" href="./#ch5">HISTORIA</a>
@@ -79,57 +79,15 @@
             <h1 class="vc-sign" id="vc-title"><span class="neon-play" aria-hidden="true">▶</span><span class="vc-word">VIDEO<span class="neon-flick">C</span>LUB</span><small>PANAQA</small></h1>
             <p class="vc-sub">Sesiones en vivo, La Yapita y el archivo de cintas de la banda.</p>
             <nav class="vc-jump" aria-label="Secciones del Videoclub">
-                <a class="vhs-btn" href="#ch7"><small>CH 07</small> EN VIVO</a>
-                <a class="vhs-btn" href="#ch8"><small>CH 08</small> LA YAPITA</a>
-                <a class="vhs-btn rec" href="#ch9"><small>CH 09</small> ARCHIVO</a>
+                <a class="vhs-btn rec" href="#ch7"><small>CH 07</small> ARCHIVO</a>
+                <a class="vhs-btn" href="#ch8"><small>CH 08</small> EN VIVO</a>
+                <a class="vhs-btn" href="#ch9"><small>CH 09</small> LA YAPITA</a>
             </nav>
         </section>
 
-        <!-- CH 07 · EN VIVO -->
-        <section class="ch" id="ch7" data-ch="07" data-name="EN VIVO">
-            <div class="ch-label"><i>■</i> CH 07 — TRANSMISIÓN EN VIVO</div>
-            <h2 class="ch-title rgb reveal">En vivo</h2>
-            <div class="live-grid">
-                <a class="tape reveal" href="https://www.youtube.com/watch?v=Av9CaVcHFHs" target="_blank" rel="noopener noreferrer">
-                    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/impostor-video.mp4" type="video/mp4"></video>
-                    <div class="tape-osd"><span>CAM 1</span><span><span class="blink" style="color:var(--rec)">●</span> LIVE</span></div>
-                    <div class="tape-play">▶ VER</div>
-                    <div class="tape-title">Impostor<small>SESIÓN EN VIVO</small></div>
-                </a>
-                <a class="tape reveal" href="https://www.youtube.com/watch?v=pIBEJarNa_8" target="_blank" rel="noopener noreferrer">
-                    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/aguila-video.mp4" type="video/mp4"></video>
-                    <div class="tape-osd"><span>CAM 2</span><span><span class="blink" style="color:var(--rec)">●</span> LIVE</span></div>
-                    <div class="tape-play">▶ VER</div>
-                    <div class="tape-title">Águila<small>SESIÓN EN VIVO</small></div>
-                </a>
-            </div>
-        </section>
-
-        <!-- CH 08 · LA YAPITA (reproducción continua, sin controles) -->
-        <section class="ch" id="ch8" data-ch="08" data-name="LA YAPITA">
-            <div class="ch-label"><i>■</i> CH 08 — SEÑAL CONTINUA</div>
-            <h2 class="ch-title rgb reveal">La Yapita</h2>
-            <div class="yapita reveal">
-                <div class="yapita-screen">
-                    <div class="yapita-player" aria-hidden="true"><div id="yapita-player" data-video="J6-WsOEN_Fc"></div></div>
-                    <div class="yapita-cover" id="yapita-cover" aria-hidden="true">
-                        <canvas id="yapita-noise"></canvas>
-                        <span>SINTONIZANDO…</span>
-                    </div>
-                    <div class="yapita-lock" aria-hidden="true"></div>
-                    <div class="crt-osd"><span>CH 08</span><span><span class="blink" style="color:var(--rec)">●</span> EN BUCLE</span></div>
-                </div>
-                <span class="crt-led" aria-hidden="true"></span>
-            </div>
-            <div class="yapita-controls">
-                <button class="vol-btn" id="yapita-sound" aria-pressed="false" disabled><span class="vol-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span id="yapita-sound-label">SONIDO OFF</span></button>
-            </div>
-        </section>
-
-        <!-- CH 09 · ARCHIVO DE CINTAS (cintas editables en /admin → data/archivo.json) -->
-        <section class="ch" id="ch9" data-ch="09" data-name="ARCHIVO">
-            <div class="ch-label"><i>■</i> CH 09 — ARCHIVO DE CINTAS</div>
-            <h2 class="ch-title rgb reveal">Archivo</h2>
+        <!-- CH 07 · ARCHIVO DE CINTAS (cintas editables en /admin → data/archivo.json) -->
+        <section class="ch" id="ch7" data-ch="07" data-name="ARCHIVO">
+            <div class="ch-label"><i>■</i> CH 07 — ARCHIVO DE CINTAS</div>
             <div class="arc" id="arc">
                 <div class="arc-wall" aria-hidden="true"></div>
                 <div class="arc-layout">
@@ -175,6 +133,45 @@
                 <p class="arc-cap">Elige una cinta del estante</p>
             </div>
         </section>
+
+        <!-- CH 08 · EN VIVO -->
+        <section class="ch" id="ch8" data-ch="08" data-name="EN VIVO">
+            <div class="ch-label"><i>■</i> CH 08 — TRANSMISIÓN EN VIVO</div>
+            <div class="live-grid">
+                <a class="tape reveal" href="https://www.youtube.com/watch?v=Av9CaVcHFHs" target="_blank" rel="noopener noreferrer">
+                    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/impostor-video.mp4" type="video/mp4"></video>
+                    <div class="tape-osd"><span>CAM 1</span><span><span class="blink" style="color:var(--rec)">●</span> LIVE</span></div>
+                    <div class="tape-play">▶ VER</div>
+                    <div class="tape-title">Impostor<small>SESIÓN EN VIVO</small></div>
+                </a>
+                <a class="tape reveal" href="https://www.youtube.com/watch?v=pIBEJarNa_8" target="_blank" rel="noopener noreferrer">
+                    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/aguila-video.mp4" type="video/mp4"></video>
+                    <div class="tape-osd"><span>CAM 2</span><span><span class="blink" style="color:var(--rec)">●</span> LIVE</span></div>
+                    <div class="tape-play">▶ VER</div>
+                    <div class="tape-title">Águila<small>SESIÓN EN VIVO</small></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- CH 09 · LA YAPITA (reproducción continua, sin controles) -->
+        <section class="ch" id="ch9" data-ch="09" data-name="LA YAPITA">
+            <div class="ch-label"><i>■</i> CH 09 — SEÑAL CONTINUA</div>
+            <div class="yapita reveal">
+                <div class="yapita-screen">
+                    <div class="yapita-player" aria-hidden="true"><div id="yapita-player" data-video="J6-WsOEN_Fc"></div></div>
+                    <div class="yapita-cover" id="yapita-cover" aria-hidden="true">
+                        <canvas id="yapita-noise"></canvas>
+                        <span>SINTONIZANDO…</span>
+                    </div>
+                    <div class="yapita-lock" aria-hidden="true"></div>
+                    <div class="crt-osd"><span>CH 09</span><span><span class="blink" style="color:var(--rec)">●</span> EN BUCLE</span></div>
+                </div>
+                <span class="crt-led" aria-hidden="true"></span>
+            </div>
+            <div class="yapita-controls">
+                <button class="vol-btn" id="yapita-sound" aria-pressed="false" disabled><span class="vol-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span id="yapita-sound-label">SONIDO OFF</span></button>
+            </div>
+        </section>
     </main>
 
 
@@ -209,7 +206,7 @@
         </div>
     </footer>
 
-    <script src="v2.js?v=7"></script>
+    <script src="v2.js?v=8"></script>
     <script src="archivo.js?v=3"></script>
 </body>
 </html>

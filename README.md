@@ -9,7 +9,7 @@ Diseño "Señal perdida": el sitio funciona como una cinta VHS / televisor CRT d
 | Página | Contenido |
 |---|---|
 | `index.html` | Portada: Caso Omiso (CH 01), Discografía (CH 02), Fechas (CH 03), Teletienda (CH 04), La banda (CH 05), La Resistencia (CH 06) |
-| `videoclub.html` | Videoclub: En vivo (CH 07), La Yapita (CH 08), Archivo de cintas (CH 09) |
+| `videoclub.html` | Videoclub: Archivo de cintas (CH 07), En vivo (CH 08), La Yapita (CH 09) |
 | `merch.html` | Catálogo completo de la Teletienda |
 | `letras.html` | Letras en formato teletexto |
 | `casoomiso.html` | Linktree de Caso Omiso (`/casoomiso`) |
@@ -20,7 +20,7 @@ Diseño "Señal perdida": el sitio funciona como una cinta VHS / televisor CRT d
 - `v2.css` — estilos de todo el sitio
 - `v2.js` — efectos de TV, menú, idiomas (ES / EN / 中文), fechas y teletienda de la portada
 - `merch-v2.js` — catálogo y carrito de `merch.html`
-- `archivo.js` — estante VHS y televisor del Archivo (CH 09, en el Videoclub)
+- `archivo.js` — estante VHS y televisor del Archivo (CH 07, en el Videoclub)
 - `letras-v2.js` + `letras-data.js` — página de letras y sus textos
 - `data/*.json` — **contenido editable desde el panel**: fechas, productos, archivo de cintas y ajustes
 - `assets/` — imágenes y videos (`assets/merch/` para fotos subidas desde el panel)

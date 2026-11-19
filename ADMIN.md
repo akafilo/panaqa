@@ -6,7 +6,7 @@ En **https://www.panaqa.com/admin** se pueden editar, sin tocar código:
 |---|---|---|
 | **Fechas** | Sección *Fechas* (CH 03) y la cinta roja de la portada | `data/fechas.json` |
 | **Teletienda** | Catálogo de *Merch* y la Teletienda de la portada (productos destacados) | `data/merch.json` |
-| **Archivo de cintas** | Estante de cintas VHS del *Videoclub* (CH 09) que reproducen videos de YouTube | `data/archivo.json` |
+| **Archivo de cintas** | Estante de cintas VHS del *Videoclub* (CH 07) que reproducen videos de YouTube | `data/archivo.json` |
 | **Ajustes** | Número de WhatsApp y si se ocultan las fechas pasadas | `data/ajustes.json` |
 
 Cada vez que se pulsa **Publicar**, el panel guarda el cambio en GitHub (rama `main`) y Netlify actualiza www.panaqa.com en 1–2 minutos.
