@@ -1,7 +1,17 @@
 {
   "cintas": [
     {
-      "etiqueta": "Archivos Panaqa Cap. 1",
+      "etiqueta": "Panaqa en vivo Cusco",
+      "youtube": "https://www.youtube.com/watch?v=8AsAXnGmacI",
+      "fecha": "2026-07-01",
+      "detalle": "Parte 1",
+      "franja": "azul-gris",
+      "papel": "embalaje",
+      "letra": "manuscrita",
+      "inclinada": false
+    },
+    {
+      "etiqueta": "Archivos Panaqa",
       "youtube": "https://youtu.be/sZ2lhtgggUQ?si=vD2QjSQYnXJhxbsg",
       "fecha": "2026-06-24",
       "detalle": "Cap. 1",
@@ -11,37 +21,27 @@
       "inclinada": true
     },
     {
-      "etiqueta": "águila !!",
-      "youtube": "https://www.youtube.com/watch?v=pIBEJarNa_8",
-      "fecha": "",
-      "detalle": "Sesión en vivo",
+      "etiqueta": "Panaqa en vivo Cusco",
+      "youtube": "https://www.youtube.com/watch?v=4WygE2RjpBs",
+      "fecha": "2026-07-01",
+      "detalle": "Parte 2",
       "franja": "azul-gris",
-      "papel": "embalaje",
-      "letra": "plumon",
-      "inclinada": true
-    },
-    {
-      "etiqueta": "la yapita",
-      "youtube": "https://www.youtube.com/watch?v=J6-WsOEN_Fc",
-      "fecha": "",
-      "detalle": "Archivos Panaqa",
-      "franja": "ninguna",
       "papel": "papel",
       "letra": "manuscrita",
       "inclinada": false
     },
     {
-      "etiqueta": "préndelo",
+      "etiqueta": "Préndelo (videoclip)",
       "youtube": "https://www.youtube.com/watch?v=mdYjkvVU4Qg",
-      "fecha": "",
-      "detalle": "Sesión en vivo",
+      "fecha": "2024-08-02",
+      "detalle": "Oficial",
       "franja": "verde-amarillo",
       "papel": "viejo",
       "letra": "plumon",
-      "inclinada": false
+      "inclinada": true
     },
     {
-      "etiqueta": "somos",
+      "etiqueta": "Somos",
       "youtube": "https://www.youtube.com/watch?v=fMfcnop5TUU",
       "fecha": "",
       "detalle": "EP Panaqa",
@@ -51,24 +51,24 @@
       "inclinada": false
     },
     {
-      "etiqueta": "qumbia",
+      "etiqueta": "Qumbia",
       "youtube": "https://www.youtube.com/watch?v=FX0ry6Quzno",
-      "fecha": "",
+      "fecha": "2026-06-22",
       "detalle": "Sesión en vivo",
       "franja": "ninguna",
       "papel": "embalaje",
-      "letra": "manuscrita",
+      "letra": "plumon",
       "inclinada": false
     },
     {
-      "etiqueta": "caso omiso",
+      "etiqueta": "Caso Omiso (videoclip)",
       "youtube": "https://www.youtube.com/watch?v=EArbmlM4Mqk",
       "fecha": "",
-      "detalle": "Videoclip oficial",
+      "detalle": "Oficial",
       "franja": "rojo-amarillo",
       "papel": "papel",
       "letra": "plumon",
-      "inclinada": false
+      "inclinada": true
     }
   ]
 }
