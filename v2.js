@@ -37,14 +37,14 @@
         'GRABADO EN VIVO — VOLTAJE RECORDS': { en: 'RECORDED LIVE — VOLTAJE RECORDS', zh: '现场录制 — VOLTAJE RECORDS' },
         'EP DEBUT — 2024': { en: 'DEBUT EP — 2024', zh: '首张 EP — 2024' },
         'SINGLE — EN VIVO': { en: 'SINGLE — LIVE', zh: '单曲 — 现场' },
-        'CH 03 — TRANSMISIÓN EN VIVO': { en: 'CH 03 — LIVE BROADCAST', zh: 'CH 03 — 现场直播' },
+        'CH 07 — TRANSMISIÓN EN VIVO': { en: 'CH 07 — LIVE BROADCAST', zh: 'CH 07 — 现场直播' },
         'En vivo': { en: 'Live', zh: '现场直击' },
         '▶ VER': { en: '▶ WATCH', zh: '▶ 观看' },
         'SESIÓN EN VIVO': { en: 'LIVE SESSION', zh: '现场演出' },
-        'CH 04 — SEÑAL CONTINUA': { en: 'CH 04 — CONTINUOUS SIGNAL', zh: 'CH 04 — 持续信号' },
+        'CH 08 — SEÑAL CONTINUA': { en: 'CH 08 — CONTINUOUS SIGNAL', zh: 'CH 08 — 持续信号' },
         'EN BUCLE': { en: 'ON LOOP', zh: '循环播放' },
         'SINTONIZANDO…': { en: 'TUNING IN…', zh: '调台中…' },
-        'CH 05 — PRÓXIMAS TRANSMISIONES': { en: 'CH 05 — UPCOMING BROADCASTS', zh: 'CH 05 — 即将播出' },
+        'CH 03 — PRÓXIMAS TRANSMISIONES': { en: 'CH 03 — UPCOMING BROADCASTS', zh: 'CH 03 — 即将播出' },
         'Fechas': { en: 'Dates', zh: '日期' },
         'SÁB · 2026': { en: 'SAT · 2026', zh: '周六 · 2026' },
         'Locación secreta': { en: 'Secret location', zh: '秘密地点' },
@@ -58,7 +58,7 @@
         'LIMA, PERÚ': { en: 'LIMA, PERU', zh: '秘鲁 利马' },
         'Fechas cada mes': { en: 'Dates every month', zh: '每月都有' },
         'CONSULTAR': { en: 'ASK US', zh: '咨询' },
-        'CH 06 — TELETIENDA PANAQA': { en: 'CH 06 — PANAQA TELESHOP', zh: 'CH 06 — PANAQA 电视购物' },
+        'CH 04 — TELETIENDA PANAQA': { en: 'CH 04 — PANAQA TELESHOP', zh: 'CH 04 — PANAQA 电视购物' },
         'Teletienda': { en: 'Teleshop', zh: '电视购物台' },
         '¡Llame ya!': { en: 'Call now!', zh: '立即致电！' },
         'OFERTA EN PANTALLA': { en: 'ON-SCREEN OFFER', zh: '屏幕特惠' },
@@ -69,7 +69,7 @@
         'Polo "Despierta la Bestia" blanco': { en: '"Despierta la Bestia" T-shirt — white', zh: '"Despierta la Bestia" T恤 — 白色' },
         'Gorro clásico': { en: 'Classic beanie', zh: '经典帽子' },
         'Disco "Sesión en vivo"': { en: '"Sesión en vivo" CD', zh: '"Sesión en vivo" 专辑' },
-        'CH 07 — LA BANDA': { en: 'CH 07 — THE BAND', zh: 'CH 07 — 乐队' },
+        'CH 05 — LA BANDA': { en: 'CH 05 — THE BAND', zh: 'CH 05 — 乐队' },
         'La banda': { en: 'The band', zh: '乐队' },
         'PANAQA es una banda peruana de nu metal que fusiona la intensidad del metal con sonidos emblemáticos peruanos y rap. Desde 2022 hacen letras sobre superación personal, crítica social y la lucha interna del ser humano contemporáneo.': {
             en: 'PANAQA is a Peruvian nu metal band blending the intensity of metal with iconic Peruvian sounds and rap. Since 2022 they have written about personal growth, social critique and the inner struggle of the modern human being.',
@@ -166,7 +166,10 @@
         'PAUSA ❚❚': { en: 'PAUSE ❚❚', zh: '暂停 ❚❚' },
         '⏏ EJECT': { en: '⏏ EJECT', zh: '⏏ 退出' },
         '◀ DESLIZA PARA VER MÁS CINTAS ▶': { en: '◀ SWIPE FOR MORE TAPES ▶', zh: '◀ 滑动查看更多录像带 ▶' },
-        'Elige una cinta del estante': { en: 'Pick a tape from the shelf', zh: '从架子上选一盘录像带' }
+        'Elige una cinta del estante': { en: 'Pick a tape from the shelf', zh: '从架子上选一盘录像带' },
+        /* Videoclub */
+        'VIDEOCLUB': { en: 'VIDEO CLUB', zh: '录像带店' },
+        'Sesiones en vivo, La Yapita y el archivo de cintas de la banda.': { en: 'Live sessions, La Yapita and the band tape archive.', zh: '现场演出、La Yapita 和乐队的录像带档案。' }
     };
     var LANGS = ['es', 'en', 'zh'];
     var lang = 'es';
@@ -288,8 +291,8 @@
             var ch = entry.target.getAttribute('data-ch');
             if (ch === current) return;
             current = ch;
-            osdNum.textContent = 'CH ' + ch;
-            osdName.textContent = t(entry.target.getAttribute('data-name'));
+            if (osdNum) osdNum.textContent = 'CH ' + ch;
+            if (osdName) osdName.textContent = t(entry.target.getAttribute('data-name'));
             channelFlash();
         });
     }, { rootMargin: '-45% 0px -50% 0px' });
@@ -767,7 +770,7 @@
         renderShows();
         renderTicker();
         var active = document.querySelector('[data-ch="' + current + '"]');
-        if (active) osdName.textContent = t(active.getAttribute('data-name'));
+        if (active && osdName) osdName.textContent = t(active.getAttribute('data-name'));
         langListeners.forEach(function (fn) { try { fn(lang); } catch (e) {} });
     }
 

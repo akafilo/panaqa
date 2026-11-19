@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videoclub | PANAQA</title>
+    <meta name="description" content="Videoclub PANAQA: sesiones en vivo, La Yapita y el archivo de cintas VHS de la banda de nu metal peruana.">
+    <meta name="theme-color" content="#050505">
+    <link rel="canonical" href="https://www.panaqa.com/videoclub.html">
+    <meta property="og:title" content="Videoclub | PANAQA">
+    <meta property="og:description" content="Sesiones en vivo, La Yapita y el archivo de cintas de PANAQA.">
+    <meta property="og:image" content="https://www.panaqa.com/assets/omiso.jpeg">
+    <meta property="og:url" content="https://www.panaqa.com/videoclub.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PANAQA">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="assets/logonegro.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logonegro.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Permanent+Marker&family=Rock+Salt&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="v2.css?v=2">
+</head>
+
+<body class="sub">
+
+    <!-- Capas de TV -->
+    <div class="scanlines" aria-hidden="true"></div>
+    <canvas class="noise" id="noise" aria-hidden="true"></canvas>
+    <canvas class="flash" id="flash" aria-hidden="true"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <header class="osd solid" id="osd">
+        <a class="neon on" href="videoclub.html" aria-label="Entrar al Videoclub PANAQA"><span class="neon-play" aria-hidden="true">▶</span><span class="neon-txt">VIDEO<span class="neon-flick">C</span>LUB</span></a>
+        <a href="./" class="osd-logo" aria-label="PANAQA inicio"><img src="assets/logoblanco.png" alt="PANAQA"></a>
+        <div class="osd-right">
+            <button class="lang-btn" id="lang-btn" aria-label="Cambiar idioma"><span class="lang-opt" data-lang="es">ES</span><span class="lang-opt" data-lang="en">EN</span><span class="lang-opt" data-lang="zh">中</span></button>
+            <button class="osd-menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu">MENÚ ☰</button>
+        </div>
+    </header>
+    <nav class="menu" id="menu" aria-label="Menú principal">
+        <button class="osd-menu-btn menu-close" id="menu-close">CERRAR ✕</button>
+        <ul class="menu-list">
+            <li>
+                <a class="menu-main" href="./#ch1">INICIO</a>
+                <div class="menu-sub"><a href="./#ch1"><small>CH 01</small> Caso Omiso</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch2">MÚSICA</a>
+                <div class="menu-sub"><a href="./#ch2"><small>CH 02</small> Discografía</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="#ch7">VIDEOCLUB</a>
+                <div class="menu-sub"><a href="#ch7"><small>CH 07</small> En vivo</a><a href="#ch8"><small>CH 08</small> La Yapita</a><a href="#ch9"><small>CH 09</small> Archivo</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch5">HISTORIA</a>
+                <div class="menu-sub"><a href="./#ch5"><small>CH 05</small> La banda</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="./#ch6">COMUNIDAD</a>
+                <div class="menu-sub"><a href="./#ch3"><small>CH 03</small> Fechas</a><a href="./#ch6"><small>CH 06</small> La Resistencia</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="merch.html">MERCH</a>
+                <div class="menu-sub"><a href="./#ch4"><small>CH 04</small> Teletienda</a><a href="merch.html"><small>CAT</small> Catálogo completo</a></div>
+            </li>
+            <li>
+                <a class="menu-main" href="letras.html">LETRAS</a>
+                <div class="menu-sub"><a href="letras.html"><small>TXT</small> Todas las canciones</a></div>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Bienvenida: letrero de neón -->
+        <section class="vc-intro" aria-labelledby="vc-title">
+            <h1 class="vc-sign" id="vc-title"><span class="neon-play" aria-hidden="true">▶</span><span class="vc-word">VIDEO<span class="neon-flick">C</span>LUB</span><small>PANAQA</small></h1>
+            <p class="vc-sub">Sesiones en vivo, La Yapita y el archivo de cintas de la banda.</p>
+            <nav class="vc-jump" aria-label="Secciones del Videoclub">
+                <a class="vhs-btn" href="#ch7"><small>CH 07</small> EN VIVO</a>
+                <a class="vhs-btn" href="#ch8"><small>CH 08</small> LA YAPITA</a>
+                <a class="vhs-btn rec" href="#ch9"><small>CH 09</small> ARCHIVO</a>
+            </nav>
+        </section>
+
+        <!-- CH 07 · EN VIVO -->
+        <section class="ch" id="ch7" data-ch="07" data-name="EN VIVO">
+            <div class="ch-label"><i>■</i> CH 07 — TRANSMISIÓN EN VIVO</div>
+            <h2 class="ch-title rgb reveal">En vivo</h2>
+            <div class="live-grid">
+                <a class="tape reveal" href="https://www.youtube.com/watch?v=Av9CaVcHFHs" target="_blank" rel="noopener noreferrer">
+                    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/impostor-video.mp4" type="video/mp4"></video>
+                    <div class="tape-osd"><span>CAM 1</span><span><span class="blink" style="color:var(--rec)">●</span> LIVE</span></div>
+                    <div class="tape-play">▶ VER</div>
+                    <div class="tape-title">Impostor<small>SESIÓN EN VIVO</small></div>
+                </a>
+                <a class="tape reveal" href="https://www.youtube.com/watch?v=pIBEJarNa_8" target="_blank" rel="noopener noreferrer">
+                    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/aguila-video.mp4" type="video/mp4"></video>
+                    <div class="tape-osd"><span>CAM 2</span><span><span class="blink" style="color:var(--rec)">●</span> LIVE</span></div>
+                    <div class="tape-play">▶ VER</div>
+                    <div class="tape-title">Águila<small>SESIÓN EN VIVO</small></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- CH 08 · LA YAPITA (reproducción continua, sin controles) -->
+        <section class="ch" id="ch8" data-ch="08" data-name="LA YAPITA">
+            <div class="ch-label"><i>■</i> CH 08 — SEÑAL CONTINUA</div>
+            <h2 class="ch-title rgb reveal">La Yapita</h2>
+            <div class="yapita reveal">
+                <div class="yapita-screen">
+                    <div class="yapita-player" aria-hidden="true"><div id="yapita-player" data-video="J6-WsOEN_Fc"></div></div>
+                    <div class="yapita-cover" id="yapita-cover" aria-hidden="true">
+                        <canvas id="yapita-noise"></canvas>
+                        <span>SINTONIZANDO…</span>
+                    </div>
+                    <div class="yapita-lock" aria-hidden="true"></div>
+                    <div class="crt-osd"><span>CH 08</span><span><span class="blink" style="color:var(--rec)">●</span> EN BUCLE</span></div>
+                </div>
+                <span class="crt-led" aria-hidden="true"></span>
+            </div>
+            <div class="yapita-controls">
+                <button class="vol-btn" id="yapita-sound" aria-pressed="false" disabled><span class="vol-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span id="yapita-sound-label">SONIDO OFF</span></button>
+            </div>
+        </section>
+
+        <!-- CH 09 · ARCHIVO DE CINTAS (cintas editables en /admin → data/archivo.json) -->
+        <section class="ch" id="ch9" data-ch="09" data-name="ARCHIVO">
+            <div class="ch-label"><i>■</i> CH 09 — ARCHIVO DE CINTAS</div>
+            <h2 class="ch-title rgb reveal">Archivo</h2>
+            <div class="arc" id="arc">
+                <div class="arc-wall" aria-hidden="true"></div>
+                <div class="arc-layout">
+                    <div class="arc-left">
+                        <div class="arc-cab">
+                            <div class="arc-row" id="arc-row" role="list" aria-label="Cintas del archivo">
+                                <div class="arc-pile" aria-hidden="true">
+                                    <div class="arc-flat"><span class="arc-fl">no grabar encima</span></div>
+                                    <div class="arc-flat"><span class="arc-fl">varios ???</span></div>
+                                    <div class="arc-flat"><span class="arc-fl">cumple juca</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arc-board" aria-hidden="true"></div>
+                        <div class="arc-swipe" id="arc-swipe">◀ DESLIZA PARA VER MÁS CINTAS ▶</div>
+                    </div>
+                    <div class="arc-stand">
+                        <div class="arc-tv">
+                            <div class="arc-bezel"><div class="arc-scr" id="arc-scr">
+                                <div class="arc-yt"><div id="arc-player"></div></div>
+                                <div class="arc-fx" aria-hidden="true"><div class="lines"></div><div class="track"></div><div class="osd hide" id="arc-osd">PLAY ▶</div><div class="trk hide" id="arc-trk">TRACKING<b id="arc-trkbar">▮▮▯▯▯▯▯▯▯▯</b></div><div class="date" id="arc-date"></div></div>
+                                <div class="arc-lock" aria-hidden="true"></div>
+                                <div class="arc-cover" id="arc-cover"><canvas id="arc-noise" width="120" height="90" aria-hidden="true"></canvas><span id="arc-covertxt">INSERTE UNA CINTA</span></div>
+                                <div class="arc-blue" aria-hidden="true"><span>PLAY ▶</span></div>
+                                <div class="arc-paused" aria-hidden="true">PAUSA ❚❚</div>
+                                <div class="arc-glass" aria-hidden="true"></div>
+                            </div></div>
+                            <div class="arc-brand" aria-hidden="true">COLOR TELEVISION</div>
+                            <div class="arc-knobs" aria-hidden="true"><b></b><i></i><i></i></div>
+                        </div>
+                        <div class="arc-vcr">
+                            <div class="arc-door" id="arc-door" aria-hidden="true"><div class="flap"></div><span class="vl">VHS HQ</span></div>
+                            <div class="arc-vfd" id="arc-vfd" aria-live="off">-:--:--</div>
+                            <div class="arc-keys">
+                                <button type="button" class="arc-key" id="arc-kplay" disabled>❚❚ PAUSA</button>
+                                <button type="button" class="arc-key on" id="arc-ksound" disabled>SONIDO ON</button>
+                                <button type="button" class="arc-key" id="arc-keject" disabled>⏏ EJECT</button>
+                            </div>
+                            <span class="arc-vcrlbl" aria-hidden="true">VIDEO CASSETTE RECORDER</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="arc-cap">Elige una cinta del estante</p>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- FIN DE TRANSMISIÓN -->
+    <footer>
+        <div class="bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="bars-low" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="end">
+            <div>
+                <div class="end-title">Fin de la<br>transmisión</div>
+                <div class="end-social">
+                    <a href="https://www.instagram.com/panaqa_peru" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://open.spotify.com/intl-es/artist/3jOkrHvv6NoOXO5w19yki7" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+                    <a href="https://www.youtube.com/panaqa" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@panaqa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/Panaqaperu" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>CONTRATACIONES</h4>
+                <a href="mailto:contacto@panaqa.com">CONTACTO@PANAQA.COM</a>
+                <a href="tel:+51907918581">+51 907 918 581</a>
+            </div>
+            <div>
+                <h4>CANALES</h4>
+                <a href="./">INICIO</a>
+                <a href="letras.html">LETRAS</a>
+                <a href="merch.html">MERCH</a>
+                <a href="./#ch3">FECHAS</a>
+            </div>
+            <div class="end-bottom"><span>© 2026 PANAQA</span><span>NU METAL — PERÚ</span></div>
+        </div>
+    </footer>
+
+    <script src="v2.js?v=7"></script>
+    <script src="archivo.js?v=3"></script>
+</body>
+</html>

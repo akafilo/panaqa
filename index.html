@@ -46,7 +46,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Permanent+Marker&family=Rock+Salt&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="v2.css?v=2">
 </head>
@@ -67,7 +67,7 @@
 
     <!-- OSD -->
     <header class="osd" id="osd">
-        <div class="osd-ch" aria-live="polite"><b id="osd-num">CH 01</b><span id="osd-name">CASO OMISO</span></div>
+        <a class="neon" href="videoclub.html" aria-label="Entrar al Videoclub PANAQA"><span class="neon-play" aria-hidden="true">▶</span><span class="neon-txt">VIDEO<span class="neon-flick">C</span>LUB</span></a>
         <a href="#ch1" class="osd-logo" aria-label="PANAQA inicio"><img src="assets/logoblanco.png" alt="PANAQA"></a>
         <div class="osd-right">
             <button class="lang-btn" id="lang-btn" aria-label="Cambiar idioma"><span class="lang-opt" data-lang="es">ES</span><span class="lang-opt" data-lang="en">EN</span><span class="lang-opt" data-lang="zh">中</span></button>
@@ -84,23 +84,23 @@
             </li>
             <li>
                 <a class="menu-main" href="#ch2">MÚSICA</a>
-                <div class="menu-sub"><a href="#ch2"><small>CH 02</small> Discografía</a><a href="#ch3"><small>CH 03</small> En vivo</a></div>
+                <div class="menu-sub"><a href="#ch2"><small>CH 02</small> Discografía</a></div>
             </li>
             <li>
-                <a class="menu-main" href="#ch4">ESTRENOS</a>
-                <div class="menu-sub"><a href="#ch1"><small>CH 01</small> Caso Omiso</a><a href="#ch4"><small>CH 04</small> La Yapita</a></div>
+                <a class="menu-main" href="videoclub.html">VIDEOCLUB</a>
+                <div class="menu-sub"><a href="videoclub.html#ch7"><small>CH 07</small> En vivo</a><a href="videoclub.html#ch8"><small>CH 08</small> La Yapita</a><a href="videoclub.html#ch9"><small>CH 09</small> Archivo</a></div>
             </li>
             <li>
-                <a class="menu-main" href="#ch7">HISTORIA</a>
-                <div class="menu-sub"><a href="#ch7"><small>CH 07</small> La banda</a><a href="#ch9"><small>CH 09</small> Archivo</a></div>
+                <a class="menu-main" href="#ch5">HISTORIA</a>
+                <div class="menu-sub"><a href="#ch5"><small>CH 05</small> La banda</a></div>
             </li>
             <li>
-                <a class="menu-main" href="#ch8">COMUNIDAD</a>
-                <div class="menu-sub"><a href="#ch5"><small>CH 05</small> Fechas</a><a href="#ch8"><small>CH 08</small> La Resistencia</a></div>
+                <a class="menu-main" href="#ch6">COMUNIDAD</a>
+                <div class="menu-sub"><a href="#ch3"><small>CH 03</small> Fechas</a><a href="#ch6"><small>CH 06</small> La Resistencia</a></div>
             </li>
             <li>
                 <a class="menu-main" href="merch.html">MERCH</a>
-                <div class="menu-sub"><a href="#ch6"><small>CH 06</small> Teletienda</a><a href="merch.html"><small>CAT</small> Catálogo completo</a></div>
+                <div class="menu-sub"><a href="#ch4"><small>CH 04</small> Teletienda</a><a href="merch.html"><small>CAT</small> Catálogo completo</a></div>
             </li>
             <li>
                 <a class="menu-main" href="letras.html">LETRAS</a>
@@ -179,57 +179,16 @@
             </div>
         </section>
 
-        <!-- CH 03 · EN VIVO -->
-        <section class="ch" id="ch3" data-ch="03" data-name="EN VIVO">
-            <div class="ch-label"><i>■</i> CH 03 — TRANSMISIÓN EN VIVO</div>
-            <h2 class="ch-title rgb reveal">En vivo</h2>
-            <div class="live-grid">
-                <a class="tape reveal" href="https://www.youtube.com/watch?v=Av9CaVcHFHs" target="_blank" rel="noopener noreferrer">
-                    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/impostor-video.mp4" type="video/mp4"></video>
-                    <div class="tape-osd"><span>CAM 1</span><span><span class="blink" style="color:var(--rec)">●</span> LIVE</span></div>
-                    <div class="tape-play">▶ VER</div>
-                    <div class="tape-title">Impostor<small>SESIÓN EN VIVO</small></div>
-                </a>
-                <a class="tape reveal" href="https://www.youtube.com/watch?v=pIBEJarNa_8" target="_blank" rel="noopener noreferrer">
-                    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="assets/aguila-video.mp4" type="video/mp4"></video>
-                    <div class="tape-osd"><span>CAM 2</span><span><span class="blink" style="color:var(--rec)">●</span> LIVE</span></div>
-                    <div class="tape-play">▶ VER</div>
-                    <div class="tape-title">Águila<small>SESIÓN EN VIVO</small></div>
-                </a>
-            </div>
-        </section>
-
-        <!-- CH 04 · LA YAPITA (reproducción continua, sin controles) -->
-        <section class="ch" id="ch4" data-ch="04" data-name="LA YAPITA">
-            <div class="ch-label"><i>■</i> CH 04 — SEÑAL CONTINUA</div>
-            <h2 class="ch-title rgb reveal">La Yapita</h2>
-            <div class="yapita reveal">
-                <div class="yapita-screen">
-                    <div class="yapita-player" aria-hidden="true"><div id="yapita-player" data-video="J6-WsOEN_Fc"></div></div>
-                    <div class="yapita-cover" id="yapita-cover" aria-hidden="true">
-                        <canvas id="yapita-noise"></canvas>
-                        <span>SINTONIZANDO…</span>
-                    </div>
-                    <div class="yapita-lock" aria-hidden="true"></div>
-                    <div class="crt-osd"><span>CH 04</span><span><span class="blink" style="color:var(--rec)">●</span> EN BUCLE</span></div>
-                </div>
-                <span class="crt-led" aria-hidden="true"></span>
-            </div>
-            <div class="yapita-controls">
-                <button class="vol-btn" id="yapita-sound" aria-pressed="false" disabled><span class="vol-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span id="yapita-sound-label">SONIDO OFF</span></button>
-            </div>
-        </section>
-
-        <!-- CH 05 · FECHAS -->
-        <section class="ch" id="ch5" data-ch="05" data-name="FECHAS">
-            <div class="ch-label"><i>■</i> CH 05 — PRÓXIMAS TRANSMISIONES</div>
+        <!-- CH 03 · FECHAS -->
+        <section class="ch" id="ch3" data-ch="03" data-name="FECHAS">
+            <div class="ch-label"><i>■</i> CH 03 — PRÓXIMAS TRANSMISIONES</div>
             <h2 class="ch-title rgb reveal">Fechas</h2>
             <div class="shows" id="shows" aria-live="polite"></div>
         </section>
 
-        <!-- CH 06 · TELETIENDA -->
-        <section class="ch" id="ch6" data-ch="06" data-name="TELETIENDA">
-            <div class="ch-label"><i>■</i> CH 06 — TELETIENDA PANAQA</div>
+        <!-- CH 04 · TELETIENDA -->
+        <section class="ch" id="ch4" data-ch="04" data-name="TELETIENDA">
+            <div class="ch-label"><i>■</i> CH 04 — TELETIENDA PANAQA</div>
             <h2 class="ch-title rgb reveal">Teletienda</h2>
             <div class="shop">
                 <div class="crt reveal">
@@ -255,9 +214,9 @@
             </div>
         </section>
 
-        <!-- CH 07 · CRÉDITOS -->
-        <section class="ch" id="ch7" data-ch="07" data-name="LA BANDA">
-            <div class="ch-label"><i>■</i> CH 07 — LA BANDA</div>
+        <!-- CH 05 · LA BANDA -->
+        <section class="ch" id="ch5" data-ch="05" data-name="LA BANDA">
+            <div class="ch-label"><i>■</i> CH 05 — LA BANDA</div>
             <h2 class="ch-title rgb reveal">La banda</h2>
             <div class="credits">
                 <div class="reveal">
@@ -282,63 +241,13 @@
             </div>
         </section>
 
-        <!-- CH 08 · EMERGENCIA -->
-        <section class="ch" id="ch8" data-ch="08" data-name="LA RESISTENCIA">
+        <!-- CH 06 · LA RESISTENCIA -->
+        <section class="ch" id="ch6" data-ch="06" data-name="LA RESISTENCIA">
             <div class="alert reveal">
                 <div class="alert-bar"><span>⚠ TRANSMISIÓN DE EMERGENCIA</span><span class="blink">● EN DIRECTO</span></div>
                 <h2 class="rgb">Únete a la<br>resistencia</h2>
                 <p>Comunidad gratuita de WhatsApp: contenido exclusivo, sorteos, descuentos para las tocadas y avisos antes que nadie.</p>
                 <a class="vhs-btn rec" href="https://chat.whatsapp.com/JUQ5yj36mpu4nI17YT7Eah" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> ENTRAR AHORA</a>
-            </div>
-        </section>
-
-        <!-- CH 09 · ARCHIVO DE CINTAS (cintas editables en /admin → data/archivo.json) -->
-        <section class="ch" id="ch9" data-ch="09" data-name="ARCHIVO">
-            <div class="ch-label"><i>■</i> CH 09 — ARCHIVO DE CINTAS</div>
-            <h2 class="ch-title rgb reveal">Archivo</h2>
-            <div class="arc" id="arc">
-                <div class="arc-wall" aria-hidden="true"></div>
-                <div class="arc-layout">
-                    <div class="arc-left">
-                        <div class="arc-cab">
-                            <div class="arc-row" id="arc-row" role="list" aria-label="Cintas del archivo">
-                                <div class="arc-pile" aria-hidden="true">
-                                    <div class="arc-flat"><span class="arc-fl">no grabar encima</span></div>
-                                    <div class="arc-flat"><span class="arc-fl">varios ???</span></div>
-                                    <div class="arc-flat"><span class="arc-fl">cumple juca</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="arc-board" aria-hidden="true"></div>
-                        <div class="arc-swipe" id="arc-swipe">◀ DESLIZA PARA VER MÁS CINTAS ▶</div>
-                    </div>
-                    <div class="arc-stand">
-                        <div class="arc-tv">
-                            <div class="arc-bezel"><div class="arc-scr" id="arc-scr">
-                                <div class="arc-yt"><div id="arc-player"></div></div>
-                                <div class="arc-fx" aria-hidden="true"><div class="lines"></div><div class="track"></div><div class="osd hide" id="arc-osd">PLAY ▶</div><div class="trk hide" id="arc-trk">TRACKING<b id="arc-trkbar">▮▮▯▯▯▯▯▯▯▯</b></div><div class="date" id="arc-date"></div></div>
-                                <div class="arc-lock" aria-hidden="true"></div>
-                                <div class="arc-cover" id="arc-cover"><canvas id="arc-noise" width="120" height="90" aria-hidden="true"></canvas><span id="arc-covertxt">INSERTE UNA CINTA</span></div>
-                                <div class="arc-blue" aria-hidden="true"><span>PLAY ▶</span></div>
-                                <div class="arc-paused" aria-hidden="true">PAUSA ❚❚</div>
-                                <div class="arc-glass" aria-hidden="true"></div>
-                            </div></div>
-                            <div class="arc-brand" aria-hidden="true">COLOR TELEVISION</div>
-                            <div class="arc-knobs" aria-hidden="true"><b></b><i></i><i></i></div>
-                        </div>
-                        <div class="arc-vcr">
-                            <div class="arc-door" id="arc-door" aria-hidden="true"><div class="flap"></div><span class="vl">VHS HQ</span></div>
-                            <div class="arc-vfd" id="arc-vfd" aria-live="off">-:--:--</div>
-                            <div class="arc-keys">
-                                <button type="button" class="arc-key" id="arc-kplay" disabled>❚❚ PAUSA</button>
-                                <button type="button" class="arc-key on" id="arc-ksound" disabled>SONIDO ON</button>
-                                <button type="button" class="arc-key" id="arc-keject" disabled>⏏ EJECT</button>
-                            </div>
-                            <span class="arc-vcrlbl" aria-hidden="true">VIDEO CASSETTE RECORDER</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="arc-cap">Elige una cinta del estante</p>
             </div>
         </section>
     </main>
@@ -365,15 +274,15 @@
             </div>
             <div>
                 <h4>CANALES</h4>
+                <a href="videoclub.html">VIDEOCLUB</a>
                 <a href="letras.html">LETRAS</a>
                 <a href="merch.html">MERCH</a>
-                <a href="#ch5">FECHAS</a>
+                <a href="#ch3">FECHAS</a>
             </div>
             <div class="end-bottom"><span>© 2026 PANAQA</span><span>NU METAL — PERÚ</span></div>
         </div>
     </footer>
 
-    <script src="v2.js?v=6"></script>
-    <script src="archivo.js?v=2"></script>
+    <script src="v2.js?v=7"></script>
 </body>
 </html>

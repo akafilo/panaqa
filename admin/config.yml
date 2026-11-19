@@ -171,7 +171,7 @@ collections:
   # ──────────────────────── ARCHIVO ────────────────────────
   - name: archivo
     label: Archivo de cintas
-    description: Cintas VHS del estante (CH 09). Cada cinta reproduce un video de YouTube en el televisor. El orden de la lista es el orden en el estante.
+    description: Cintas VHS del estante del Videoclub (CH 09, videoclub.html). Cada cinta reproduce un video de YouTube en el televisor. El orden de la lista es el orden en el estante.
     editor:
       preview: false
     files:
