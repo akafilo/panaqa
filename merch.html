@@ -98,7 +98,8 @@
                         <span class="cat-option-label" id="cat-option-label"></span>
                         <div class="cat-option-btns" id="cat-option-btns"></div>
                     </div>
-                    <a class="vhs-btn rec cat-buy" id="cat-buy" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> PEDIR POR WHATSAPP</a>
+                    <button type="button" class="vhs-btn rec cat-add" id="cat-add"><i class="fas fa-cart-plus" aria-hidden="true"></i> <span id="cat-add-label">AGREGAR AL CARRITO</span></button>
+                    <a class="cat-direct" id="cat-buy" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> <span id="cat-buy-label">o pídelo directo por WhatsApp</span></a>
                     <div class="cat-step">
                         <button class="vhs-btn" id="cat-prev" aria-label="Producto anterior">◀</button>
                         <button class="vhs-btn" id="cat-next" aria-label="Producto siguiente">▶</button>
@@ -162,7 +163,29 @@
         </div>
     </footer>
 
-    <script src="v2.js?v=3"></script>
-    <script src="merch-v2.js?v=1"></script>
+    <!-- Carrito -->
+    <button type="button" class="cart-fab" id="cart-fab" hidden aria-haspopup="dialog" aria-controls="cart">
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i> <span>CARRITO</span> <b id="cart-count">0</b>
+    </button>
+    <div class="cart" id="cart" hidden>
+        <div class="cart-backdrop" data-cart-close></div>
+        <aside class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+            <div class="ttx-bar"><span><b>P600</b> PANAQA TXT</span><button type="button" class="cart-close" data-cart-close aria-label="Cerrar carrito">✕</button></div>
+            <h2 class="cart-title" id="cart-title">Tu pedido</h2>
+            <div class="cart-items" id="cart-items"></div>
+            <p class="cart-empty" id="cart-empty">Tu carrito está vacío.</p>
+            <div class="cart-foot" id="cart-foot">
+                <div class="cart-total"><span>TOTAL</span><b id="cart-total">S/ 0.00</b></div>
+                <label class="cart-field"><span>Nombre (opcional)</span><input type="text" id="cart-name" autocomplete="name" maxlength="60"></label>
+                <label class="cart-field"><span>Ciudad o distrito (opcional)</span><input type="text" id="cart-city" autocomplete="address-level2" maxlength="60"></label>
+                <a class="vhs-btn rec cart-send" id="cart-send" href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> ENVIAR PEDIDO POR WHATSAPP</a>
+                <p class="cart-note">Coordinamos el pago y el envío por WhatsApp.</p>
+                <button type="button" class="cart-clear" id="cart-clear">VACIAR CARRITO</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="v2.js?v=4"></script>
+    <script src="merch-v2.js?v=2"></script>
 </body>
 </html>

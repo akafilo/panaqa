@@ -142,7 +142,20 @@
         'LA BANDA': { en: 'THE BAND', zh: '乐队成员' },
         'LA YAPITA': { en: 'LA YAPITA', zh: 'LA YAPITA' },
         'PRONTO NUEVAS FECHAS': { en: 'NEW DATES COMING SOON', zh: '新日期即将公布' },
-        'AGOTADO': { en: 'SOLD OUT', zh: '售罄' }
+        'AGOTADO': { en: 'SOLD OUT', zh: '售罄' },
+        /* Carrito */
+        'AGREGAR AL CARRITO': { en: 'ADD TO CART', zh: '加入购物车' },
+        'AGREGADO': { en: 'ADDED', zh: '已加入' },
+        'o pídelo directo por WhatsApp': { en: 'or order it directly on WhatsApp', zh: '或直接通过 WhatsApp 订购' },
+        'CARRITO': { en: 'CART', zh: '购物车' },
+        'Tu pedido': { en: 'Your order', zh: '你的订单' },
+        'Tu carrito está vacío.': { en: 'Your cart is empty.', zh: '购物车是空的。' },
+        'TOTAL': { en: 'TOTAL', zh: '合计' },
+        'Nombre (opcional)': { en: 'Name (optional)', zh: '姓名（可选）' },
+        'Ciudad o distrito (opcional)': { en: 'City or district (optional)', zh: '城市或区（可选）' },
+        'ENVIAR PEDIDO POR WHATSAPP': { en: 'SEND ORDER ON WHATSAPP', zh: '通过 WHATSAPP 发送订单' },
+        'Coordinamos el pago y el envío por WhatsApp.': { en: 'We arrange payment and shipping on WhatsApp.', zh: '我们会通过 WhatsApp 安排付款和配送。' },
+        'VACIAR CARRITO': { en: 'EMPTY CART', zh: '清空购物车' }
     };
     var LANGS = ['es', 'en', 'zh'];
     var lang = 'es';
