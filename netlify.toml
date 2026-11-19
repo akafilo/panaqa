@@ -42,21 +42,13 @@
   [headers.values]
     Cache-Control = "no-cache, no-store, must-revalidate"
 
-# Images - long cache
+# Imágenes: el navegador las guarda pero confirma con Netlify si cambiaron.
+# No usar caché larga: las fotos que se suben desde /admin deben verse apenas
+# termina la publicación, y un nombre de archivo puede cambiar de contenido.
 [[headers]]
-  for = "*.jpg"
+  for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-  for = "*.png"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-  for = "*.svg"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # Redirects (if needed in the future)
 # [[redirects]]

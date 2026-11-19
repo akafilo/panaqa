@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Sin señal | PANAQA</title>
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" type="image/png" href="/assets/logonegro.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/v2.css?v=3">
+    <style>
+        .nf { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px 16px; gap: 14px; }
+        .nf-bars { display: grid; grid-template-columns: repeat(7, 1fr); width: min(520px, 90vw); height: 90px; }
+        .nf-bars span:nth-child(1) { background: #c0c0c0; } .nf-bars span:nth-child(2) { background: #c0c000; }
+        .nf-bars span:nth-child(3) { background: #00c0c0; } .nf-bars span:nth-child(4) { background: #00c000; }
+        .nf-bars span:nth-child(5) { background: #c000c0; } .nf-bars span:nth-child(6) { background: #c00000; }
+        .nf-bars span:nth-child(7) { background: #0000c0; }
+        .nf-code { font-family: var(--osd); font-size: 20px; letter-spacing: 4px; color: var(--ink-dim); }
+        .nf h1 { font-family: var(--display); font-weight: 400; font-size: clamp(56px, 14vw, 120px); line-height: .9; text-transform: uppercase; }
+        .nf p { font-family: var(--osd); font-size: 20px; letter-spacing: 1px; color: var(--ink-dim); max-width: 36ch; }
+        .nf .vhs-btn { margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <main class="nf">
+        <a href="/" aria-label="PANAQA inicio"><img src="/assets/logoblanco.png" alt="PANAQA" style="height:56px;width:auto"></a>
+        <div class="nf-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="nf-code">CH ?? — ERROR 404</div>
+        <h1 class="rgb">Sin señal</h1>
+        <p>Este canal no existe o dejó de transmitir.</p>
+        <a class="vhs-btn rec" href="/">▶ VOLVER A PANAQA</a>
+    </main>
+</body>
+</html>

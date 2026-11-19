@@ -11,5 +11,6 @@ http://www.panaqa.net/*   https://www.panaqa.com/:splat  301!
 # Linktree Caso Omiso
 /casoomiso /casoomiso.html 200
 
-# Cualquier otra ruta inexistente muestra la portada
-/* /index.html 200
+# Las rutas que no existen muestran 404.html ("SIN SEÑAL"), con estado 404.
+# No se usa un comodín hacia index.html: haría que una foto aún no publicada
+# se respondiera con la portada y el navegador la guardara como imagen rota.
